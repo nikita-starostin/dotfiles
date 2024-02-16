@@ -16,7 +16,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- insert, paste without updating the buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>d", "\"_d")
-vim.keymap.set("v", "<leader>d", "\"_d")
 -- yank to clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
@@ -33,3 +32,5 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- replace all occurences of the current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<leader-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+vim.keymap.set("n", "<C-c>", vim.cmd.LazyGit)
