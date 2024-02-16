@@ -1,6 +1,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	config = function () 
+		require "nvim-treesitter.install".compilers = { "clang" }
+
 		local configs = require("nvim-treesitter.configs")
 
 		configs.setup({
@@ -15,7 +17,7 @@ return {
 				auto_install = false,
 				highlight = { enable = true },
 				indent = { enable = true },  
-				build = ":TSUpdated"
+				build = ":TSUpdate"
 			})
 	end
 }

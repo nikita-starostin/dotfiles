@@ -25,6 +25,7 @@ end)
 
 vim.keymap.set('n', '<C-a>', builtin.commands, {})
 vim.keymap.set('n', '<C-q>', builtin.builtin, {})
+vim.keymap.set('n', '<C-z>', builtin.grep_string, {})
 
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
 vim.keymap.set('n', '<leader>gh', builtin.git_bcommits, {})

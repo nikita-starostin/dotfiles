@@ -1,15 +1,20 @@
+# Used modules:
+# Terminal-Icons 
+#		for icons
+# PSReadLine 
+#		for autocompletion of commands in powershell
+# PSFzf 
+#		for fuzzy find in the powershell
+# oh-my-posh
+#		for nice prompt
+#
 # set PowerShell to UTF-8
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
-# Use icons for dir/ls
+# terminal-Icons
 Import-Module -Name Terminal-Icons
 
-# Prompt
-function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
-$PROMPT_CONFIG = Join-Path (Get-ScriptDirectory) 'starostin.omp.json'
-oh-my-posh --init --shell pwsh --config $PROMPT_CONFIG | Invoke-Expression
-
-# PS Readline
+# PSReadline
 Import-Module PSReadLine
 Set-PsReadLineOption -EditMode Emacs
 Set-PsReadLineOption -BellStyle None
@@ -19,18 +24,48 @@ Set-PsReadLineOption -PredictionViewStyle List
 # Set-PsReadLineOption -EditMode Vi
 # Set-PSReadLineOption -ViModeIndicator Cursor -ViModeChangeHandler $OnViModeChange
 
-# Fzf
+# PSFzf
 Import-Module PSFzf
 Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
 
+# oh-my-posth
+function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
+$PROMPT_CONFIG = Join-Path (Get-ScriptDirectory) 'starostin.omp.json'
+oh-my-posh --init --shell pwsh --config $PROMPT_CONFIG | Invoke-Expression
+
 # Alias
-Set-Alias vim nvim
-Set-Alias ll ls
-Set-Alias g git
-Set-Alias grep findstr
-Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
-Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
+Set-Alias o nvim
 Set-Alias rd rider64.exe
+
+function OpenWithNvim($path) {
+	Set-Location $path;
+	nvim $path;
+}
+
+function OpenDev() {
+	Get-ChildItem '~\OneDrive - Itransition Group\dev' | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
+}
+Set-Alias odev OpenDev
+
+function OpenConfig() {
+	OpenWithNvim('~\AppData\Local\nvim')
+}
+Set-Alias oconfig OpenConfig
+
+function ChangeDirectoryAll() {
+	Get-ChildItem . -Recurse -Attributes Directory | Invoke-Fzf | Set-Location
+}
+Set-Alias cda ChangeDirectoryAll
+
+function ChangeDirectoryExtended() {
+	Get-ChildItem . -Attributes Directory | Invoke-Fzf | Set-Location
+}
+Set-Alias cde ChangeDirectoryExtended
+
+function Open() {
+	Get-ChildItem . -Recurse -Attributes Directory | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
+}
+Set-Alias o ChangeDirectoryOpen
 
 # Utilities
 function which ($command) {
