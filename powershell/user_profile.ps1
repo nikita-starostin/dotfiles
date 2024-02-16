@@ -50,6 +50,11 @@ function OpenDev() {
 }
 Set-Alias odev OpenDev
 
+function OpenProjects() {
+	Get-ChildItem '~\OneDrive - Itransition Group\projects' | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
+}
+Set-Alias oprojects OpenProjects
+
 function OpenConfig() {
 	OpenWithNvim('~\AppData\Local\nvim')
 }
