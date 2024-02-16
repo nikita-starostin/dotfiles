@@ -1,4 +1,4 @@
-# Used modules:
+# ## Used modules:
 # Terminal-Icons 
 #		for icons
 # PSReadLine 
@@ -7,7 +7,10 @@
 #		for fuzzy find in the powershell
 # oh-my-posh
 #		for nice prompt
-#
+# ## Usefull paths
+# C:\Program Files\LLVM\bin\clang.exe
+
+
 # set PowerShell to UTF-8
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
