@@ -1,7 +1,14 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	config = function ()
-		require "nvim-treesitter.install".compilers = { "clang", "gcc" }
+		-- important, has lot of issues with installing astro 
+		-- has to use clang from LLVM, but the :TSInstall should be run
+		-- when nvim is running in the native tools command prompt for visual studio
+		-- which is installed together with visual studio
+		-- also need to pay attention to x86 or x64 terminal version,
+		-- I don't remember :) But should be x86
+		-- Once :TSUpdate, :TSInstall completed, it would be working in powershell as well
+		require "nvim-treesitter.install".compilers = { "C:\\Program Files\\LLVM\\bin\\clang.exe" }
 
 		local configs = require("nvim-treesitter.configs")
 
