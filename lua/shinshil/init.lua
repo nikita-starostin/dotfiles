@@ -1,4 +1,5 @@
 require("shinshil.remap")
+require("shinshil.set")
 require("shinshil.lazy")
 local set = vim.opt -- set options
 local tabSize = 2
