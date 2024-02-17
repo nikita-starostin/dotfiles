@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.cursorui = ""
+vim.g.guicursor = "n-v-c-i:block"
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
