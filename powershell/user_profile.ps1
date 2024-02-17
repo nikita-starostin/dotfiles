@@ -19,13 +19,11 @@ Import-Module -Name Terminal-Icons
 
 # PSReadline
 Import-Module PSReadLine
-Set-PsReadLineOption -EditMode Emacs
-Set-PsReadLineOption -BellStyle None
 Set-PsReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PsReadLineOption -PredictionSource History
 Set-PsReadLineOption -PredictionViewStyle List
-# Set-PsReadLineOption -EditMode Vi
-# Set-PSReadLineOption -ViModeIndicator Cursor -ViModeChangeHandler $OnViModeChange
+Set-PsReadLineOption -EditMode Vi
+Set-PSReadLineOption -ViModeIndicator Cursor -ViModeChangeHandler $OnViModeChange
 
 # PSFzf
 Import-Module PSFzf
