@@ -31,9 +31,3 @@ vim.keymap.set('n', '<C-a>', builtin.commands, {})
 vim.keymap.set('n', '<C-q>', builtin.builtin, {})
 -- search word under cursor across files
 vim.keymap.set('n', '<C-z>', builtin.grep_string, {})
-
-vim.keymap.set('n', '<leader>gc', builtin.git_commits, {})
-vim.keymap.set('n', '<leader>gh', builtin.git_bcommits, {})
-vim.keymap.set('n', '<leader>gb', builtin.git_branches, {})
-vim.keymap.set('n', '<leader>gs', builtin.git_status, {})
-
