@@ -1,3 +1,10 @@
+-- autosave on changes
+local saveGroup = vim.api.nvim_create_augroup("SaveGroup", { clear = true })
+vim.api.nvim_create_autocmd(
+	{ "WinLeave", "TextChanged", "InsertLeave" },
+	{ pattern = "*", command = "update", group = saveGroup }
+)
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
