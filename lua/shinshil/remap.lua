@@ -34,4 +34,4 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<leader-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("t", "Esc", "<C-\\><C-n>")
 
-vim.keymap.set("n", "<C-l>", vim.cmd.LazyGit)
+vim.keymap.set("n", "<A-l>", vim.cmd.LazyGit)
