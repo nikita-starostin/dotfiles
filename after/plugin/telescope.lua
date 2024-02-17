@@ -17,6 +17,10 @@ require('telescope').setup {
 }
 
 local builtin = require('telescope.builtin')
+local utils = require('telescope.utils')
+vim.keymap.set('n', '<leader>ff', function()
+	builtin.find_files({ cwd = utils.buffer_dir() })
+end)
 vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
