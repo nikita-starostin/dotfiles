@@ -46,17 +46,22 @@ function OpenWithNvim($path) {
 function OpenDev() {
 	Get-ChildItem '~\OneDrive - Itransition Group\dev' | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
 }
-Set-Alias odev OpenDev
+Set-Alias od OpenDev
 
 function OpenProjects() {
 	Get-ChildItem '~\OneDrive - Itransition Group\projects' | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
 }
-Set-Alias oprojects OpenProjects
+Set-Alias op OpenProjects
+
+function ChangeDirectoryProjects() {
+	Get-ChildItem '~\OneDrive - Itransition Group\projects' | Invoke-Fzf | Set-Location
+}
+Set-Alias cdp OpenProjects
 
 function OpenConfig() {
 	OpenWithNvim('~\AppData\Local\nvim')
 }
-Set-Alias oconfig OpenConfig
+Set-Alias oc OpenConfig
 
 function ChangeDirectoryAll() {
 	Get-ChildItem . -Recurse -Attributes Directory | Invoke-Fzf | Set-Location
@@ -67,11 +72,6 @@ function ChangeDirectoryExtended() {
 	Get-ChildItem . -Attributes Directory | Invoke-Fzf | Set-Location
 }
 Set-Alias cde ChangeDirectoryExtended
-
-function Open() {
-	Get-ChildItem . -Recurse -Attributes Directory | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
-}
-Set-Alias o ChangeDirectoryOpen
 
 # Utilities
 function which ($command) {
