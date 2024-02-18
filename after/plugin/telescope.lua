@@ -42,7 +42,7 @@ local utils = require('telescope.utils')
 vim.keymap.set('n', '<leader>ff', function()
 	builtin.find_files({ cwd = utils.buffer_dir() })
 end)
-vim.keymap.set('n', '<A-w>', builtin.find_files, {})
+vim.keymap.set('n', '<S-w>', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>s', function()
 	builtin.grep_string({ search = vim.fn.input("Grep > ") });

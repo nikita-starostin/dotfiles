@@ -34,5 +34,6 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<leader-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("t", "Esc", "<C-\\><C-n>")
 
-vim.keymap.set("n", "<A-l>", vim.cmd.LazyGit)
+vim.keymap.set("n", "<S-l>", vim.cmd.LazyGit)
 vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
+vim.keymap.set("n", "<S-d>", vim.diagnostic.open_float)
