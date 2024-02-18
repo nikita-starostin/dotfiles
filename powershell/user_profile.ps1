@@ -37,6 +37,14 @@ oh-my-posh --init --shell pwsh --config $PROMPT_CONFIG | Invoke-Expression
 # Alias
 Set-Alias o nvim
 Set-Alias rd rider64.exe
+Set-Alias od OpenDev
+Set-Alias op OpenProjects
+Set-Alias oc OpenConfig
+Set-Alias cdb ChangeDirectoryBookmarks
+Set-Alias cda ChangeDirectoryAll
+Set-Alias cde ChangeDirectoryExtended
+
+# Utilities
 
 function OpenWithNvim($path) {
 	Set-Location $path;
@@ -46,34 +54,35 @@ function OpenWithNvim($path) {
 function OpenDev() {
 	Get-ChildItem '~\OneDrive - Itransition Group\dev' | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
 }
-Set-Alias od OpenDev
 
 function OpenProjects() {
 	Get-ChildItem '~\OneDrive - Itransition Group\projects' | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
 }
-Set-Alias op OpenProjects
 
-function ChangeDirectoryProjects() {
-	Get-ChildItem '~\OneDrive - Itransition Group\projects' | Invoke-Fzf | Set-Location
+function ChangeDirectoryBookmarks() {
+	$bookmarks = @(
+		'~\OneDrive - Itransition Group\projects',
+		'~\OneDrive - Itransition Group\projects\dance-life',
+		'~\OneDrive - Itransition Group\projects\dm-devops',
+		'~\OneDrive - Itransition Group\dev',
+		'C:\agents\dance-life'
+	)
+
+	$bookmarks | Invoke-Fzf | Set-Location
 }
-Set-Alias cdp OpenProjects
 
 function OpenConfig() {
 	OpenWithNvim('~\AppData\Local\nvim')
 }
-Set-Alias oc OpenConfig
 
 function ChangeDirectoryAll() {
 	Get-ChildItem . -Recurse -Attributes Directory | Invoke-Fzf | Set-Location
 }
-Set-Alias cda ChangeDirectoryAll
 
 function ChangeDirectoryExtended() {
 	Get-ChildItem . -Attributes Directory | Invoke-Fzf | Set-Location
 }
-Set-Alias cde ChangeDirectoryExtended
 
-# Utilities
 function which ($command) {
   Get-Command -Name $command -ErrorAction SilentlyContinue |
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
