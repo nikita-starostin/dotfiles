@@ -1,5 +1,5 @@
-require("shinshil.remap")
 require("shinshil.set")
+require("shinshil.remap")
 require("shinshil.lazy")
 
 -- open telescope once nvim started

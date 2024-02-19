@@ -1,6 +1,3 @@
-vim.g.mapleader = " "
-vim.g.guicursor = "n-v-c-i:block"
-
 vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
 
 -- allows to move selected lines up/bottom
