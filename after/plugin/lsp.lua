@@ -5,7 +5,6 @@ local lsp_zero = require('lsp-zero')
  lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-
 local cmp = require('cmp')
 
 local function buildCmpFallback(fn)
