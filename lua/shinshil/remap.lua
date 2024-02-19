@@ -1,3 +1,4 @@
+-- show netrw
 vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
 
 -- allows to move selected lines up/bottom
@@ -13,6 +14,7 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- insert, paste without updating the buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>d", "\"_d")
+
 -- yank to clipboard
 vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
@@ -29,6 +31,8 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- replace all occurences of the current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
+
+-- exit from edit in terminal mode
 vim.keymap.set("t", "Esc", "<C-\\><C-n>")
 
 vim.keymap.set("n", "<A-l>", vim.cmd.LazyGit)
