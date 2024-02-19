@@ -38,3 +38,9 @@ vim.keymap.set("t", "Esc", "<C-\\><C-n>")
 vim.keymap.set("n", "<A-l>", vim.cmd.LazyGit)
 vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+
+-- navigation in command mode
+vim.keymap.set("c", "<C-h>", "<Left>")
+vim.keymap.set("c", "<C-l>", "<Right>")
+vim.keymap.set("c", "<C-j>", "<Down>")
+vim.keymap.set("c", "<C-k>", "<Up>")
