@@ -1,8 +1,11 @@
 -- nice themes
 -- zellner light theme
 -- slate default for now
+-- habamax light theme, should be nice for long coding
+-- evening may be nice for light days
 -- 'PaperColor' installed
 -- cattpuccin installed
+-- blue, lightblue - two theme close to turbo pascal
 function SetMyTheme(color)
 	color = color or "slate"
 	vim.cmd.colorscheme(color)
