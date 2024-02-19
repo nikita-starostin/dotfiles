@@ -1,3 +1,4 @@
+-- configutation is done in the ~/AppData/Local/nvim/after/lsp.lua
 return {
 	{'williamboman/mason.nvim'},
 	{'williamboman/mason-lspconfig.nvim'},
