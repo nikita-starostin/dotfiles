@@ -35,7 +35,7 @@ $PROMPT_CONFIG = Join-Path (Get-ScriptDirectory) 'starostin.omp.json'
 oh-my-posh --init --shell pwsh --config $PROMPT_CONFIG | Invoke-Expression
 
 # Alias
-Set-Alias o nvim
+Set-Alias o OpenWithNvim
 Set-Alias rd rider64.exe
 Set-Alias od OpenDev
 Set-Alias op OpenProjects
@@ -46,7 +46,7 @@ Set-Alias cde ChangeDirectoryExtended
 
 # Utilities
 
-function OpenWithNvim($path) {
+function OpenWithNvim($path = ".") {
 	Set-Location $path;
 	nvim $path;
 }
