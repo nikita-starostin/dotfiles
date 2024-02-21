@@ -60,11 +60,10 @@ function OpenProjects() {
 }
 
 function ChangeDirectoryBookmarks() {
-	$bookmarks = @(
-		'~\OneDrive - Itransition Group\projects',
-		'~\OneDrive - Itransition Group\projects\dance-life',
-		'~\OneDrive - Itransition Group\projects\dm-devops',
-		'~\OneDrive - Itransition Group\dev',
+	$devProjects = Get-ChildItem '~\OneDrive - Itransition Group\dev' -Attributes Directory
+	$projects = Get-ChildItem '~\OneDrive - Itransition Group\projects' -Attributes Directory
+	$danceLifeProjects = Get-ChildItem '~\OneDrive - Itransition Group\projects\dance-life'-Attributes Directory
+	$bookmarks = $devProjects + $projects + $danceLifeProjects + @(
 		'C:\agents\dance-life'
 	)
 
