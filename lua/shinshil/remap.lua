@@ -44,3 +44,6 @@ vim.keymap.set("c", "<C-h>", "<Left>")
 vim.keymap.set("c", "<C-l>", "<Right>")
 vim.keymap.set("c", "<C-j>", "<Down>")
 vim.keymap.set("c", "<C-k>", "<Up>")
+
+-- execute in browser
+vim.keymap.set("n", "<leader>eb", ":!start \"\" \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" \"%:p<CR>\"")
