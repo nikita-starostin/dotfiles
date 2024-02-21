@@ -41,6 +41,7 @@ Set-Alias od OpenDev
 Set-Alias op OpenProjects
 Set-Alias oc OpenConfig
 Set-Alias cdb ChangeDirectoryBookmarks
+Set-Alias cdbo ChangeDirectoryBookmarksOpen
 Set-Alias cda ChangeDirectoryAll
 Set-Alias cde ChangeDirectoryExtended
 
@@ -59,7 +60,7 @@ function OpenProjects() {
 	Get-ChildItem '~\OneDrive - Itransition Group\projects' | Invoke-Fzf | ForEach-Object { OpenWithNvim($_) }
 }
 
-function ChangeDirectoryBookmarks() {
+function GetBookmarks() {
 	$devProjects = Get-ChildItem '~\OneDrive - Itransition Group\dev' -Attributes Directory
 	$projects = Get-ChildItem '~\OneDrive - Itransition Group\projects' -Attributes Directory
 	$danceLifeProjects = Get-ChildItem '~\OneDrive - Itransition Group\projects\dance-life'-Attributes Directory
@@ -67,7 +68,15 @@ function ChangeDirectoryBookmarks() {
 		'C:\agents\dance-life'
 	)
 
-	$bookmarks | Invoke-Fzf | Set-Location
+	return $bookmarks
+}
+
+function ChangeDirectoryBookmarks() {
+	GetBookmarks | Invoke-Fzf | Set-Location
+}
+
+function ChangeDirectoryBookmarksOpen() {
+	GetBookmarks | Invoke-Fzf | Set-Location | OpenWithNvim
 }
 
 function OpenConfig() {
