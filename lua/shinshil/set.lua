@@ -29,19 +29,11 @@ vim.opt.colorcolumn = "9999"   -- remove ident line
 vim.opt.conceallevel = 0       -- show markdown as it is
 vim.opt.cursorline = false     -- don't highlight the current line
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
-vim.opt.showmode = false       -- hide things like -- INSERT 
+vim.opt.showmode = false       -- hide things like -- INSERT
 vim.opt.showtabline = 1        -- show tabs if more then one
 vim.opt.laststatus = 2         -- always show status
 
--- folding
+-- code folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.api.nvim_create_autocmd({ "BufReadPost", "FileReadPost" }, {
-  pattern = "*",
-  callback = function()
-    -- pcall - to call code then code threw exception, not all buffers support folding
-    pcall(function()
-      vim.api.nvim_command("zR")
-    end)
-  end,
-})
+vim.opt.foldlevel = 99
