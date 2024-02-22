@@ -8,6 +8,8 @@ vim.opt.tabstop = tabSize
 vim.opt.softtabstop = tabSize
 vim.opt.shiftwidth = tabSize
 vim.opt.smartindent = true
+-- use spaces instead of tabs
+vim.opt.expandtab = true 
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
