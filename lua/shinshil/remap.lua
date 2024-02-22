@@ -1,5 +1,5 @@
 -- show netrw
-vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
+-- vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
 
 -- allows to move selected lines up/bottom
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

@@ -6,7 +6,7 @@ return {
 			condition = function(buf)
 				local fn = vim.fn
 
-				-- that is to sync with Harpoon menu
+				-- disable autosave for harpoon, or harpoon would be broken
 				if fn.getbufvar(buf, "&filetype") == 'harpoon'
 				then
 					return false

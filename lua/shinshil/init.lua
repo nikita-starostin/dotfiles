@@ -1,6 +1,7 @@
 require("shinshil.set")
 require("shinshil.remap")
 require("shinshil.lazy")
+require("shinshil.utils")
 
 -- open telescope once nvim started
 local ts_group = vim.api.nvim_create_augroup("TelescopeOnEnter", { clear = true })
