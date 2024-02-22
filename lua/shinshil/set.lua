@@ -36,4 +36,4 @@ vim.opt.laststatus = 2         -- always show status
 -- code folding
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 99
+vim.opt.foldlevel = 99 -- keep everything unfold by default
