@@ -16,9 +16,6 @@ return {
   tag = '0.1.5',
   dependencies = { 'nvim-lua/plenary.nvim' },
   config = function()
-    local telescopeActions = require('telescope.actions')
-    local telescope = require('telescope')
-    local telescopeConfig = require("telescope.config")
     local function filename_first(_, path)
       local tail = vim.fs.basename(path)
       local parent = vim.fs.dirname(path)
@@ -38,15 +35,15 @@ return {
       end,
     })
 
-    -- Clone the default Telescope configuration
+    -- Clone the default Telescope configuration and allow search for hidden, but exclude .git
+    local telescopeConfig = require("telescope.config")
     local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
-
-    -- I want to search in hidden/dot files.
     table.insert(vimgrep_arguments, "--hidden")
-    -- I don't want to search in the `.git` directory.
     table.insert(vimgrep_arguments, "--glob")
     table.insert(vimgrep_arguments, "!**/.git/*")
 
+    local telescopeActions = require('telescope.actions')
+    local telescope = require('telescope')
     telescope.setup {
       defaults = {
         path_display = filename_first,
@@ -76,23 +73,27 @@ return {
 
     local builtin = require('telescope.builtin')
     local utils = require('telescope.utils')
+
+    -- search in the directory, where current buffer is opened
     vim.keymap.set('n', '<leader>ff', function()
       builtin.find_files({ cwd = utils.buffer_dir() })
     end)
+
+    -- search in the directory where nvim has been opened
     vim.keymap.set('n', '<leader>w', builtin.find_files, {})
-    vim.keymap.set('n', '<C-p>', builtin.git_files, {})
-    vim.keymap.set('n', '<leader>sg', function()
-      builtin.grep_string({ search = vim.fn.input("Grep > ") });
-    end)
+
+    -- look for recently opened buffers
+    vim.keymap.set('n', '<leader><Tab>', builtin.buffers, {})
+
+    -- greps
+    vim.keymap.set('n', '<leader>s', builtin.live_grep)
     vim.keymap.set('v', '<leader>s', function()
       local text = vim.getVisualSelection()
       builtin.live_grep({ default_text = text })
     end)
-    vim.keymap.set('n', '<leader>sl', builtin.live_grep)
 
+    -- check for commands and available telescope pickers
     vim.keymap.set('n', '<C-a>', builtin.commands, {})
     vim.keymap.set('n', '<C-q>', builtin.builtin, {})
-    -- search word under cursor across files
-    vim.keymap.set('n', '<C-z>', builtin.grep_string, {})
   end
 }
