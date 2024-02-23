@@ -30,7 +30,7 @@ return {
       callback = function(ctx)
         vim.api.nvim_buf_call(ctx.buf, function()
           vim.fn.matchadd("TelescopeParent", "\t\t.*$")
-          vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+          -- vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
         end)
       end,
     })
@@ -46,6 +46,7 @@ return {
     local telescope = require('telescope')
     telescope.setup {
       defaults = {
+        wrap_results = true,
         path_display = filename_first,
         vimgrep_arguments = vimgrep_arguments,
         mappings = {

@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.guicursor = "n-v-c-i:block"
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.number = false
+vim.opt.relativenumber = false
 
 local tabSize = 2
 vim.opt.tabstop = tabSize
@@ -20,7 +20,7 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "no"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
