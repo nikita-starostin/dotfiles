@@ -1,5 +1,5 @@
 -- show netrw
--- vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
 
 -- allows to move selected lines up/bottom
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -47,3 +47,6 @@ vim.keymap.set("c", "<C-k>", "<Up>")
 
 -- execute in browser
 vim.keymap.set("n", "<leader>eb", ":!start \"\" \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" \"%:p<CR>\"")
+
+-- execute http requests, requires BlackLight/nvim-http
+vim.keymap.set("n", "<leader>eh", ":Http")
