@@ -19,10 +19,10 @@ end
 
 cmp.setup {
 	mapping = {
-		['<C-h>'] = buildCmpFallback(function ()
+		['<C-u>'] = buildCmpFallback(function ()
 			cmp.scroll_docs(-4)
 		end),
-		['<C-l>'] = buildCmpFallback(function ()
+		['<C-d>'] = buildCmpFallback(function ()
 			cmp.scroll_docs(4)
 		end),
 		['<CR>'] = function(fallback)

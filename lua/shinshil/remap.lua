@@ -22,10 +22,10 @@ vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- lsp part, probably make sens to put into lsp.lua
 vim.keymap.set("n", "<leader>f", function()
-	vim.lsp.buf.format()
+  vim.lsp.buf.format()
 end)
-vim.keymap.set("n", "<C-k>",vim.diagnostic.goto_prev)
-vim.keymap.set("n", "<C-j>",vim.diagnostic.goto_next)
+vim.keymap.set("n", "<C-k>", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -46,7 +46,22 @@ vim.keymap.set("c", "<C-j>", "<Down>")
 vim.keymap.set("c", "<C-k>", "<Up>")
 
 -- execute in browser
-vim.keymap.set("n", "<leader>eb", ":!start \"\" \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" \"%:p<CR>\"")
+vim.keymap.set("n", "<leader>eb",
+  ":!start \"\" \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" \"%:p<CR>\"")
 
 -- execute http requests, requires BlackLight/nvim-http
 vim.keymap.set("n", "<leader>eh", ":Http")
+
+-- copilot
+vim.keymap.set('i', '<C-l>',
+  function()
+    vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
+  end,
+  {
+    expr = true,
+    replace_keycodes = true,
+    nowait = true,
+    silent = true,
+    noremap = true
+  })
+
