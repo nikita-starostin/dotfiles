@@ -7,31 +7,33 @@
 -- cattpuccin installed
 -- blue, lightblue - two theme close to turbo pascal
 function SetMyTheme(color)
-	color = color or "PaperColor"
-	vim.cmd.colorscheme(color)
-	-- make the nvim itself 0 opacity, the terminal would be used as background
+  color = color or "PaperColor"
+  vim.cmd.colorscheme(color)
+  -- make the nvim itself 0 opacity, the terminal would be used as background
   -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	-- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+  -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 return {
-	{
-		"NLKNguyen/papercolor-theme",
-		name = "papercolor",
-		priority = 1000,
-		config = function ()
-			SetMyTheme()
-		end
-	},
+  {
+    "NLKNguyen/papercolor-theme",
+    name = "papercolor",
+    lazy = true,
+    priority = 1000,
+    config = function()
+      SetMyTheme()
+    end
+  },
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = {},
   },
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		priority = 990
-	}
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+    priority = 990
+  }
 }
