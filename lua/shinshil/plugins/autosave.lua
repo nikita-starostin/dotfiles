@@ -1,5 +1,6 @@
 return {
 	"okuuva/auto-save.nvim",
+  event = { 'BufReadPre', 'BufNewFile' },
 	config = function()
 		require("auto-save").setup({
 			enabled = true,

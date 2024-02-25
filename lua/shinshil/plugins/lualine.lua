@@ -3,7 +3,6 @@ return {
     'nvim-lualine/lualine.nvim',
     depencies = {
       'nveem-tree/nvim-web-devicons',
-      'archibate/lualine-time'
     },
     config = function()
       local CTimeLine = require('lualine.component'):extend()

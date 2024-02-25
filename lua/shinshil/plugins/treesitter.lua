@@ -1,5 +1,6 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+  event = { 'BufReadPre', 'BufNewFile' },
 	config = function ()
 		-- important, has lot of issues with installing astro 
 		-- has to use clang from LLVM, but the :TSInstall should be run

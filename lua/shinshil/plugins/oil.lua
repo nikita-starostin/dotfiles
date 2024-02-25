@@ -11,6 +11,7 @@ vim.keymap.set("n", "<leader>o", function()
 end)
 return {
   'stevearc/oil.nvim',
+  keys = { "<leader>o" },
   opts = {
     -- Oil will take over directory buffers (e.g. `vim .` or `:e src/`)
     -- Set to false if you still want to use netrw.
