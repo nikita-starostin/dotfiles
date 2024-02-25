@@ -18,8 +18,11 @@ vim.opt.wrap = false
 vim.opt.ignorecase = true -- case insensitive search
 vim.opt.smartcase = true -- case sensitive if there is a different case letters
 
-vim.opt.swapfile = false
-vim.opt.backup = false
+-- backup options
+vim.opt.swapfile = false -- don't create swap files
+vim.opt.backup = false -- don't create backup of configuration, instead git is being used
+vim.opt.undofile = true -- create undo files, so possible to undo changes after closing the file
+vim.opt.undodir = "C://nvim-undo" -- save undo files in the data directory
 
 -- appearance
 vim.opt.hlsearch = false -- don't highlight search results
