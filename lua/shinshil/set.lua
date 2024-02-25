@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.g.guicursor = "n-v-c-i:block" -- show cursor as square all the time
 
 vim.opt.number = false -- turn off line numbers
 vim.opt.relativenumber = false -- turn off relative line numbers
