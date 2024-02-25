@@ -1,8 +1,21 @@
 return {
   {
     'nvim-lualine/lualine.nvim',
-    depencies = { 'nveem-tree/nvim-web-devicons' },
+    depencies = {
+      'nveem-tree/nvim-web-devicons',
+      'archibate/lualine-time'
+    },
     config = function()
+      local CTimeLine = require('lualine.component'):extend()
+
+      CTimeLine.init = function(self, options)
+        CTimeLine.super.init(self, options)
+      end
+
+      CTimeLine.update_status = function(self)
+        return os.date("%m/%d %H:%M", os.time())
+      end
+
       require('lualine').setup {
         options = {
           icons_enabled = false,
@@ -26,9 +39,9 @@ return {
           lualine_a = { { 'filename', path = 1 } },
           lualine_b = { 'branch' },
           lualine_c = { 'diff', 'diagnostics' },
-          lualine_x = { 'encoding', 'fileformat' },
-          lualine_y = { 'progress' },
-          lualine_z = { 'location' }
+          lualine_x = { CTimeLine },
+          lualine_y = { 'location' },
+          lualine_z = {}
         },
         inactive_sections = {
           lualine_a = {},

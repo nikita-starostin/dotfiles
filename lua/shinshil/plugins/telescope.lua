@@ -87,10 +87,15 @@ return {
     vim.keymap.set('n', '<leader><Tab>', builtin.buffers, {})
 
     -- greps
-    vim.keymap.set('n', '<leader>s', builtin.live_grep)
-    vim.keymap.set('v', '<leader>s', function()
+    vim.keymap.set('n', '<C-g>', builtin.live_grep)
+    vim.keymap.set('n', '<C-s>', builtin.grep_string)
+    vim.keymap.set('v', '<C-g>', function()
       local text = vim.getVisualSelection()
       builtin.live_grep({ default_text = text })
+    end)
+    vim.keymap.set('v', '<C-s>', function()
+      local text = vim.getVisualSelection()
+      builtin.grep_string({ default_text = text })
     end)
 
     -- check for commands and available telescope pickers
