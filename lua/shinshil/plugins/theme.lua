@@ -36,6 +36,7 @@ return {
     priority = 990,
     config = function()
       -- thanks to https://github.com/catppuccin/nvim/discussions/323#discussioncomment-5287724
+      -- I have a little bit updated to make red less agressive for my eyes in dark and light themes
       require("catppuccin").setup({
         background = {
           light = "latte",
@@ -43,10 +44,10 @@ return {
         },
         color_overrides = {
           latte = {
-            rosewater = "#c14a4a",
-            flamingo = "#c14a4a",
-            red = "#c14a4a",
-            maroon = "#c14a4a",
+            rosewater = "#c14a4a", -- updated by me
+            flamingo = "#c14a4a", -- updated by me
+            red = "#a37827", -- updated by me
+            maroon = "#a37827", -- updated by me
             pink = "#945e80",
             mauve = "#945e80",
             peach = "#c35e0a",
@@ -71,10 +72,10 @@ return {
             crust = "#e8e3c8",
           },
           mocha = {
-            rosewater = "#ea6962",
-            flamingo = "#ea6962",
-            red = "#ea6962",
-            maroon = "#ea6962",
+            rosewater = "#eb8934",
+            flamingo = "#eb8934",
+            red = "#eba134",
+            maroon = "#eba134",
             pink = "#d3869b",
             mauve = "#d3869b",
             peach = "#e78a4e",
