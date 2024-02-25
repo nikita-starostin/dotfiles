@@ -11,7 +11,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- insert, paste without updating the buffer
+-- delete, paste without updating the buffer
 vim.keymap.set("x", "<leader>p", "\"_dP")
 vim.keymap.set("n", "<leader>d", "\"_d")
 
@@ -20,24 +20,11 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
--- lsp part, probably make sens to put into lsp.lua
-vim.keymap.set("n", "<leader>f", function()
-  vim.lsp.buf.format()
-end)
-vim.keymap.set("n", "<C-k>", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
-vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-
 -- replace all occurences of the current word
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 
 -- exit from edit in terminal mode
 vim.keymap.set("t", "Esc", "<C-\\><C-n>")
-
-vim.keymap.set("n", "<A-l>", vim.cmd.LazyGit)
-vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 
 -- navigation in command mode
 vim.keymap.set("c", "<C-h>", "<Left>")
@@ -45,23 +32,31 @@ vim.keymap.set("c", "<C-l>", "<Right>")
 vim.keymap.set("c", "<C-j>", "<Down>")
 vim.keymap.set("c", "<C-k>", "<Up>")
 
+-- navigation between windows
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+
+-- splitting windows
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+
+-- use jk to exit insert mode
+vim.keymap.set("i", "jk", "<Esc>")
+
+-- clear search highlights
+vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+
+-- increment/decrement numbers
+vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
+vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+
 -- execute in browser
 vim.keymap.set("n", "<leader>eb",
   ":!start \"\" \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" \"%:p<CR>\"")
 
 -- execute http requests, requires BlackLight/nvim-http
 vim.keymap.set("n", "<leader>eh", ":Http")
-
--- copilot
-vim.keymap.set('i', '<C-l>',
-  function()
-    vim.fn.feedkeys(vim.fn['copilot#Accept'](), '')
-  end,
-  {
-    expr = true,
-    replace_keycodes = true,
-    nowait = true,
-    silent = true,
-    noremap = true
-  })
-
