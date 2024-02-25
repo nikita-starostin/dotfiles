@@ -87,13 +87,13 @@ return {
     vim.keymap.set('n', '<leader><Tab>', builtin.buffers, {})
 
     -- greps
-    vim.keymap.set('n', '<C-g>', builtin.live_grep)
-    vim.keymap.set('n', '<C-s>', builtin.grep_string)
-    vim.keymap.set('v', '<C-g>', function()
+    vim.keymap.set('n', '<leader>lg', builtin.live_grep)
+    vim.keymap.set('n', '<leadr>gs', builtin.grep_string)
+    vim.keymap.set('v', '<leader>lg', function()
       local text = vim.getVisualSelection()
       builtin.live_grep({ default_text = text })
     end)
-    vim.keymap.set('v', '<C-s>', function()
+    vim.keymap.set('v', '<leadr>gs', function()
       local text = vim.getVisualSelection()
       builtin.grep_string({ default_text = text })
     end)
