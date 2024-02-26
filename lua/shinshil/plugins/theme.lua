@@ -16,22 +16,6 @@ end
 
 return {
   {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    config = function()
-      SetMyTheme()
-    end
-  },
-  {
-    "NLKNguyen/papercolor-theme",
-    name = "papercolor",
-    priority = 1000,
-  },
-  {
-    "folke/tokyonight.nvim",
-    priority = 1000,
-  },
-  {
     "catppuccin/nvim",
     priority = 990,
     config = function()
@@ -386,6 +370,7 @@ return {
           end,
         },
       })
+      SetMyTheme()
     end
   }
 }

@@ -6,7 +6,7 @@ return {
     cmd = 'Mason',
     dependencies = {
       'neovim/nvim-lspconfig',
-      'hrsh7th/cmp-nvim-lsp',
+      'rsh7th/cmp-nvim-lsp',
       'hrsh7th/nvim-cmp',
       'L3MON4D3/LuaSnip',
       'williamboman/mason.nvim',
@@ -16,16 +16,26 @@ return {
       local lsp_zero = require('lsp-zero')
 
       lsp_zero.on_attach(function(client, bufnr)
-        -- see :help lsp-zero-keybindings
-        -- to learn the available actions
         lsp_zero.default_keymaps({ buffer = bufnr })
         vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
-        vim.keymap.set("n", "<leader>f", function()
+        vim.keymap.set('n', '<leader>r', function()
+          vim.lsp.buf.rename()
+        end, { nowait = true })
+        vim.keymap.set('n', '<leader>c', function()
+          vim.lsp.buf.code_action()
+        end, { nowait = true })
+        vim.keymap.set('n', '<leader>d', function()
+          vim.diagnostic.open_float()
+        end, { nowait = true })
+        vim.keymap.set('n', '<leader>f', function()
           vim.lsp.buf.format()
         end, { nowait = true })
-        vim.keymap.set("n", "dp", vim.diagnostic.goto_prev)
-        vim.keymap.set("n", "dn", vim.diagnostic.goto_next)
-        vim.keymap.set("n", "df", vim.diagnostic.open_float)
+        vim.keymap.set('n', '<leader>c', function()
+          vim.lsp.buf.code_action()
+        end, { nowait = true })
+        vim.keymap.set('n', '<leader>d', function()
+          vim.diagnostic.open_float()
+        end, { nowait = true })
       end)
 
       local cmp = require('cmp')
@@ -79,13 +89,15 @@ return {
         }
       }
 
-      -- -- to learn how to use mason.nvim with lsp-zero
-      -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
       require('mason').setup({})
       require('mason-lspconfig').setup({
         ensure_installed = {},
         handlers = {
           lsp_zero.default_setup,
+          lua_ls = function()
+            local lua_opts = lsp_zero.nvim_lua_ls()
+            require('lspconfig').lua_ls.setup(lua_opts)
+          end,
         },
       })
     end
