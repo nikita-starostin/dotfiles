@@ -39,6 +39,7 @@ vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.showmode = false       -- hide things like -- INSERT
 vim.opt.showtabline = 1        -- show tabs if more then one
 vim.opt.laststatus = 2         -- always show status bar
+vim.opt.cmdheight = 1          -- height of the command bar
 
 -- code folding
 vim.opt.foldmethod = "expr" -- fold based on expression
