@@ -31,7 +31,10 @@ return {
         show_statistics = false,
         -- executables or functions for formatting response body [optional]
         -- set them to false if you want to disable them
-        formatters = false,
+        formatters = {
+          json = "jq",
+          html = false,
+        }
       },
       -- Jump to request line on run
       jump_to_request = false,
