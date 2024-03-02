@@ -8,7 +8,7 @@ end
 --
 -- function to show current status of editing file
 function ShowInfo()
-  vim.api.nvim_command("echo expand('%:h') . ' | ' . line('.') . ':' . col('.')")
+  vim.api.nvim_command("echo expand('%:p') . ' | ' . line('.') . ':' . col('.')")
 end
 
 vim.keymap.set("n", "<leader>h", ShowInfo, { nowait = false })

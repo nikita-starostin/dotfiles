@@ -51,8 +51,8 @@ vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- increment/decrement numbers
-vim.keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
-vim.keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
+vim.keymap.set("n", "<leader>i", "<C-a>", { desc = "Increment number" }) -- increment
+vim.keymap.set("n", "<leader>d", "<C-x>", { desc = "Decrement number" }) -- decrement
 
 -- execute in browser
 vim.keymap.set("n", "<leader>eb",

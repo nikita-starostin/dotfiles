@@ -37,7 +37,7 @@ vim.opt.signcolumn = "no"      -- don't show sign column
 vim.opt.isfname:append("@-@")  -- allow filenames with @
 vim.opt.updatetime = 50        -- update interval for rerendering the screen
 vim.opt.colorcolumn = "9999"   -- remove identline
-vim.opt.conceallevel = 0       -- show markdown as it is
+vim.opt.conceallevel = 2       -- show markdown as it is
 vim.opt.cursorline = false     -- don't highlight the current line
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.showmode = false       -- hide things like -- INSERT
