@@ -62,3 +62,12 @@ vim.keymap.set("n", "<leader>eb",
 vim.keymap.set("n", "<leader>2", ":lua SetTabSize(2)<CR>", { desc = "Set tab size to 2" })
 -- set tab size to 4
 vim.keymap.set("n", "<leader>4", ":lua SetTabSize(4)<CR>", { desc = "Set tab size to 4" })
+
+-- next buffer
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
+-- previous buffer
+vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
+-- next tab
+vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next tab" })
+-- previous tab
+vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous tab" })

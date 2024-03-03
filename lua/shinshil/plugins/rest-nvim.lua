@@ -1,5 +1,7 @@
 return {
   "rest-nvim/rest.nvim",
+  lazy = true,
+  event = "BufEnter *.http",
   dependencies = { { "nvim-lua/plenary.nvim" } },
   config = function()
     require("rest-nvim").setup({
