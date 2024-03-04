@@ -95,3 +95,15 @@ function which ($command) {
   Get-Command -Name $command -ErrorAction SilentlyContinue |
     Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
 }
+
+function getProcessOnPort($port) {
+  $process = Get-Process -Id (Get-NetTCPConnection -LocalPort $port).OwningProcess
+  $process
+}
+
+function killProcessOnPort($port) {
+  $process = getProcessOnPort $port
+  if ($process) {
+    Stop-Process -Id $process.Id
+  }
+}
