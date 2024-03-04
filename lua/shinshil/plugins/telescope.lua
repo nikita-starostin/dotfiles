@@ -99,7 +99,7 @@ return {
     end)
     vim.keymap.set('v', '<leader>gs', function()
       local text = vim.getVisualSelection()
-      builtin.grep_string({ default_text = text })
+      builtin.grep_string({ search = text })
     end)
 
     -- check for commands and available telescope pickers
