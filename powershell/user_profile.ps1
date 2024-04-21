@@ -44,6 +44,7 @@ Set-Alias cdb ChangeDirectoryBookmarks
 Set-Alias cdbo ChangeDirectoryBookmarksOpen
 Set-Alias cda ChangeDirectoryAll
 Set-Alias cde ChangeDirectoryExtended
+Set-Alias nuget C:\Users\n.starostin\AppData\Local\nvim\win-cli-tools\nuget.exe
 
 # Utilities
 

@@ -38,3 +38,4 @@ function ShowBranch()
 end
 
 vim.keymap.set("n", "<leader>b", ShowBranch, { nowait = false, silent = true })
+
