@@ -28,7 +28,7 @@ function ShowBranch()
     resultMessage = resultMessage .. "uncommited"
   end
   resultMessage = resultMessage .. " | "
-  local isEverythingPushed = vim.fn.system("git status --porcelain -b")
+  local isEverythingPushed = vim.fn.system("git status --porcelain")
   if isEverythingPushed == "" then
     resultMessage = resultMessage .. "pushed"
   else
