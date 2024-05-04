@@ -46,6 +46,6 @@ vim.opt.laststatus = 2         -- always show status bar
 vim.opt.cmdheight = 1          -- height of the command bar
 
 -- code folding
-vim.opt.foldmethod = "expr"                     -- fold based on expression
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter expressions for folding
-vim.opt.foldlevel = 99                          -- keep everything unfold by default
+vim.opt.foldmethod = "manual"                     -- fold based on expression
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter expressions for folding
+-- vim.opt.foldlevel = 99                          -- keep everything unfold by default

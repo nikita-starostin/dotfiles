@@ -24,6 +24,9 @@ return {
 				path = "~\\OneDrive - Itransition Group\\projects\\obsidian\\public_vault",
 			},
 		},
+    ui = {
+      enable = false,
+    },
 		completion = {
 			-- Set to false to disable completion.
 			nvim_cmp = true,
@@ -44,5 +47,6 @@ return {
 		},
 
 		-- see below for full list of options 👇
+    new_notes_location = "current_directory"
 	},
 }

@@ -25,7 +25,8 @@ return {
         "bicep",
         "c_sharp",
         "css",
-        "lua"
+        "lua",
+        "hurl"
       },
       sync_install = false,
       auto_install = false,

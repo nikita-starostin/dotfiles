@@ -3,13 +3,13 @@ return {
   {
     "kdheepak/lazygit.nvim",
     lazy = true,
-    keys = { "<leader>g" },
+    keys = { "<leader>z" },
     -- optional for floating window border decoration
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      vim.keymap.set("n", "<leader>g", vim.cmd.LazyGit)
+      vim.keymap.set("n", "<leader>z", vim.cmd.LazyGit)
     end
   },
 
@@ -23,6 +23,16 @@ return {
         enabled = false,
       })
       vim.keymap.set("n", "<leader>tb", vim.cmd.GitBlameToggle)
+    end
+  },
+
+  -- fugutive
+  {
+    "tpope/vim-fugitive",
+    keys = { "<leader>gg" },
+    lazy = true,
+    config = function()
+      vim.keymap.set("n", "<leader>gg", ":Git<CR>")
     end
   },
 }

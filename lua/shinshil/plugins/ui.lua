@@ -1,4 +1,5 @@
 return {
+  -- nice rename and promts for input
   {
     'stevearc/dressing.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -171,6 +172,7 @@ return {
       })
     end
   },
+  -- status bar
   {
     'nvim-lualine/lualine.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
@@ -288,10 +290,11 @@ return {
         tabline = {},
         winbar = {},
         inactive_winbar = {},
-        extensions = { }
+        extensions = {}
       }
     end
   },
+  -- show all text in the middle of the screen, sometimes usefull on wide screens
   {
     "shortcuts/no-neck-pain.nvim",
     version = "*",
@@ -303,5 +306,5 @@ return {
       vim.keymap.set("n", "<leader>npp", "<cmd>NoNeckPainWidthUp<cr>", { noremap = true, silent = true })
       vim.keymap.set("n", "<leader>npn", "<cmd>NoNeckPainWidthDown<cr>", { noremap = true, silent = true })
     end,
-  }
+  },
 }

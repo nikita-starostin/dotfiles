@@ -91,7 +91,7 @@ return {
     vim.keymap.set('n', '<leader>gs', builtin.grep_string)
     vim.keymap.set('n', '<leader>gsi', function()
       local text = vim.getVisualSelection()
-      builtin.grep_string({ search = vim.fn.input('Grep for: ', text)})
+      builtin.grep_string({ search = vim.fn.input('Grep for: ', text) })
     end)
     vim.keymap.set('v', '<leader>lg', function()
       local text = vim.getVisualSelection()
@@ -104,6 +104,6 @@ return {
 
     -- check for commands and available telescope pickers
     vim.keymap.set('n', '<C-a>', builtin.commands, {})
-    vim.keymap.set('n', '<C-q>', builtin.builtin, {})
+    vim.keymap.set('n', '<C-z>', builtin.builtin, {})
   end
 }
