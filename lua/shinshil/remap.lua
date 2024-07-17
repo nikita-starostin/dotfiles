@@ -63,6 +63,9 @@ vim.keymap.set("n", "<leader>2", ":lua SetTabSize(2)<CR>", { desc = "Set tab siz
 -- set tab size to 4
 vim.keymap.set("n", "<leader>4", ":lua SetTabSize(4)<CR>", { desc = "Set tab size to 4" })
 
+-- jump to default word (react component usually exported with defaul)
+vim.keymap.set("n", "gc", "/export default<CR>")
+
 -- next buffer
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
 -- previous buffer
@@ -71,3 +74,7 @@ vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" }
 vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next tab" })
 -- previous tab
 vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous tab" })
+
+-- work with scratch
+vim.keymap.set("n", "<leader>s", "<cmd>Scratch<cr>")
+vim.keymap.set("n", "<leader>os", "<cmd>ScratchOpen<cr>")

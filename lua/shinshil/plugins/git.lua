@@ -25,14 +25,4 @@ return {
       vim.keymap.set("n", "<leader>tb", vim.cmd.GitBlameToggle)
     end
   },
-
-  -- fugutive
-  {
-    "tpope/vim-fugitive",
-    keys = { "<leader>gg" },
-    lazy = true,
-    config = function()
-      vim.keymap.set("n", "<leader>gg", ":Git<CR>")
-    end
-  },
 }

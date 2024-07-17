@@ -45,8 +45,22 @@ Set-Alias cdbo ChangeDirectoryBookmarksOpen
 Set-Alias cda ChangeDirectoryAll
 Set-Alias cde ChangeDirectoryExtended
 Set-Alias nuget C:\Users\n.starostin\AppData\Local\nvim\win-cli-tools\nuget.exe
+Set-Alias nlist NugetListPakckages
+Set-Alias nadd DotnetAddPackage
 
 # Utilities
+
+function NugetListPakckages() {
+  nuget list -Source https://pkgs.dev.azure.com/Paxton-Access/_packaging/Cloud/nuget/v3/index.json -PreRelease
+}
+
+function DotnetAddPackage() {
+  $projectName = Get-ChildItem -Filter '*.csproj' -Recurse | Select-Object -ExpandProperty FullName | Invoke-Fzf
+  $packageName = nuget list -Source https://pkgs.dev.azure.com/Paxton-Access/_packaging/Cloud/nuget/v3/index.json -PreRelease | Invoke-Fzf
+  $projectNameInSingleQuotes = "'$projectName'"
+  $packageNameInSingleQuotes = "'$packageName'"
+  dotnet add $projectNameInSingleQuotes package $packageNameInSingleQuotes -source https://pkgs.dev.azure.com/Paxton-Access/_packaging/Cloud/nuget/v3/index.json -prerelease
+}
 
 function OpenWithNvim($path = ".") {
 	Set-Location $path;

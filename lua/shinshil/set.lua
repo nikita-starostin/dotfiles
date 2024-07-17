@@ -4,7 +4,6 @@ vim.opt.number = false         -- turn off line numbers
 vim.opt.relativenumber = false -- turn off relative line numbers
 
 -- identation
-
 function SetTabSize(tabSize)
   vim.opt.tabstop = tabSize     -- spaces for tabs
   vim.opt.softtabstop = tabSize -- spaces for tabs
@@ -41,8 +40,9 @@ vim.opt.conceallevel = 2       -- show markdown as it is
 vim.opt.cursorline = false     -- don't highlight the current line
 vim.opt.fileencoding = "utf-8" -- the encoding written to a file
 vim.opt.showmode = false       -- hide things like -- INSERT
+vim.opt.ruler = false          -- hide things like line, column, TOP at the status bar position
 vim.opt.showtabline = 1        -- show tabs if more then one
-vim.opt.laststatus = 2         -- always show status bar
+vim.opt.laststatus = 0         -- 0 - hide stats bar, 2 - always show status bar
 vim.opt.cmdheight = 1          -- height of the command bar
 
 -- code folding

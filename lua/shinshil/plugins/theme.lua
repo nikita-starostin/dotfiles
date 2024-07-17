@@ -14,6 +14,15 @@ function SetMyTheme(color)
   -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
+vim.keymap.set("n", "<leader>tt", function()
+  local currColor = vim.g.colors_name
+  if currColor == 'catppuccin-mocha' then
+    SetMyTheme('catppuccin-latte')
+  else
+    SetMyTheme('catppuccin-mocha')
+  end
+end, { desc = "Set tab size to 4" })
+
 return {
   {
     "catppuccin/nvim",
@@ -28,10 +37,10 @@ return {
         },
         color_overrides = {
           latte = {
-            rosewater = "#c14a4a", -- updated by me
-            flamingo = "#c14a4a", -- updated by me
-            red = "#a37827", -- updated by me
-            maroon = "#a37827", -- updated by me
+            rosewater = "#c14a4a",             -- updated by me
+            flamingo = "#c14a4a",              -- updated by me
+            red = "#a37827",                   -- updated by me
+            maroon = "#a37827",                -- updated by me
             pink = "#945e80",
             mauve = "#945e80",
             peach = "#c35e0a",

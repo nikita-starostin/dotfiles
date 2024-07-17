@@ -13,6 +13,8 @@ return {
 
     local configs = require("nvim-treesitter.configs")
 
+    vim.filetype.add({extensions = { hurl = "hurl" }})
+
     configs.setup({
       ensure_installed = {
         "lua",
