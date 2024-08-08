@@ -21,7 +21,7 @@ vim.keymap.set("n", "<leader>tt", function()
   else
     SetMyTheme('catppuccin-mocha')
   end
-end, { desc = "Set tab size to 4" })
+end, { desc = "Toggle dark and light theme" })
 
 return {
   {

@@ -47,8 +47,21 @@ Set-Alias cde ChangeDirectoryExtended
 Set-Alias nuget C:\Users\n.starostin\AppData\Local\nvim\win-cli-tools\nuget.exe
 Set-Alias nlist NugetListPakckages
 Set-Alias nadd DotnetAddPackage
+Set-Alias dclean RemoveBinAndObj
+Set-Alias sclean RemoveShada
 
 # Utilities
+
+function RemoveShada() {
+  Remove-Item C:\Users\n.starostin\AppData\Local\nvim-data\shada -Recurse -Force
+  Write-Host 'C:\Users\n.starostin\AppData\Local\nvim-data\shada has been removed'
+}
+
+function RemoveBinAndObj() {
+  Remove-Item 'bin' -Recurse -Force
+  Remove-Item 'obj' -Recurse -Force
+  Write-Host 'Bin and obj folders removed'
+}
 
 function NugetListPakckages() {
   nuget list -Source https://pkgs.dev.azure.com/Paxton-Access/_packaging/Cloud/nuget/v3/index.json -PreRelease
