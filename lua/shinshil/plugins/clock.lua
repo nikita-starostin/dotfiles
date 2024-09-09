@@ -31,6 +31,7 @@ return {
         time_format = "%H:%M",
         update_time = 500, -- update the clock text once per <update_time> (in ms)
       })
+      vim.api.nvim_set_keymap("n", "<leader>tc", ":ClockToggle<CR>", {});
     end
   }
 }

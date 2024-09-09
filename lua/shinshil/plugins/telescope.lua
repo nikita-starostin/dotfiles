@@ -51,6 +51,7 @@ return {
         vimgrep_arguments = vimgrep_arguments,
         mappings = {
           i = {
+            ["<C-s>"] = telescopeActions.file_vsplit,
             ["<esc>"] = telescopeActions.close,
             ["<C-u>"] = false,
             ["<C-j>"] = {

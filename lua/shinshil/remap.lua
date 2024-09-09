@@ -70,10 +70,6 @@ vim.keymap.set("n", "gc", "/export default<CR>")
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
 -- previous buffer
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
--- next tab
-vim.keymap.set("n", "<leader>tn", ":tabnext<CR>", { desc = "Next tab" })
--- previous tab
-vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", { desc = "Previous tab" })
 
 -- work with scratch
 vim.keymap.set("n", "<leader>s", "<cmd>Scratch<cr>")

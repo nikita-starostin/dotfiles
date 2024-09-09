@@ -86,7 +86,12 @@ return {
               fallback()
             end
           end,
-        }
+        },
+        sources = {
+          { name = 'nvim_lsp' },
+          { name = 'buffer' },
+          { name = 'orgmode' }
+        },
       }
 
       require('mason').setup({})

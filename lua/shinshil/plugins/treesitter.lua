@@ -28,7 +28,10 @@ return {
         "c_sharp",
         "css",
         "lua",
-        "hurl"
+        "hurl",
+        "markdown",
+        "markdown_inline",
+        "org",
       },
       sync_install = false,
       auto_install = false,
