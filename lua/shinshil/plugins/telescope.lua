@@ -49,6 +49,10 @@ return {
         wrap_results = true,
         path_display = filename_first,
         vimgrep_arguments = vimgrep_arguments,
+        file_ignore_patterns = {
+          "node_modules",
+          ".next",
+        },
         mappings = {
           i = {
             ["<C-s>"] = telescopeActions.file_vsplit,

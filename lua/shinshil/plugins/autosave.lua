@@ -10,6 +10,8 @@ return {
 
 				-- disable autosave for harpoon, or harpoon would be broken
 				if fn.getbufvar(buf, "&filetype") == 'harpoon'
+          -- disable for oil buffer
+          or fn.getbufvar(buf, "&filetype") == 'oil'
 				then
 					return false
 				end

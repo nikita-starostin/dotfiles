@@ -10,6 +10,6 @@ return {
 
     require("telescope").load_extension("dir")
 
-    vim.keymap.set("n", "<leader>fd", "<cmd>FileInDirectory<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>ld", "<cmd>FileInDirectory<CR>", { noremap = true, silent = true })
   end,
 }

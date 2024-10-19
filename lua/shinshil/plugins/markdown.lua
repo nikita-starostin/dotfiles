@@ -59,17 +59,6 @@ return {
     },
   },
 
-  -- better markdown rendering
-  {
-    'MeanderingProgrammer/render-markdown.nvim',
-    opts = {},
-    event = "BufEnter *.md",
-    ft = "markdown",
-    dependencies = { 'nvim-treesitter/nvim-treesitter' },
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
-    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
-  },
-
   -- opens preview of the markdown in the split browser tab
   -- install with yarn or npm
   {

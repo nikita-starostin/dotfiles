@@ -20,6 +20,9 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+-- search for css class name, utilizes the treesitter-object expand (<enter> -> expand)
+vim.keymap.set("n", "<leader>jc", "<CR>\"ay:vimgrep /<C-r>a/ **/*.scss<CR>")
+
 -- replace all occurences of the current word
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 
@@ -73,4 +76,9 @@ vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" }
 
 -- work with scratch
 vim.keymap.set("n", "<leader>s", "<cmd>Scratch<cr>")
-vim.keymap.set("n", "<leader>os", "<cmd>ScratchOpen<cr>")
+vim.keymap.set("n", "<leader>so", "<cmd>ScratchOpen<cr>")
+
+-- toggle oil
+vim.keymap.set('n', '<leader>o', function()
+   vim.cmd((vim.bo.filetype == 'oil') and 'bd' or 'Oil')
+end)
