@@ -5,8 +5,10 @@
 #		for autocompletion of commands in powershell
 # PSFzf 
 #		for fuzzy find in the powershell
-# oh-my-posh
+# oh-my-posh, replaced with starship
 #		for nice prompt
+#	starship
+#	  for nice prompt
 # ## Usefull paths
 # C:\Program Files\LLVM\bin\clang.exe
 
@@ -29,13 +31,23 @@ Set-PSReadLineOption -ViModeIndicator Cursor -ViModeChangeHandler $OnViModeChang
 Import-Module PSFzf
 Set-PSFzfOption -PSReadLineChordProvider 'Ctrl+f' -PSReadLineChordReverseHistory 'Ctrl+r'
 
-# oh-my-posth
+# oh-my-posth terminal prompt, was used before, not using starship
+# function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
+# $PROMPT_CONFIG = Join-Path (Get-ScriptDirectory) 'starostin.omp.json'
+# oh-my-posh --init --shell pwsh --config $PROMPT_CONFIG | Invoke-Expression
+
+# starship - terminal prompt
+function Invoke-Starship-TransientFunction {
+  &starship module character
+}
+Invoke-Expression (&starship init powershell)
+Enable-TransientPrompt
 function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
-$PROMPT_CONFIG = Join-Path (Get-ScriptDirectory) 'starostin.omp.json'
-oh-my-posh --init --shell pwsh --config $PROMPT_CONFIG | Invoke-Expression
+$ENV:STARSHIP_CONFIG = Join-Path (Get-ScriptDirectory) '../starship.toml'
 
 # Alias
 Set-Alias o OpenWithNvim
+Set-Alias vim nvim
 Set-Alias rd rider64.exe
 Set-Alias od OpenDev
 Set-Alias op OpenProjects

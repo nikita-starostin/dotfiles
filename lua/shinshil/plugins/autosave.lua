@@ -4,7 +4,6 @@ return {
 	config = function()
 		require("auto-save").setup({
 			enabled = true,
-      execution_message = "", -- dont show message after saving
 			condition = function(buf)
 				local fn = vim.fn
 
