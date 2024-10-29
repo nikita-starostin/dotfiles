@@ -51,6 +51,11 @@ $WEZTERM_SOURCE = Join-Path (Get-ScriptDirectory) '../wezterm-config.lua'
 $WEZTERM_TARGET = Join-Path $HOME '.wezterm.lua'
 (Get-Content -path $WEZTERM_SOURCE) | Set-Content $WEZTERM_TARGET
 
+# setup env variable to use glazewm (window tile manager for windows)
+$GLAZEWM_CONFIG_PATH = Join-Path (Get-ScriptDirectory) 'glazewm-config.yaml'
+$GLAZEWM_ENV_NAME = 'GLAZEWM_CONFIG_PATH'
+[Environment]::SetEnvironmentVariable($GLAZEWM_ENV_NAME, $GLAZEWM_CONFIG_PATH, [System.EnvironmentVariableTarget]::User)
+
 # Alias
 Set-Alias o OpenWithNvim
 Set-Alias vim nvim
