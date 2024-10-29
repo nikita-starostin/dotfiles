@@ -13,12 +13,19 @@ $line_break\
 $azure\
 $line_break\
 $time\
+$line_break\
 $directory\
 $line_break\
 $character"""
 
+[directory]
+format='[$path]($style)'
+truncation_length = 10
+truncate_to_repo = false
+use_logical_path = false
+
 [git_status]
-format='$untracked $modified $ahead $behind'
+format='$up_to_date $untracked $modified $renamed $deleted $staged $diverged $ahead $behind'
 conflicted = '🏳'
 ahead = '🏎💨'
 behind = '😰'
@@ -28,8 +35,8 @@ untracked = '[untracked files: ${count}](red)'
 stashed = '📦'
 modified = '[modified files: ${count}](yellow)'
 staged = '[++\($count\)](green)'
-renamed = '👅'
-deleted = '🗑'
+renamed = '[renamed files: ${count}](blue)'
+deleted = '[deleted files: ${count}](red)'
 
 # Replace the '❯' symbol in the prompt with '➜'
 [character] # The name of the module we are configuring is 'character'
@@ -38,7 +45,7 @@ error_symbol = '[➜](bold red)' # The 'success_symbol' segment is being set to 
 
 [time]
 disabled = false
-format = '[\[ $time \]]($style) '
+format = 'at [$time]($style) '
 time_format = '%v %T'
 utc_time_offset = '+3'
 
