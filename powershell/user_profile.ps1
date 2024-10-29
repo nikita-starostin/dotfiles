@@ -12,6 +12,8 @@
 # ## Usefull paths
 # C:\Program Files\LLVM\bin\clang.exe
 
+# Function to get current user_profile.ps1 directory
+function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
 
 # set PowerShell to UTF-8
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
@@ -42,8 +44,12 @@ function Invoke-Starship-TransientFunction {
 }
 Invoke-Expression (&starship init powershell)
 Enable-TransientPrompt
-function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
 $ENV:STARSHIP_CONFIG = Join-Path (Get-ScriptDirectory) '../starship.toml'
+
+# copy wezterm config to the right location
+$WEZTERM_SOURCE = Join-Path (Get-ScriptDirectory) '../wezterm-config.lua'
+$WEZTERM_TARGET = Join-Path $HOME '.wezterm.lua'
+(Get-Content -path $WEZTERM_SOURCE) | Set-Content $WEZTERM_TARGET
 
 # Alias
 Set-Alias o OpenWithNvim
