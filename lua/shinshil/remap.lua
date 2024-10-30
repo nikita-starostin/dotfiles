@@ -1,8 +1,8 @@
 -- show netrw
--- vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
 
 -- show lf
-vim.keymap.set("n", "<leader>q", vim.cmd.LfCurrentDirectory)
+vim.keymap.set("n", "<leader>f", vim.cmd.LfCurrentDirectory)
 
 -- allows to move selected lines up/bottom
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -45,9 +45,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 -- splitting windows
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })     -- split window vertically
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })   -- split window horizontally
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })      -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 -- use jk to exit insert mode
@@ -83,5 +83,5 @@ vim.keymap.set("n", "<leader>so", "<cmd>ScratchOpen<cr>")
 
 -- toggle oil
 vim.keymap.set('n', '<leader>o', function()
-   vim.cmd((vim.bo.filetype == 'oil') and 'bd' or 'Oil')
+  vim.cmd((vim.bo.filetype == 'oil') and 'bd' or 'Oil')
 end)

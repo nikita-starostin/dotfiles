@@ -1,8 +1,7 @@
 vim.g.mapleader = " "
 
 -- configure lf
-vim.g.lf_map_keys = 0 -- disable default lf keybindings
-vim.g.floaterm_opener = 'drop' -- open floaterm in a floating window
+vim.g.lf_map_keys = 0 -- disable default lf keybindings vim.g.floaterm_opener = 'drop' -- open floaterm in a floating window
 
 -- attemp to show lf by default
 -- vim.g.NERDTreeHijackNetrw = 0 -- Add this line if you use NERDTree
