@@ -11,6 +11,12 @@
 #	  for nice prompt
 # ## Usefull paths
 # C:\Program Files\LLVM\bin\clang.exe
+#
+# ## Tools that are used together in CLI
+# - nvim
+# - hurl - http client, required for nvim plugins
+# - rg - ripgrep, required for nvim plugins
+# - lf - file manager, nvim also integrated with it
 
 # Function to get current user_profile.ps1 directory
 function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
