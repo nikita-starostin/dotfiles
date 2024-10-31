@@ -72,31 +72,6 @@ return {
     ft = { "markdown" },
   },
 
-  -- orgmode support
-  {
-    'nvim-orgmode/orgmode',
-    lazy = true,
-    -- next config is to enable when enter to any of the markdown files
-    event = "BufEnter *.org",
-    ft = { 'org' },
-    config = function()
-      -- Setup orgmode
-      require('orgmode').setup({
-        org_agenda_files = '~/OneDrive - Itransition Group/projects/obsidian/public_vault/orgfiles/*',
-        org_default_notes_file = '~/OneDrive - Itransition Group/projects/obsidian/public_vault/orgfiles/refile.org',
-      })
-
-      -- cmp source orgmode is setup in lsp configuration
-
-      -- NOTE: If you are using nvim-treesitter with ~ensure_installed = "all"~ option
-      -- add ~org~ to ignore_install
-      -- require('nvim-treesitter.configs').setup({
-      --   ensure_installed = 'all',
-      --   ignore_install = { 'org' },
-      -- })
-    end,
-  },
-
   -- table formatting support
   {
     "dhruvasagar/vim-table-mode",
