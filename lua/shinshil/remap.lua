@@ -2,7 +2,7 @@
 vim.keymap.set("n", "<leader>q", vim.cmd.Ex)
 
 -- show lf
-vim.keymap.set("n", "<leader>f", vim.cmd.LfCurrentDirectory)
+vim.keymap.set("n", "<leader>lf", vim.cmd.LfCurrentDirectory)
 
 -- allows to move selected lines up/bottom
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
