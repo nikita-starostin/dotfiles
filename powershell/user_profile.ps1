@@ -123,7 +123,8 @@ function GetBookmarks() {
 	$danceLifeProjects = Get-ChildItem '~\OneDrive - Itransition Group\projects\dance-life'-Attributes Directory
 	$bookmarks = $devProjects + $projects + $danceLifeProjects + @(
 		'C:\agents\dance-life',
-    'C:\users\n.starostin\Downloads'
+    'C:\users\n.starostin\Downloads',
+    'C:\users\n.starostin\AppData\Local\nvim'
 	)
 
 	return $bookmarks
