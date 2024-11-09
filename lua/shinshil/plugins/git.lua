@@ -9,7 +9,7 @@ return {
       "nvim-lua/plenary.nvim",
     },
     config = function()
-      vim.keymap.set("n", "<leader>z", vim.cmd.LazyGit)
+      vim.keymap.set("n", "<leader>z", vim.cmd.LazyGit, { desc = "show lazyGit" })
     end
   },
 
@@ -22,7 +22,7 @@ return {
       require("gitblame").setup({
         enabled = false,
       })
-      vim.keymap.set("n", "<leader>tb", vim.cmd.GitBlameToggle)
+      vim.keymap.set("n", "<leader>tb", vim.cmd.GitBlameToggle, { desc = "toggle git blame" })
     end
   },
 }

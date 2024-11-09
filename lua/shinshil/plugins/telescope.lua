@@ -81,15 +81,17 @@ return {
     local utils = require('telescope.utils')
 
     -- search in the directory, where current buffer is opened
-    vim.keymap.set('n', '<leader>ff', function()
+    vim.keymap.set('n', '<leader>tsd', function()
       builtin.find_files({ cwd = utils.buffer_dir() })
     end)
 
     -- search in the directory where nvim has been opened
     vim.keymap.set('n', '<leader>w', builtin.find_files, {})
-
-    -- look for recently opened buffers
-    vim.keymap.set('n', '<leader><Tab>', builtin.buffers, {})
+    vim.keymap.set('n', '<leader>tsb', builtin.buffers, {})
+    vim.keymap.set('n', '<leader>tsr', builtin.resume, {})
+    --- vim.keymap.set('n', '<leader>tsh', builtin.search_history, {})
+    -- vim.keymap.set('n', '<leader>tsc', builtin.commands_history, {})
+    vim.keymap.set('n', '<leader>tsg', builtin.git_status, {})
 
     -- greps
     vim.keymap.set('n', '<leader>lg', builtin.live_grep)

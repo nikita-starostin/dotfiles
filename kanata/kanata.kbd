@@ -6,13 +6,13 @@
 (defsrc
   a s d f
   j k l ;
+  tab n
 )
 
 (defvar
   tap-time 200
   hold-time 200
 ) 
-
 
 (defalias
   a-mod (tap-hold $tap-time $hold-time a lmet)
@@ -23,9 +23,25 @@
   k-mod (tap-hold $tap-time $hold-time k rshift)
   l-mod (tap-hold $tap-time $hold-time l ralt)
   ;-mod (tap-hold $tap-time $hold-time ; rmet)
+  tab-mod (tap-hold $tap-time $hold-time tab (layer-while-held nav))
+  n-mod (tap-hold $tap-time $hold-time n esc) 
 )
 
 (deflayer base
   @a-mod @s-mod @d-mod @f-mod
   @j-mod @k-mod @l-mod @;-mod
+  @tab-mod @n-mod
+)
+
+(deflayermap nav
+  b bspc
+  n esc
+  k up
+  h left
+  j down
+  l right
+  o {
+  p }
+  u [
+  i ]
 )

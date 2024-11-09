@@ -11,5 +11,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
+vim.keymap.set("n", "<leader>ul", vim.cmd.Lazy, { desc = "Update lazy.nvim" })
+
 require("lazy").setup("shinshil.plugins")

@@ -15,7 +15,6 @@ return {
           },
         }
       })
-      vim.keymap.set('n', '<leader><leader>', ":Format<CR>", { nowait = true })
     end
   }
 }
