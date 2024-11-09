@@ -22,7 +22,7 @@ local config = wezterm.config_builder()
 -- configure theme
 config.hide_tab_bar_if_only_one_tab = true
 local modifiedCattpuccinMocha = wezterm.color.get_builtin_schemes()['Catppuccin Mocha']
-modifiedCattpuccinMocha.background = '#1d2021'
+modifiedCattpuccinMocha.background = '#1d2021' -- grabbed from my nvim theme
 config.color_schemes = {
   ['Catppuccin Mocha'] = modifiedCattpuccinMocha,
 }
