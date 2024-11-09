@@ -63,7 +63,6 @@ vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" 
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })      -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close (exit) current split" }) -- close current split window
 
-
 -- clear search highlights
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
