@@ -18,6 +18,7 @@ vim.keymap.set("n", "<leader>jf", ":e **/", { desc = "Jump to file" })
 vim.keymap.set("n", "<leader>js", ":grep ", { desc = "Jump to search" })
 vim.keymap.set("i", "<C-v>", "<C-r>+", { desc = "Insert from clipboard" })
 vim.keymap.set("n", "<C-v>", "\"+p", { desc = "Paste from clipboard" })
+vim.keymap.set("v", "<C-c>", [["+y]], { desc = "Copy to clipboard" })
 
 -- move cursor in command mode
 vim.keymap.set("c", "<C-h>", "<Left>", { desc = "Move cursor left in command mode" })
