@@ -1,17 +1,3 @@
-vim.g.mapleader = " "
-
--- configure lf
-vim.g.lf_map_keys = 0 -- disable default lf keybindings
-vim.g.floaterm_opener = 'drop' -- open floaterm in a floating window
-
--- attemp to show lf by default
--- vim.g.NERDTreeHijackNetrw = 0 -- Add this line if you use NERDTree
--- vim.g.lf_replace_netrw = 0 -- Open lf when vim opens a directory
--- augroup ReplaceNetrwByLfVim
-    -- autocmd VimEnter * silent! autocmd! FileExplorer
-    -- autocmd BufEnter * let s:buf_path = expand("%") | if isdirectory(s:buf_path) | bdelete! | call timer_start(100, {->OpenLfIn(s:buf_path, s:default_edit_cmd)}) | endif
--- augroup END
-
 vim.opt.number = false         -- turn off line numbers
 vim.opt.relativenumber = false -- turn off relative line numbers
 

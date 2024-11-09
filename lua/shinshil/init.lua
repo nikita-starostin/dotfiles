@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 require("shinshil.set")
 require("shinshil.lazy")
 require("shinshil.remap")

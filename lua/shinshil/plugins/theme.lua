@@ -7,11 +7,12 @@ vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
   end,
 })
 
--- END sync terminal color with nvim color
-
 vim.api.nvim_create_autocmd("UILeave", {
   callback = function() io.write("\027]111\027\\") end,
 })
+
+-- END sync terminal color with nvim color
+
 
 -- nice themes
 -- zellner light theme
@@ -28,15 +29,6 @@ function SetMyTheme(color)
   -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
   -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
-
-vim.keymap.set("n", "<leader>tt", function()
-  local currColor = vim.g.colors_name
-  if currColor == 'catppuccin-mocha' then
-    SetMyTheme('catppuccin-latte')
-  else
-    SetMyTheme('catppuccin-mocha')
-  end
-end, { desc = "Toggle dark and light theme" })
 
 return {
   {

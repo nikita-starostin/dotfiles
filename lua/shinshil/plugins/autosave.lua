@@ -17,6 +17,8 @@ return {
 				return true
 			end
 		});
-		vim.api.nvim_set_keymap("n", "<leader>ta", ":ASToggle<CR>", {});
+		vim.api.nvim_set_keymap("n", "<leader>ta", ":ASToggle<CR>", {
+      desc = "toggle auto save"
+    });
 	end
 }
