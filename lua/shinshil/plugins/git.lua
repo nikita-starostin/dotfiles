@@ -25,4 +25,9 @@ return {
       vim.keymap.set("n", "<leader>tb", vim.cmd.GitBlameToggle, { desc = "toggle git blame" })
     end
   },
+
+  -- fugitive vim
+  {
+    "tpope/vim-fugitive",
+  }
 }

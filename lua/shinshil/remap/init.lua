@@ -16,6 +16,8 @@ vim.keymap.set("n", "<leader>ss", ":%s/", { desc = "Start replace in the file", 
 vim.keymap.set("v", "<leader>r", [[y:%s/\<<C-r>0\>//gI<Left><Left><Left>]], { desc = "Substitute selection", nowait = true })
 vim.keymap.set("n", "<leader>jf", ":e **/", { desc = "Jump to file" })
 vim.keymap.set("n", "<leader>js", ":grep ", { desc = "Jump to search" })
+vim.keymap.set("i", "<C-v>", "<C-r>+", { desc = "Insert from clipboard" })
+vim.keymap.set("n", "<C-v>", "\"+p", { desc = "Paste from clipboard" })
 
 -- move cursor in command mode
 vim.keymap.set("c", "<C-h>", "<Left>", { desc = "Move cursor left in command mode" })
