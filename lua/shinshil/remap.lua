@@ -33,6 +33,10 @@ end
 -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>td', ":lua Toggle_venn()<CR>", { noremap = true, desc = "Toggle diagrams draw mode" })
 
+-- improve command mode
+vim.keymap.set("n", "<leader><leader>", ":", { desc = "Run command with double leader" })
+vim.keymap.set("n", "<leader>s", ":%s/", { desc = "Run command with double leader", nowait = true })
+
 -- allows to move selected lines up/bottom
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
@@ -63,6 +67,8 @@ vim.keymap.set("c", "<C-h>", "<Left>", { desc = "Move cursor left in command mod
 vim.keymap.set("c", "<C-l>", "<Right>", { desc = "Move cursor right in command mode" })
 vim.keymap.set("c", "<C-j>", "<Down>", { desc = "Move cursor down in command mode" })
 vim.keymap.set("c", "<C-k>", "<Up>", { desc = "Move cursor up in command mode" })
+-- exit from command mode on double leader
+vim.keymap.set("c", "<leader><leader>", "<C-c>", { desc = "Exit from command mode with double leader" })
 
 -- navigation between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to the window on the left" })
@@ -71,10 +77,10 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to the window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to the window above" })
 
 -- splitting windows
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })     -- split window vertically
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })   -- split window horizontally
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })      -- make split windows equal width & height
-vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
+vim.keymap.set("n", "<leader>wsv", "<C-w>v", { desc = "Split window vertically" })     -- split window vertically
+vim.keymap.set("n", "<leader>wsh", "<C-w>s", { desc = "Split window horizontally" })   -- split window horizontally
+vim.keymap.set("n", "<leader>wse", "<C-w>=", { desc = "Make splits equal size" })      -- make split windows equal width & height
+vim.keymap.set("n", "<leader>wsx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
 -- use jk to exit insert mode
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
