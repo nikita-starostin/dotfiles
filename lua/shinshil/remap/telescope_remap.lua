@@ -15,17 +15,17 @@ local builtin = require('telescope.builtin')
 local utils = require('telescope.utils')
 
 -- search in the directory, where current buffer is opened
-vim.keymap.set('n', '<leader>tsd', function()
+vim.keymap.set('n', '<leader>lld', function()
   builtin.find_files({ cwd = utils.buffer_dir() })
-end)
+end, { desc = 'look files in current buffer dir' })
 
--- search in the directory where nvim has been opened
-vim.keymap.set('n', '<leader>w', builtin.find_files, { desc = 'look in nvim directory' })
-vim.keymap.set('n', '<leader>lb', builtin.buffers, { desc = 'look for buffers' })
-vim.keymap.set('n', '<leader>lr', builtin.resume, { desc = 'look last picker' })
-vim.keymap.set('n', '<leader>lh', builtin.search_history, { desc = 'look for search history' })
-vim.keymap.set('n', '<leader>tsc', builtin.command_history, { desc = 'look for command history' })
+vim.keymap.set('n', '<leader>w', builtin.find_files, { desc = 'look files in project dir' })
+vim.keymap.set('n', '<leader>lb', builtin.buffers, { desc = 'look opened buffers' })
+vim.keymap.set('n', '<leader>lr', builtin.resume, { desc = 'resume last look' })
+vim.keymap.set('n', '<leader>lh', builtin.search_history, { desc = 'look in search history' })
+vim.keymap.set('n', '<leader>lc', builtin.command_history, { desc = 'look in command history' })
 vim.keymap.set('n', '<leader>lj', builtin.jumplist, { desc = 'look in jumplist' })
+vim.keymap.set('n', '<leader>lk', builtin.keymaps, { desc = 'look in keymaps' })
 
 -- greps
 vim.keymap.set('n', '<leader>lg', builtin.live_grep, { desc = 'look for a text in nvim directory' })
