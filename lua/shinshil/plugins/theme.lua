@@ -30,6 +30,17 @@ function SetMyTheme(color)
   -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
+-- toggle dark and light theme, has to be here to reference SetMyTheme
+vim.keymap.set("n", "<leader>tt", function()
+  local currColor = vim.g.colors_name
+  if currColor == 'catppuccin-mocha' then
+    SetMyTheme('catppuccin-latte')
+  else
+    SetMyTheme('catppuccin-mocha')
+  end
+end, { desc = "Toggle dark and light theme" })
+
+
 return {
   {
     "catppuccin/nvim",
