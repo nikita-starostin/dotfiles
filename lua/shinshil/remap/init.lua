@@ -3,6 +3,7 @@ require('shinshil.remap.dir-telescope_remap')
 require('shinshil.remap.oil_remap')
 require('shinshil.remap.diagrams_remap')
 require('shinshil.remap.lf_remap')
+require('shinshil.remap.scratch_remap')
 require('shinshil.remap.custom_remap')
 
 -- optimize some common keys to don't leave fingers from home row

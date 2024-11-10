@@ -13,7 +13,6 @@ vim.api.nvim_create_autocmd("UILeave", {
 
 -- END sync terminal color with nvim color
 
-
 -- nice themes
 -- zellner light theme
 -- slate default for now
