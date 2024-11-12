@@ -16,4 +16,13 @@ return {
   {
     'tpope/vim-surround',
   },
+
+  -- enhance navigation in code, so don't need to press n or ; multiple times
+  {
+    'smoka7/hop.nvim',
+    version = 'v2.7.2',
+    config = function()
+      require('shinshil.setup.hop_setup')
+    end
+  },
 }

@@ -4,6 +4,7 @@ require('shinshil.remap.oil_remap')
 require('shinshil.remap.diagrams_remap')
 require('shinshil.remap.lf_remap')
 require('shinshil.remap.scratch_remap')
+require('shinshil.remap.hop_remap')
 require('shinshil.remap.custom_remap')
 
 -- optimize some common keys to don't leave fingers from home row
@@ -14,12 +15,17 @@ vim.keymap.set("c", "<leader><leader>", "<C-c>", { desc = "Exit from command mod
 vim.keymap.set("n", "<leader><leader>", ":", { desc = "Run command with double leader" })
 vim.keymap.set("v", "<leader>n", "y<C-c>/<C-r>0<Enter>", { desc = "Run command with double leader" })
 vim.keymap.set("n", "<leader>ss", ":%s/", { desc = "Start replace in the file", nowait = true })
-vim.keymap.set("v", "<leader>r", [[y:%s/\<<C-r>0\>//gI<Left><Left><Left>]], { desc = "Substitute selection", nowait = true })
+vim.keymap.set("v", "<leader>r", [[y:%s/\<<C-r>0\>//gI<Left><Left><Left>]],
+  { desc = "Substitute selection", nowait = true })
 vim.keymap.set("n", "<leader>jf", ":e **/", { desc = "Jump to file" })
 vim.keymap.set("n", "<leader>js", ":grep ", { desc = "Jump to search" })
+-- vim.keymap.set("n", "<leader>g", [[:g//caddexpr expand("%") . ":" . line(".") . ":" . getline(".")<Home><Right><Right>]],
+  -- { desc = "Jump to search" })
 vim.keymap.set("i", "<C-v>", "<C-r>+", { desc = "Insert from clipboard" })
 vim.keymap.set("n", "<C-v>", "\"+p", { desc = "Paste from clipboard" })
 vim.keymap.set("v", "<C-c>", [["+y]], { desc = "Copy to clipboard" })
+vim.keymap.set("n", "gw", [[/]], { desc = "Remap default search" })
+vim.keymap.set("n", "gW", [[?]], { desc = "Remap default back search" })
 
 -- move cursor in command mode
 vim.keymap.set("c", "<C-h>", "<Left>", { desc = "Move cursor left in command mode" })
@@ -47,7 +53,8 @@ vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Yank to clipboard" })
 
 -- replace all occurences of the current word
-vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]], { desc = "Replace all occurences of the current word" })
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]],
+  { desc = "Replace all occurences of the current word" })
 
 -- exit from edit in terminal mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit from edit in terminal mode" })
@@ -59,9 +66,9 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to the window below" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to the window above" })
 
 -- splitting windows, using same keys as in terminal manager, just with leader
-vim.keymap.set("n", "<leader>=", "<C-w>v", { desc = "Split window vertically" })     -- split window vertically
-vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" })   -- split window horizontally
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })      -- make split windows equal width & height
+vim.keymap.set("n", "<leader>=", "<C-w>v", { desc = "Split window vertically" })             -- split window vertically
+vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split window horizontally" })           -- split window horizontally
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })             -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close (exit) current split" }) -- close current split window
 
 -- clear search highlights
