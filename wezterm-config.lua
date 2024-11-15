@@ -1,4 +1,5 @@
 -- that content should be copied by script to $HOME/.wezterm.lua
+-- in powershell that is scripted by me on startup see powershell/user_profile.ps1
 -- see for reference https://wezfurlong.org/wezterm/config/files.html
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
@@ -14,6 +15,30 @@ wezterm.on('gui-attached', function(domain)
       window:gui_window():toggle_fullscreen()
     end
   end
+end)
+
+-- that is for folke zen mode in nvim
+wezterm.on('user-var-changed', function(window, pane, name, value)
+      local overrides = window:get_config_overrides() or {}
+      if name == "ZEN_MODE" then
+            local incremental = value:find("+")
+          local number_value = tonumber(value)
+          if incremental ~= nil then
+                while (number_value > 0) do
+                  window:perform_action(wezterm.action.IncreaseFontSize, pane)
+                  number_value = number_value - 1
+              end
+              overrides.enable_tab_bar = false
+          elseif number_value < 0 then
+              window:perform_action(wezterm.action.ResetFontSize, pane)
+              overrides.font_size = nil
+              overrides.enable_tab_bar = true
+          else
+                overrides.font_size = number_value
+                overrides.enable_tab_bar = false
+            end
+      end
+      window:set_config_overrides(overrides)
 end)
 
 -- This will hold the configuration.

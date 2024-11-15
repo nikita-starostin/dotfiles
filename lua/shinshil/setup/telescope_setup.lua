@@ -44,7 +44,15 @@ telescope.setup {
           telescopeActions.move_selection_next, type = "action",
           opts = { nowait = true, silent = true }
         },
+        ["<S-Tab>"] = {
+          telescopeActions.move_selection_next, type = "action",
+          opts = { nowait = true, silent = true }
+        },
         ["<C-k>"] = {
+          telescopeActions.move_selection_previous, type = "action",
+          opts = { nowait = true, silent = true }
+        },
+        ["<Tab>"] = {
           telescopeActions.move_selection_previous, type = "action",
           opts = { nowait = true, silent = true }
         },

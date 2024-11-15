@@ -17,10 +17,15 @@ return {
     'tpope/vim-surround',
   },
 
+  -- better wrapping of long text
+  {
+    'preservim/vim-pencil'
+  },
+
   -- enhance navigation in code, so don't need to press n or ; multiple times
   {
     'smoka7/hop.nvim',
-    version = 'v2.7.2',
+    version = 'v2.7.2', -- hardcoded version according to advice from smoka7/hop.nvim
     config = function()
       require('shinshil.setup.hop_setup')
     end

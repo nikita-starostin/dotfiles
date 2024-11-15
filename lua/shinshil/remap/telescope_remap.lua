@@ -26,7 +26,7 @@ vim.keymap.set('n', '<leader>lh', builtin.search_history, { desc = 'look in sear
 vim.keymap.set('n', '<leader>lc', builtin.command_history, { desc = 'look in command history' })
 vim.keymap.set('n', '<leader>lj', builtin.jumplist, { desc = 'look in jumplist' })
 vim.keymap.set('n', '<leader>lk', builtin.keymaps, { desc = 'look in keymaps' })
-vim.keymap.set('n', '<leader>la', builtin.keymaps, { desc = 'look actions' })
+vim.keymap.set('n', '<leader>la', builtin.commands, { desc = 'look actions' })
 
 -- greps
 vim.keymap.set('n', '<leader>lg', builtin.live_grep, { desc = 'look for a text in nvim directory' })

@@ -30,7 +30,7 @@ vim.opt.hlsearch = false       -- don't highlight search results
 vim.opt.incsearch = true       -- highlight matches search when typing
 vim.opt.termguicolors = true   -- true color support
 vim.opt.scrolloff = 8          -- keep 8 lines when scrolling
-vim.opt.signcolumn = "no"      -- don't show sign column
+vim.opt.signcolumn = "auto"      -- don't show sign column
 vim.opt.isfname:append("@-@")  -- allow filenames with @
 vim.opt.updatetime = 50        -- update interval for rerendering the screen
 vim.opt.colorcolumn = "9999"   -- remove identline

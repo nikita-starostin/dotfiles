@@ -1,7 +1,7 @@
 return {
   -- extension for telescope to look for files in some special directory
   {
-    "princejoogie/dir-telescope.nvim",
+    "princejoogie/dir-telescope.nvim", 
     dependecies = { "nvim-telescope/telescope.nvim" },
     config = function()
       require("dir-telescope").setup({

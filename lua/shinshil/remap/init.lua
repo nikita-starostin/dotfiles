@@ -10,11 +10,12 @@ require('shinshil.remap.custom_remap')
 -- optimize some common keys to don't leave fingers from home row
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
 vim.keymap.set("n", "<leader>q", vim.cmd.Ex, { desc = "Show netrw" })
-vim.keymap.set("v", "<leader><leader>", "<C-c>", { desc = "Escape on tab from visual mode" })
+vim.keymap.set("v", "<leader><leader>", "<C-c>", { desc = "Escape from visual mode" })
 vim.keymap.set("c", "<leader><leader>", "<C-c>", { desc = "Exit from command mode with double leader" })
 vim.keymap.set("n", "<leader><leader>", ":", { desc = "Run command with double leader" })
 vim.keymap.set("v", "<leader>n", "y<C-c>/<C-r>0<Enter>", { desc = "Run command with double leader" })
-vim.keymap.set("n", "<leader>ss", ":%s/", { desc = "Start replace in the file", nowait = true })
+vim.keymap.set("n", "<leader>sf", ":%s/", { desc = "Start replace in the file", nowait = true })
+vim.keymap.set("n", "<leader>ss", ":s/", { desc = "Start replace in the string", nowait = true })
 vim.keymap.set("v", "<leader>r", [[y:%s/\<<C-r>0\>//gI<Left><Left><Left>]],
   { desc = "Substitute selection", nowait = true })
 vim.keymap.set("n", "<leader>jf", ":e **/", { desc = "Jump to file" })
@@ -26,6 +27,14 @@ vim.keymap.set("n", "<C-v>", "\"+p", { desc = "Paste from clipboard" })
 vim.keymap.set("v", "<C-c>", [["+y]], { desc = "Copy to clipboard" })
 vim.keymap.set("n", "gw", [[/]], { desc = "Remap default search" })
 vim.keymap.set("n", "gW", [[?]], { desc = "Remap default back search" })
+
+-- easy jumping
+vim.keymap.set("n", "1", "mA", { desc = "Put first mark", nowait = true })
+vim.keymap.set("n", "2", "mS", { desc = "Put second mark", nowait = true })
+vim.keymap.set("n", "4", "'S", { desc = "Jump to second mark", nowait = true })
+vim.keymap.set("n", "3", "'A", { desc = "Jump to first mark", nowait = true })
+vim.keymap.set("n", "<S-Tab>", ":bnext<Enter>", { desc = "jump to next buffer", nowait = true })
+vim.keymap.set("n", "<Tab>", ":bprev<Enter>", { desc = "jump to prev buffer", nowait = true })
 
 -- move cursor in command mode
 vim.keymap.set("c", "<C-h>", "<Left>", { desc = "Move cursor left in command mode" })
