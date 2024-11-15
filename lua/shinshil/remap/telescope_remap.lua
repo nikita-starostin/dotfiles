@@ -19,7 +19,7 @@ vim.keymap.set('n', '<leader>lld', function()
   builtin.find_files({ cwd = utils.buffer_dir() })
 end, { desc = 'look files in current buffer dir' })
 
-vim.keymap.set('n', '<leader>w', builtin.find_files, { desc = 'look files in project dir' })
+vim.keymap.set('n', '<Tab>', builtin.find_files, { desc = 'look files in project dir' })
 vim.keymap.set('n', '<leader>lb', builtin.buffers, { desc = 'look opened buffers' })
 vim.keymap.set('n', '<leader>lr', builtin.resume, { desc = 'resume last look' })
 vim.keymap.set('n', '<leader>lh', builtin.search_history, { desc = 'look in search history' })
@@ -27,6 +27,7 @@ vim.keymap.set('n', '<leader>lc', builtin.command_history, { desc = 'look in com
 vim.keymap.set('n', '<leader>lj', builtin.jumplist, { desc = 'look in jumplist' })
 vim.keymap.set('n', '<leader>lk', builtin.keymaps, { desc = 'look in keymaps' })
 vim.keymap.set('n', '<leader>la', builtin.commands, { desc = 'look actions' })
+vim.keymap.set('n', '<leader>ll', builtin.lsp_document_symbols, { desc = 'look lsp document symbols' })
 
 -- greps
 vim.keymap.set('n', '<leader>lg', builtin.live_grep, { desc = 'look for a text in nvim directory' })
