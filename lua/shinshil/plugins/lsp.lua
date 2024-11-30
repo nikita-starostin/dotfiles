@@ -65,21 +65,21 @@ return {
               fallback()
             end
           end,
-          ['<Tab>'] = function(fallback)
+          ['<C-k>'] = function(fallback)
             if cmp.visible() then
               cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
             else
               fallback()
             end
           end,
-          ["<C-j>"] = function(fallback)
+          ["<Tab>"] = function(fallback)
             if cmp.visible() then
               cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             else
               fallback()
             end
           end,
-          ["<C-k>"] = function(fallback)
+          ["<S-Tab>"] = function(fallback)
             if cmp.visible() then
               cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
             else

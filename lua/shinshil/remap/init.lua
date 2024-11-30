@@ -9,9 +9,8 @@ require('shinshil.remap.custom_remap')
 
 -- optimize some common keys to don't leave fingers from home row
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
+vim.keymap.set("c", "jk", "<C-c>", { desc = "Exit from command mode with jk" })
 vim.keymap.set("n", "<leader>q", vim.cmd.Ex, { desc = "Show netrw" })
-vim.keymap.set("v", "<leader><leader>", "<C-c>", { desc = "Escape from visual mode" })
-vim.keymap.set("c", "<leader><leader>", "<C-c>", { desc = "Exit from command mode with double leader" })
 vim.keymap.set("n", "<leader><leader>", ":", { desc = "Run command with double leader" })
 vim.keymap.set("v", "<leader>n", "y<C-c>/<C-r>0<Enter>", { desc = "Run command with double leader" })
 vim.keymap.set("n", "<leader>sf", ":%s/", { desc = "Start replace in the file", nowait = true })

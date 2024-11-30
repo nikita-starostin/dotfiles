@@ -38,6 +38,7 @@ telescope.setup {
     mappings = {
       i = {
         ["<C-s>"] = telescopeActions.file_vsplit,
+        ["jk"] = telescopeActions.close,
         ["<esc>"] = telescopeActions.close,
         ["<C-u>"] = false,
         ["<C-j>"] = {

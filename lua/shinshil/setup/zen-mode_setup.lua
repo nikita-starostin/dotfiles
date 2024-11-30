@@ -1,6 +1,6 @@
 require('zen-mode').setup {
   window = {
-    width = .5,
+    width = .7,
     height = 1,
     options = {
       signcolumn = "no",
