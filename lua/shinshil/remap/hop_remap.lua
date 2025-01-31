@@ -13,8 +13,9 @@ end, { remap = true, desc = "Hop to the previous character after the cursor" })
 vim.keymap.set('n', '<C-T>', function()
   hop.hint_char1({ direction = directions.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })
 end, { remap = true, desc = "Hop to the previous character before the cursor" })
-vim.keymap.set('n', 'g;', function()
+
+vim.keymap.set('n', 'gh', function()
   hop.hint_char2({ current_line_only = false, hint_offset = 0 })
   -- after jump, keep cursor in middle of the screen
   vim.api.nvim_feedkeys('zz', 'n', true)
-end, { remap = true, desc = "Hop to the previous character before the cursor" })
+end, { remap = true, desc = "Hop nvim for two characters" })

@@ -1,5 +1,5 @@
 require("scratch").setup({
-  scratch_file_dir = vim.fn.stdpath("cache") .. "/scratch.nvim",     -- where your scratch files will be put
+  scratch_file_dir = vim.fn.stdpath("config") .. "/scratch.nvim",     -- where your scratch files will be put
   window_cmd = "rightbelow vsplit",                                  -- 'vsplit' | 'split' | 'edit' | 'tabedit' | 'rightbelow vsplit'
   use_telescope = true,
   -- fzf-lua is recommanded, since it will order the files by modification datetime desc. (require rg)

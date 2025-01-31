@@ -6,6 +6,7 @@ require('shinshil.remap.lf_remap')
 require('shinshil.remap.scratch_remap')
 require('shinshil.remap.hop_remap')
 require('shinshil.remap.custom_remap')
+print("Remaps loaded")
 
 -- optimize some common keys to don't leave fingers from home row
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
