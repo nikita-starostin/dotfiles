@@ -1,26 +1,37 @@
-# Info needed
-## Other
-https://paxton.atlassian.net/browse/EAM-152 
-  waiting for approval from Jony, Amy
-https://paxton.atlassian.net/browse/EAM-59
-  Waiting for Amy to check status of the mapping service
-## TaxCode
-https://paxton.atlassian.net/browse/EAM-218  - I have added 1st comment from Oli - waiting for more
-https://paxton.atlassian.net/browse/EAM-217 - same as EAM-218
+# Daily
+*blocked* tax code validation - 1h
+  - *info needed* john tasker confirmation needed
+  - *blocker* api not working again
+
+*in progress* health service
+    update admin portal - 2h
+    run remix server - 4h, taken 6h
+
+*to do* implement system page for solo - 2h
 
 # TODO
+Update code review ticket
+
+## TaxCode
+https://paxton.atlassian.net/browse/EAM-218 - I have added 1st comment from Oli - waiting for more
+https://paxton.atlassian.net/browse/EAM-217 - same as EAM-218
+
 ## Other
 https://paxton.atlassian.net/browse/EAM-85 - Jony responded
  - TBD - how to prepare repo for prod
- - TODO - run a remix server in same container https://docs.docker.com/engine/containers/multi-service_container/
-## Ask katie for a big site to test
-https://paxton.atlassian.net/browse/EAM-194 
-  Try to set additional check for loading is length != 0 to show loading while list is being build
-https://paxton.atlassian.net/browse/EAM-30
-  Scroll to page issue
+ - TODO 
+  - run a remix server in same container https://docs.docker.com/engine/containers/multi-service_container/
 
-# SFRF
+## SFRF
 https://paxton.atlassian.net/browse/SFSR-1339 systems page
 https://paxton.atlassian.net/browse/SFSR-1340 systems > app users and system details
 https://paxton.atlassian.net/browse/SFSR-1341 systems > devices
+
+# Retro
+Edge cases for invoices are not looking great from UI perspective:
+1. empty dropdown with invoices just not clickabe
+2. it is possible to meet de-sync issue when paying an invoice because failure to talk to entry
+  - when starting payment session get better response from IA
+  - create next fields in the invoice: `paidInStripe`, `paidInStripeUpdatedAt`, `lastUpdatedAt`,
+    use that three fields to show processing state for invoice and avoid selection on the UI
  
