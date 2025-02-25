@@ -1,3 +1,23 @@
+# Jira Innovations
+
+1. get list of interesting tickets
+  - get from predefined filter
+  - get by assigned
+  - get by sprint
+  - get by latest commented and predefined filter
+
+2. get list of activities on the ticket
+
+3. get comments to tickets
+
+# Git LSP
+
+LSP server that checks files for // git-lsp comments
+
+for example, to put a mark that won't allow to commit file, because it has some code for debugging purpose
+
+NVIM is for kings, when you have some task, you are not strugling, but implement it
+
 # Start youtue channel from UX ideas for dev tools
 
 Tell about - no redunant things on the working area, clear top area, extendability, hotkeys, e.g.
