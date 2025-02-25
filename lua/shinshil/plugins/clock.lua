@@ -1,6 +1,8 @@
 return {
   {
     "registerGen/clock.nvim",
+    lazy = true,
+    keys = { "<leader>tc" },
     config = function()
       require("clock").setup({
         auto_start = false,

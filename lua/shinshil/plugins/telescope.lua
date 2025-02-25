@@ -3,6 +3,8 @@ return {
   {
     "princejoogie/dir-telescope.nvim", 
     dependecies = { "nvim-telescope/telescope.nvim" },
+    lazy = true,
+    keys = { "<leader>ld" },
     config = function()
       require("dir-telescope").setup({
         hidden = true,

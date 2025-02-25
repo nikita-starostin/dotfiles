@@ -1,6 +1,8 @@
 return {
   {
     'ptzz/lf.vim',
+    lazy = true,
+    keys = { "<leader>lf" },
     dependencies = {
       'voldikss/vim-floaterm',
     },

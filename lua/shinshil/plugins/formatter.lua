@@ -1,6 +1,7 @@
 return {
   {
     "mhartington/formatter.nvim",
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       require('formatter').setup({
         filetype = {

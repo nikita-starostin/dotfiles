@@ -15,7 +15,7 @@ end
 vim.keymap.set("n", "<leader>h", ShowInfo, { nowait = false, desc = "Show current file info" })
 
 vim.g.zenmode = false
-vim.keymap.set("n", "<leader>x", function()
+vim.keymap.set("n", "<leader>tz", function()
   if vim.g.zenmode then
     vim.g.zenmode = false
     vim.api.nvim_feedkeys(":ZenMode | PencilOff | set nolist\n", "n", true)
