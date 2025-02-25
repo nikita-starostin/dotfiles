@@ -1,3 +1,514 @@
+# Start youtue channel from UX ideas for dev tools
+
+Tell about - no redunant things on the working area, clear top area, extendability, hotkeys, e.g.
+- why I like floorp
+- why I like nvim
+- why I like terminal
+
+# idea for jira replacement/alternative UI
+
+big areas of epic visuall, and to close some task, e.g. vat need lot of people to work
+
+Task assigned to different persons
+
+WHen person open area he can visually see where his attention maybe ready
+Every his message, or action will add some weight to him.
+Based on that weights it will be easy to restore the full history of task and see what everyone was doing
+or just observing. E.g. PR = 2points, comment = 0.1 point, etc.
+
+ofc navigation should be possible in vim style
+
+use pull model with live updates for currently viewed item and notifications instead of online for higher loading speed
+
+# то. на что нужны деньги
+
+Покупать себе крутые спорткары, квартиры, дома, закрывать какие-то хотелки своей(их) женщин(ы)
+
+Открыть тренажёрный зал, танцевальный зал, предоставить их Серегею и Диане, которые меня сейчас тренируют
+
+Это будут как бы мои бизнесы, но в основном управлять ими будут Сергей и Диана, где половина дохода идёт мне, 25% Сергею и Диане, 25% оборот, реинвестиция
+
+Это будут места где дают реально работающие вещи. Какие-то новые вещи с пометкой эксперементально.
+
+В случае Сергея, ему можно дать во владение доп. клуб.
+
+Идея в том, чтобы Сергей и Диана передавали свои знания и квалифицировали новых тренеров.
+
+# Идея - много мониторов для ноутбука
+
+Я хотел нарисовать диаграмму для проги на планшете
+
+Пришло в голову, чтобы было бы прикольно сделать насадку на верх крышки ноутбука
+
+Чтобы на неё можно было прикреплять 1-3 больших планшетов, которые можно было бы настроить как доп. экраны
+
+Так как они сенсорные, то можно было бы на них же и рисовать
+
+Продукт - это держатели для экрана + софт для менеджмента этого добра
+
+Моя роль - найти людей из разных людей и организовать
+- кодеры для софта
+  - заканчивающие универ? Фриланс? Какое ОС должна быть на плашете? Что если планшет только как доп. экран
+- хард инженеры для держалки, которая может адапироваться под разные размеры ноутбука
+- реклама
+- сбыт
+- анализ рынка
+
+Кто может захотеть купить такую штуку - софт + держалка за 100 дол. 
+100 дол выглядит как трпимая цена для сеньора с доходом 3к дол.
+
+Если продать 1000 сеньров, то это 100,000 дол. если в проекте 5 человек - половина мне. каждому по 10к
+Можно вложиться в меньшие деньги.
+
+Как мне зарабтать, а не тратить? 
+Шаг 0 - сделать за дёшево версию для себя, чтобы было что попиарить и проверить возможность сделать за дёшево
+  > 3Д печать могут сделать здесь за 20-60р https://craft3d.by/ceni/
+    тут же могут сделать и 3д моделирование, но вдруг они попробуют скоммуниздить идею, вдруг у них нету чести?
+    ну с учётом фактора скорости и дешёвости это выглядит как наиболее оптимальный вариант
+    по идее их же можно будет использовать для поточного производства
+  > Софт чтобы использовать планшет как 2й экран https://remontka.pro/android-as-2nd-monitor/
+  > так-то выглядит, что продаваться будет только механическая штука. с себе стоимостью допустим 50р, ну пусть продаётся за 250р
+250 * 100 = 25000 дохода, можно создать таблицу в эксель с коэф. вероятности покупки в зависимоати от цены и охвата,
+например, при цене 100р и охвате 1000 - 100 купит, и при цене 200р и охвате 1000, 10 купит, также нужно учесть момент с доставкой,
+т.е. если будет слишком много заказов, может быть сложно доставить, посмотреть каналы сбыта - вб, али, озон (брат может)
+> раскрутить канал на ютуб по проге - azure, nvim, general (например, всякие типы про хороший код, или солид, мб ar hitecture)
+
+  чтобы оправдать начальный вариант, можно сделать 2 версии одна хардкор, другая про
+  3д принтер + телега для апк вначале, а про версия позже
+  3д принтер стоит всего 1000-2500 рублей.
+
+  найти людей, которые запилят это чисто для меня по приколу
+
+  для рекламы вначале "что-вроде для тех, кто готов немного разширить свой воркфлоу"
+  поснимать видео с юз кейсами
+
+  3д принтер + инженерка, возможно это отличный вариант для моего брата, он вроде как шарит в работе руками
+  софт - посмотреть форумы, спросить на стак оверфлоу
+  как устанавливать софт на планшеты? Можно через андроид - через скачку апк файла, **можно распространять апк файл через телегу вначале**, или позже через плеймаркет
+  **вначале можно давать скидку за отзыв**
+  можно найти студента, который будет рад доп. деньгам, например, 300$ + он получит опыт реальной дистрибьюции приложения
+Шаг 1 - разпиарить идею, через свой ютуб канал о софте
+Шаг 2 - поднять деньги на предзаказах и кик стартер, возможно инвестициях откуда-то
+Шаг 3 - поставить на поток, используя людей с шага 0, брат сможет заниматься доставкой, ему + кеш, и изучать 3Д если заинтересуется
+Шаг 4 - если всё по плану, то это 100к, где половина мне, а половина реинвестиция - зп, материала, реклама
+Шаг 5 - поставить на поток
+
+Распространение софта могу через веб сделать сам
+
+Инженерную штуку сделать через 3д принтер, позже через реинвестиции можно сделать более дорогую версию
+через лучшие материалы, вначале позволит сэкономить на материалах
+
+Сделать рекламу, найти людей, которые могут это сделать.
+Через рекламу организовать предзаказ.
+Или сделать сбор на кик стартер.
+Или и то, и другое.
+
+
+# Work for programmers - change landscape of industry
+
+Can start from one manufacture for testing.
+
+Business profit - easier monitoring,
+more people want to work at that company *earn more*,
+higher quality.
+
+*Cut costs* for some extra hard work.
+
+Man profit - remote work.
+
+The issue, goal is not match with goal earn more, that is behind lot of companies.
+
+Input - lot of coders, people want to make money, people want to work remotely.
+
+Solution - create a big software product, where people would be able to control robots to do work
+
+Bug software product - lot of work for lot of devs, lot of teams
+
+Lot of investment
+
+That is basically an attempt to bring money from outher industries when possible.
+
+For example, use robots to bring things. Because of human control it is possible.
+Also human able to work remotely. 
+But it is more spendings for hotel, since they will need to pay for robots and software.
+Before - just for people.
+
+But, what if people want that? Lets the create a vote and government start sponsor that system.
+
+Robo system on taxes from government. 
+
+People can work remotely, developers have work.
+
+Development allows to use lot of analytics and monitoring for best proffesionals.
+
+Actually such project creates really a huge amount of questions - e.g. privacy.
+
+# My plugins
+
+Usage report of my plugins
+
+# VIM regex in nutshell
+
+Basica rules of regex in vim and lot real world samples of could be done with it
+
+https://stackoverflow.com/questions/96826/vim-how-do-i-search-for-a-word-which-is-not-followed-by-another-word
+
+# znatoki dev - feels like cool
+
+Znatok would strong, sexy, clever, with lot of cool characteristics
+
+Kinda looks like a good start for my community I wanted to create
+
+I can start from azure, just need to check what frameworks and tools are being used in itransition, 
+
+Create a game, where people are compete in knowledge of different frameworks.
+
+On start simple questions on the random frameworks
+
+Closer to end smth very confusing, e.g. vim golf, or like the next:
+
+For example, question will that work in windows command prompt "az container create \
+    --resource-group myResourceGroup \
+    --name mycontainer2 \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest 
+    --restart-policy OnFailure \
+    --environment-variables 'NumWords'='5' 'MinLength'='8'\
+"
+
+Answer no, because in CMD need to use double quoutes
+
+
+# Nice commen about nvim
+
+https://www.reddit.com/r/neovim/comments/17g1ekc/comment/k6dlo6z/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+
+```
+Personally, I enjoy having a PDE (personal development environment). While I work, neovim feels like an extension of my brain fine tuned to the way I work. But also fine tuned differently depending on the project I’m working on.
+
+I don’t wish to go back to an experience designed by someone else for everyone else.
+
+Not just that but neovim has a bigger community, so for the things that I don’t want to spend my time developing, there’s probably already a plug-in for that.
+
+Having a bigger community also means there’s a higher likelihood that bugs will be fixed faster.
+```
+
+# Thoughts about girls 1
+
+The good below is some kind of represtantion of me in the relationship
+
+Good - belive in me, supports my dreams, honest, in controlling of her wishes, ready to pay and invest into relationship
+
+Bad - don't believe in me, don't support my dream, ready to play games but not ready really to pay or invest
+
+Why not to consult about that with Andrew and his friends?
+
+Take his habbit to tell a good question.
+
+# Product - Fast learning
+
+If smbd want to aquire the new skill - provide the best course, that would allow to do that in shortest time
+but with high quality
+
+For example, for azure I have already tests, need to add some tasks, mentors, and it will be a ready to go solution
+
+That will be a new learning model with the really cool instruments for self-preparation and real mentors
+
+# Rubrica - NVIM astranaut in the ocean
+
+Showing some really crazy vim stuff in with the cuplet from astronaut in the ocean
+done in the bits with me in the left bottom orner vibing in the song while typing that.
+
+sample:
+1. generate guids from api request and insert them into '' quotes for processing file
+
+# NVIM channel
+
+Use few different channels or playlist for different goals?
+
+Need to consult about youtube alghorythms with smbd about that.
+Feels like one channel about dev and one channel for philosophy is alright.
+
+but all of them should start from ShinShil, e.g.
+#ShinShil_nvim
+#ShinShil_architecture
+#ShinShil_developer_school
+
+I have been using:
+1. Visual Studio - 5 years
+2. VS Code - 5 years
+3. Half of IntelliJ instruments - 5 years
+4. Turbopascal, delphi - 2 yeas
+5. Sublibe, atom, notepad, netbeans - 1 year
+6. datagrip, MS Sql Server, lot of git clients, 
+
+For development. And my 
+
+Intro video - my mood when using different editors
+ - office worker a little boring doing his work with different IDEs
+   with meter of satisfaction in the brain (in the brain boring monkey)
+    - long opening project
+    - too hard UX
+    - hard to switch between projects
+    - no customization when working on laptop
+    - no customization for some keymaps
+ vs
+ - using terminal + nvim - astrounaut in the ocean dance 
+     on first part - type nvim in terminal and hit enter with the drop
+       check that everything is resolved - slow surpise and start dancing and vibing 
+       untill end of the 2nd part
+     on second part start doing some project in the bits of the music, showing the full power of nvim
+     for editing some stuff - create a project in untill end of the song
+     meter of fun should be super high and vibe on very nvim feature
+     from to time show title with task, and then resolving it with vibe in nvim style
+
+# Nvim - Multicursor
+
+Show different variants of multicursor
+https://www.reddit.com/r/neovim/comments/tyg650/i_still_want_multiple_cursors_and_ive_been_using/
+
+Conclusion, some time ago when using Rider/VS code/ visual studio, I was a fun of multicursor, but with time,
+ I used to macros, and now feel that they like way more powerfull,
+ and that I was too addicted to seing all the changes on screen,
+ it gave me feeling that I am doing 10x work xD
+ For today I am really happy with macroses and native vim things,
+ and don't want to go back for multicursor.
+
+ Morever I am even using neoclip to store some macroses and replay them xD, really handly for me
+
+
+# Rubrica - Vipendrivaus s NVIM
+
+Rubrica of short videos, where I show smth done with common IDE And something done with NVIM
+
+Examples:
+
+0. Ability to add your own features and ideas instead waiting for ages from community. E.g. show some simple request ticket and sad pink elephant dev. And happy nvim user implementing that in his own.
+1. open current file in browser with hotkey
+2. execute selection in terminal command
+3. use macros for some work, for example, my last formatting when copying content from deep seek
+4. macros with quickfix list
+5. adding same translation keys in multiple lang files
+6. history of macroses
+7. use hotkey to do some cool stuff
+8. remove everyhing that distract me from doing my work
+9. open PR with one button
+10. Using macros to generate multiple files in some format - show on different projects to explain why it is so beneficial
+11. Show language universally when working on the repo with html, js, dotnet, bicep, yaml, powershell, dockerfile, e.g. before - open many editors, now just nvim
+12. customization with scripts
+13. comfortable hotkeys that allow to not break fingers when doing some stuff, for example, opening and navigating in files with tab instead of arrows
+14. using macros to split multiline from powershell with \ character at the end of every raw
+
+and more
+
+# NVIM Plugins
+## transform actions
+
+Set of macroses that allow to do different manipulations in macros way, for example,
+
+1. change different cases
+2. wrap
+3. save recorded macros to history
+4. apply some action across files
+
+# Community of high qualified masters
+
+Extra goal - should be easy to aquire new skill that requires knowege for focus person
+
+For example as a product cool courses with cool auto-tests, checks 
+
+That also could be used to create progress in areas, that could create value, but not money,
+  for example, more cool nvim plugins/frameworks))
+
+Today pretty much offers for people who want to take rest,
+  or who knows how to controll attention,
+  but not really much offers for people who to be a specialist in some field.
+
+Create community of experts.
+
+Membership in that group should MEAN that it is a premium class specialist,
+  that brings the reputation of the group,
+  that will provide the best possible stuff
+
+Main goal is support growth and to provide first class specialists in the area, for example,
+  first class developers, that will make performant, secure, robust aplication which is comforable to use.
+  so basically, any who is compete for authority, should have some variant,
+  to leave as a master. Provide some money, that should be enough to not worry about money.
+  Also should be a rule to work at least 4 hours a day on speciality. On some good work some benefits should come,
+  e.g. money bonuses, or guild credits, that could be decided on every month council meeting.
+
+No shared money in the group. Every member should earn on their own.
+**However (come from opentowork from Junior spec), not sure if bussiness can cope with it, feels like maybe should be kind of quotas for some amount for members,
+just for growing and practicind and learning already known issue**
+
+However, members can use their money to close some community tasks on demand.
+
+Plus makes sense to create a small payouts that will allow members to not work.
+
+The money should be enough for leaving good life - gym, house, food, few girls
+
+Members will be a bank, they will get benefits from creating stuff for other members.
+
+For example, somebody will is able to provide some cool laptops on lower price,
+  that person should take a reward. The reward will mastery points.
+  I am trying to **remove influence factor**, person should not got authority, person should
+  do such things because of willing to make investment into group,
+  not because person want to get some power from the group.
+  of cours that will create some direct influence, but at least not direct
+  that why every member has to be indepent on their own
+  to avoid dependency of the community on anyone authority/support
+
+  **main value** should be **idea**, the membership also should provide 
+  some benefits like reputation in the out world
+  that idea should provide a path for specialist and provide them
+  a way to become socially happy because of their skills
+  also creating a unity of them is pretty nice thing
+
+  **because idea is main value**
+   - no material benefits - e.g. centralized control of money 
+   - members should pay small money for being part of community, that money for me and others 
+     who support community, that is just a paying work to manage community
+   - members should create material themselves, for example, somebody can ask another man
+     to support him, while he is without work, or went to take a rest, support for others
+     should be part of ideology, also at the same time, ideology should not allow to be without
+     creating value
+   - main idea of ideology is to support and inspire for practicing skills. Members should be 
+     already a proffesionals. They should be like a family with huge respect for others,
+     be patient and calm. E.g. the case above with supporting somebody should not be an issue.
+     Such things could be automated, e.g. on the website should be information on who is without
+     work, who with work. The better variant then bringing somebody just in debt, is to provide him work.
+     Community of masters, can find some usefull job for the master, who wish to do smth.
+     The minimum amount of time is 4 hours a day, which basically should be ok for master.n
+     However, masters, with high chances will want to work themselves, since it is one of goals
+     of idelology. 4 hours, because work for life, not life for work
+     **So main idea. Work for life, not life for work, at the same time save best KT
+       and stimulate spending time onto becoming an expert**
+       Ideology stategic points:
+       - no material benefits for members
+       - members will create benefits themselves for others
+       - members will be learned how to deal with woman
+       - woman will be learn how to deal with man
+       - being an expert should be stimulated
+       - being an independent, confident, kind, generous, active human, should be stimulated
+       - being a good human just for good human, should be stimulated (because community has to deal with the out world, that may leave on other rules)
+       - it should be hard to become a member of the group, including lot of tests to pass ideology block
+         - however, everyone can become a member of sub community, where he will able to get smaller benefits
+           just because of following ideology. Should be lot of tests for ideology and lot of practical work
+           so submember shold understand the goals. 
+       - if member is not agree with ideology, he can discuss that
+       - **main rules**
+         - become a member hard - hard skills + soft skills + stricy ideology checks
+         - membership should not provide any benfits for free, it should provide some evidence of being good human
+       - should provide some way to have sex if man has no love and not feeling a piece of shit
+         , however, it still will be smth not suitable for everyone, since it is still too personal
+         **how to deall with keeping personal personal, but helping in fight with depression?**
+
+  exchange of effort on income will be different thing, called a business,
+  for example, person may buy/reserve some time of experts for their needs
+  before exchange it should clean, what group will do for that person
+
+  so basically, the main value of community should be an idea
+
+  however, also some passive income for every member, who want to be free from work,
+  that will be possible from other members support
+  also person without work can be called to some work by somebody else from community,
+  who creates money, of course not too often, since otherwise that will be the work
+
+  the person without work, has to do smth usefull from to time, for example,
+  teach somebody, or make sombody life easier, for example, create some nice nvim plugin.
+  so, without work, means more freedom, but not mean without value
+  after some period of time without value person will become in debt state,
+  once he start making money he should pay the debt
+
+  at some point of time person will be excluded from the group *bad idea, since it destroys the original idea to make idea the main goal* 
+
+  More mastery points will mean more influence and higher rank.
+  If someone want to get such master, he should pay more.
+  Also more mastery points provides more access to the guild bank.
+  Mastery points can exchanged to money or it is possible to buy some internal stuff on that mastery points.
+
+Yes, we need guild bank, so masters can put their some stuff
+
+I will be the first developer. Looks like I need few more genius.
+
+The goal is to create a goal for professionals.
+
+To become a member need to collect reviews from others.
+And bypass the enter exam. The rule on the exam.
+The exam should be hard, but complitable, during exam 
+need to speek with 5-10 other experts.
+
+The membership will be a real evidence of professionality in some field.
+
+Should be a serioud punishment for lye. The goal is to create a reward for thos who want to become a specialist.
+
+The persons here should be really creating cool results.
+
+E.g. I can create system ticket system in just few months in SOLO. 
+
+The person in that guild will be responsible for the reputation of that masters.
+
+The persons will have access to chat with that masters, where he can ask for the help.
+
+The main issue is how to manage authority in that community.
+
+The good variant looks like to automate money split.
+
+Hierarchy should be really strict, creating more or less good conditions for others members.
+
+Leaders may have access to better resources, but they are not allowed to use that resources for their bussinesses.
+They will have access just for 1% extras for their needs.
+Since leaders are responsible for tracking the whole picture, maybe somewhere more investment required
+to keep proffesioanl knowledge and progress.
+
+Leaders = RESPONSIBILITY and compitenence. That is a role that requires both hard skills,
+because without hard skills, will be too hard to understand what they control,
+and some soft skills as well, people are still people
+
+They also has to be man by: 
+
+Пацаны
+1) Усердно тренируйтесь
+2) Держите своё слово
+3) Правильно питайтесь
+4) Расставляйте приоритеты в важных вещах
+5) Не позволяйте порокам выходить из под контроля
+6) Получайте удовольствие только в том случае, если вы этого заслуживаете
+7) Относитесь к людям с уважением
+8) Будьте готовы учиться
+
+И также этот человек должен обладать успехом и опытом с противоположным полом
+обладать некоторым влиянием и опытом в сфере бизнеса, т.е. быть альфой
+
+Эти требования к руководителю важны, потому что это то, какими хочется видеть участников
+
+Действительно надёжных, преданных, умных проффесионалов, 
+чтобы членство в этом клубе было реально стоящим.
+
+Стремление к качеству, будет девизом.
+
+Это очень ответсвенная роль по поддержанию работоспособности сообщества
+
+
+
+# Rubrica - Crazy Stack
+
+CRUD app with system design explanation on some unusual stack
+
+Example of such stack - using cosmos db procedures
+
+Every time different apps and differet stacks, so different approaches scaling
+
+For example CRUD application 
+
+# About polite payments
+
+Issue - aggressive marketing
+Sub Issue - when hard to cancel subscription
+
+Good sample - midjourney can where it is easy
+
+Solution - we customers we can choose when it is possible
+
 # Channel for thous who love working and would like to see results
 Why are we working, because we want to see some results
 Very said to work and no results
@@ -23,9 +534,33 @@ I think lot of developers who coding can benefit from using vim.
 *quite rock in the background*
 VIM like a gym, do you want strong body? Start going to gym.
 VIM like a personal house that like say goodbye to parents (IDE) and go on your own house
+
 VIM is the way to get a real enjoy from the process of writing code and anything else,
   it is allows to stay focus in literally in touch with the thing you are doing.
   At least, I feel the project like on endings of my fingers.
+  I mean any pattern could be converted in the short combination of keys
+    and with muscle memory with time that combinations start feel vary native
+    and increase speed and comfort of writing and navigating code a lot
+    if you ever played games like MOBA you may know difference between quick cast with hotkey and manual cast with mouse
+    it is very similar, just instead thunder (zeus ult screen), I can cast smth like 'delete everything between gaps'
+    and the nicest thing the I am crafting that skills, you know, prev screen was from dota
+    so it is closer to invoker with infinite amount of skills, like in video of well known dota youtuber
+    mipo negoroi and invoker in god tier
+    most of the time that skills - are the first letters of the words, lets say delete inside (, or change surround ' to "
+    you can see it is relatively simple to remember and integrate with native language
+    that is a good start
+    once you are really familiar with that you are ready to some advanced mappings - positional
+    some mappings are not for remember with native language, but to save your wrists when typing a lot
+    it is not a joke, try your self typing really fast (100 characters a minute) for few hours
+    if you are using different buttons like ctrl, alt, shift, you will start feel pain in wrists
+    that why position is important
+    hjkl - may look weird but compare it with arrows or even arrows on laptop in terms of comfort for pressing
+    you see? It allow to keep your hads on home raw all the time.
+    For that reasons for example, I have reassigned some shortcuts in vim for more comfortable from position point of view buttons
+    It is easier then it may seems, with time that skill of remembering new keybindings also improves
+    Most of the time I am trying you mnemonic shortcuts and use comfort for the most used shortcuts
+    Defenitely makes sense. *Show screenshot where user types comment to the youtube video "Wow, defenetily makes sense"*
+
 VIM just impressive because it allows to me do things EXACTLY as I want.
 
 *volume increased Rock in the background*
