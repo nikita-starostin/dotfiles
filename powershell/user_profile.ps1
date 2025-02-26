@@ -53,9 +53,11 @@ Enable-TransientPrompt
 $ENV:STARSHIP_CONFIG = Join-Path (Get-ScriptDirectory) '../starship.toml'
 
 # copy wezterm config to the right location
-$WEZTERM_SOURCE = Join-Path (Get-ScriptDirectory) '../wezterm-config.lua'
-$WEZTERM_TARGET = Join-Path $HOME '.wezterm.lua'
-(Get-Content -path $WEZTERM_SOURCE) | Set-Content $WEZTERM_TARGET
+# commeted to speed up load time
+# $WEZTERM_SOURCE = Join-Path (Get-ScriptDirectory) '../wezterm-config.lua'
+# $WEZTERM_TARGET = Join-Path $HOME '.wezterm.lua'
+# (Get-Content -path $WEZTERM_SOURCE) | Set-Content $WEZTERM_TARGET
+Write-Output "Wezterm copy config is commeted in the user_profile.ps1 to speed up load time"
 
 # setup env variable to use glazewm (window tile manager for windows)
 $GLAZEWM_CONFIG_PATH = Join-Path (Get-ScriptDirectory) 'glazewm-config.yaml'

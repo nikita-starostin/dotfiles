@@ -1,7 +1,7 @@
-- update icon
-- check font for numbers in widgets in the home
-- move circles more to the left on the home page
-- add back arrows for all the forms in the systems
+- update icon +
+- check font for numbers in widgets in the home +
+- move circles more to the left on the home page + 
+- add back arrows for all the forms in the systems 
 - add gap in paxto entry site details
 
 # sites

@@ -16,10 +16,10 @@ return {
   },
 
   -- plugin to surround text with brackets, quotes, etc.
-  {
-    'tpope/vim-surround',
-    event = { 'BufReadPre', 'BufNewFile' },
-  },
+  -- {
+  --   'tpope/vim-surround',
+  --   event = { 'BufReadPre', 'BufNewFile' },
+  -- },
 
   -- better wrapping of long text
   {

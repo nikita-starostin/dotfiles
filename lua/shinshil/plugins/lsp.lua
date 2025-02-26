@@ -2,7 +2,7 @@ return {
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { 'InsertEnter' },
     cmd = 'Mason',
     dependencies = {
       'neovim/nvim-lspconfig',
