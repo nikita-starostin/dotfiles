@@ -1,3 +1,27 @@
+# Поел и
+
+Человек делиться тем, что у него есть, наполняйте людей хорошими вещами и они будут делиться хорошими вещами.
+
+# Software that NOT trying to steal your soul - Create faster then AI, create on the speed of thought
+
+What soul lost by software.
+
+Image of brain with some goal.
+
+How the goal is destroyed by accident adv.
+
+Arch
+NVIM
+Floorp
+
+Minimal focus care UX with super high productivity allowing to work with the speed of thought
+
+Loterally on NVIM my flow just replicate my thoughts immidiadtely I don't need to wait for IDE
+
+So tired from that with other IDEs.
+
+Event don't want to open them.
+
 # Jira Innovations
 
 1. get list of interesting tickets

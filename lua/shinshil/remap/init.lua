@@ -84,3 +84,9 @@ vim.keymap.set("n", "<leader>d", "<C-x>", { desc = "Decrement number" }) -- decr
 vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
 -- previous buffer
 vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
+
+-- next quickfix
+vim.keymap.set("n", "]q", ":cnext<CR>", { desc = "Next quickfix item" })
+-- previous buffer
+vim.keymap.set("n", "[q", ":cprevious<CR>", { desc = "Previous quickfix item" })
+

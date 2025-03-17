@@ -63,11 +63,6 @@ return {
   -- install with yarn or npm
   {
     "iamcco/markdown-preview.nvim",
-    lazy = true,
-    event = {
-      "BufEnter *.md",
-      "BufEnter *.org",
-    },
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     build = "cd app && npm install",
     init = function()
