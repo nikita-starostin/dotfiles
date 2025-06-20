@@ -60,14 +60,13 @@ $ENV:STARSHIP_CONFIG = Join-Path (Get-ScriptDirectory) '../starship.toml'
 Write-Output "Wezterm copy config is commeted in the user_profile.ps1 to speed up load time"
 
 # setup env variable to use glazewm (window tile manager for windows)
-$GLAZEWM_CONFIG_PATH = Join-Path (Get-ScriptDirectory) 'glazewm-config.yaml'
-$GLAZEWM_ENV_NAME = 'GLAZEWM_CONFIG_PATH'
-[Environment]::SetEnvironmentVariable($GLAZEWM_ENV_NAME, $GLAZEWM_CONFIG_PATH, [System.EnvironmentVariableTarget]::User)
+# $GLAZEWM_CONFIG_PATH = Join-Path (Get-ScriptDirectory) 'glazewm-config.yaml'
+# $GLAZEWM_ENV_NAME = 'GLAZEWM_CONFIG_PATH'
+# [Environment]::SetEnvironmentVariable($GLAZEWM_ENV_NAME, $GLAZEWM_CONFIG_PATH, [System.EnvironmentVariableTarget]::User)
 
 # Alias
 Set-Alias o OpenWithNvim
 Set-Alias vim nvim
-Set-Alias rd rider64.exe
 Set-Alias od OpenDev
 Set-Alias op OpenProjects
 Set-Alias oc OpenConfig
@@ -80,6 +79,8 @@ Set-Alias nlist NugetListPakckages
 Set-Alias nadd DotnetAddPackage
 Set-Alias dclean RemoveBinAndObj
 Set-Alias sclean RemoveShada
+
+Write-Output "Alias set"
 
 # Utilities
 
@@ -127,7 +128,9 @@ function GetBookmarks() {
 	$bookmarks = $devProjects + $projects + $danceLifeProjects + $devProjectsOnDDrive + @(
 		'C:\agents\dance-life',
     'C:\users\n.starostin\Downloads',
-    'C:\users\n.starostin\AppData\Local\nvim'
+    'C:\users\n.starostin\AppData\Local\nvim',
+    'C:\users\n.starostin\OneDrive - Itransition Group\projects\obsidian\public_vault',
+    'C:\users\n.starostin\AppData\Local\nvim\kanata'
 	)
 
 	return $bookmarks
@@ -169,3 +172,5 @@ function killProcessOnPort($port) {
     Stop-Process -Id $process.Id
   }
 }
+
+Write-Output "Done"

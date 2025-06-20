@@ -1,3 +1,243 @@
+# Minimal society basement
+1. Everyone should have access to food and place to leave
+2. Should be possibility to create some value and exchange to another value
+3. Soul values should be on top for people
+4. Authorities should be strong
+5. Some big idea that unite everyone
+
+# Why Vim
+
+## Idea for Intro slide on every video
+Is typing a hard thing? I don't know how is it for you,
+but for me I am just thinking some words and my fingers do it almost automatically
+
+I mean typing is a pretty solid expressions of my thoughts, it is very close to how I speak.
+
+Vim designed so well, that it allwos me to manipulate text a lot in similar way once I learned shortcuts.
+
+I just think and my fingers almost immideately performa actions that I want.
+
+Basically I think that the reason behind shortcuts, but vim just takes to the next level.
+
+It provides a wide range of action you can do, and they can be combined into sentences.
+
+Though as blind typing using vim is a skill that takes some effort to aquire.
+
+Thoudh it is also rewarding.
+
+## VIM math
+
+Look here foranother idea of comparing vim
+
+## VIM basics
+
+Explain basics + link to my test system. With 3 days for free, which should be enough to learn basics.
+
+## VIM substitute
+
+## VIM macros
+
+## VIM registers
+
+## VIM commands
+
+## Setup command line
+
+## NVIM from scratch
+
+## NVIM telescope
+
+## NVIM LSP
+
+## NVIM community plugins 
+
+suggest my organization for easy navigation
+
+lets cover some thoughts on the open source philosophy
+
+suggest to keep plugins free, but try to make some payments to support plugins that you really love and use
+
+we should keep it open source, since it is about important piece of philosophy where you can alwayws create your own kingdom,
+but as users we can extra reward the values created by others
+
+so, try to be in balance, try to create value and keep doing what you doing from you heart, and don't forget to add 'thank you' link into your plugin
+
+so, one more time, here the idea is to continue stimulating creating values for others
+
+## NVIM API, creating own plugin
+
+## NVIM my interface
+
+## Extras - keyboard driven workflow
+
+1. edge shortcut for switching tabs
+2. floorp customization
+3. cross platform tools in dotfiles
+4. hotkeys in ms teams
+5. split keyboard with mouse support
+6. mouse - when to use
+7. planchet
+8. Mouse with roll and 32 gestures
+
+# Я думал, кому то нравятся страдания
+
+Я думал, кому-то могут нравиться страдания, но делая упражненение на стопы, я понял,
+что это напряжение в процессе "страдание", нервная система воспринимает его как норму,
+что естественно, ведь в процессе эволюции столько приходилось "напрягаться"
+
+Нервная система - словно химический завод, или тело, которому нужен определённый набор 
+веществ для нормального функционирования, напоминаю, что все аналогии фальшивы
+
+Когда тело ест еду, телу не важно - оно было украдено, или нет, вещества всё равно идут на польу организму.
+
+Если с едой всё в целом понятно, и есть варианты, как это всё удовлетворять без воровства, то с потребностями нервной системы
+несколько сложнее
+
+тем более, что многи потребности рождаются из мыслей, а мысли часто рождаются в качестве отражения социума,
+который в прошлом был построен сильными и ими же были утверждены правила, по которым кто-то достойный, а кто-то нет.
+И как быть, если я по этим правилам не прохожу?)
+
+Становиться самому сильным и диктовать свои правила
+
+- медиатации
+- чтение
+- размышения
+- тренажёрный зал
+- развитие
+- доход
+- соц. взаимодействия без сдачи своих позиций
+
+
+# Idea about паттерны психики
+
+Психика адаптируется под те системы, с которым человек взаимодействкет не ежедневной основе
+
+Отсюда проблемы программистов, работающих как правило с плохим софтом:
+1. софт не спорит
+2. софт делает ровно то, что ты ему скажеь, не понимает полутонов или эмоциональных вещей
+3. софту наплевать на твою жмоционалку
+4. софт чсто подтармаживает, т.е. психика привыкает подождать перед началом действия
+(заметил, что когда начинаю писать от руки я начинаю ждать, т.к. моя психика как будто по привычке ждёт)
+(когда печатаю, это может быть загрузка и какой-то сигнал о том, что можно печатать, т.е. психики привыкает ждать сигнала, что можно что-то делать)
+
+Системы есть разные, например, системы знакмств на улице, или систем знакомств 
+или системы семья - приучивание психики к определённым реакциям в разных ситуациях
+
+Однако психика бездумна и не умеет различать системы, она просто тренируется выдавать определённые электроимпульсы
+
+Например, как программист в общении с людьми или при письме, моя психика всё равно выдаёт электор импульс на ожидание подтверждающено сигнала
+
+Полагаю при изучении этих систем можно выработать ряд мероприятий, чтобы раскачать необходимые электро имупльсы под различные ситуации
+
+Впрочем, стратегия программиста довольно не плоха, как правило с точки зрения безопасности
+
+# Idea about pro guild
+
+Basically it could сетка лузеров (project can be called "Proffesionals" or IT Pro)
+
+Basically talented specialist should be well paid
+
+But in current world soft skill decide more who get money
+
+So specialists are in danger, since it is not anymore really important in momemnt
+
+Strategically it is not the best move, since nothing will be left for managers to control
+
+That soft will not provide nothing, but just pure verification and confirmation of your skills
+**tests and verification are super strict and free**
+
+Proove that you are really a high level specialist
+
+Projects exists on your and other donations
+
+# why vim increase productivity
+
+imagine that instead of typing letters you can type words, would you be faster
+
+Vim allows to type actions and combine them.
+
+That how it increase the productivity.
+
+Some samples:
+
+Is it hard to start using vim? Not harder then learning blind typing.
+With rather short amount of time, it becomes kind of 2nd nature for using vim motions.
+
+# monkey vim
+
+As monkey type, show operation to do. User has to type required characters.
+
+# Content maker
+
+Video should be started from some calm and piece content. Silence, focus, concentration, piece, calm.
+
+## Cosmic Philosoph
+Find smth that is creates value for you, for example fun. Find the way to share that value with others.
+Continue taking value for yourself and creating it for others. Profit.
+
+Share also some thoughts, some psycology. Some good cinemas (could be a colloboration with someone else)
+
+My blogging.
+
+## Developer From Nature
+
+## Dancing Master
+Share information about food, trainings, technique, right actions to grow the right.
+
+# Startup idea - create videos from text descriptions 
+
+could be very handy for me, as I am going to manage several platforms and multiple platforms.
+
+And I am using nvim a lot, so could be the only way to spend few hours to express my thoughts in few hours
+for a wide auditory.
+
+# How to find your way?
+
+Find smth that is creates value for you, for example fun. Find the way to share that value with others.
+Continue taking value for yourself and creating it for others. Profit.
+
+# Three ways to edit code and One Piece
+
+target people that was watching anime and doing coding
+
+look at screen (volya nablyudeniya) - jump by line numbers or by parsing new labels with brain with hop nvim.
+
+check for others way to navigate to a place and what better to use as your default for muscle memory.
+
+## Treat coding as rpg abilities or muscle memory and coding
+
+There is a thing called muscle memory. Or maybe it is called in another way. 
+Here what I am defining as muscle memory for the video.
+When I need to type a button the need "appears" in by brain, if I have setup memory, I am doing it fastly.
+Need > Action. However, if have not setup, then Need > Thought > Action. For me a simple example is 
+learning blind type on a new keyboard. Firstly I don't know where keys, and I am slow, as I try to remember
+where the buttons, but once I practice I almost stop think about that and the typing process becomes almost
+intutive. I don't think where the keys anymore, I just do the required action, since my brain learned what
+action should be generated for the "need".
+
+I will be using analogue of system of casts in some RPG, so basically we need to choose what suits us best
+
+Lets see "mana costs" and "cast speed" of basics things.
+
+The muscle memory will be a multiplier that can affect "cast speed" and "mana cost". 
+Here we will ignore that coef.
+
+We would assume it is always one, since it is dependent on the person, for example, locating some button on the keyboard also can increase "cast speed"
+However in the end we will see some alternativer variants for differet groups of people with different muscle memory.
+
+The basic will be one button pressed when finger already on that button.
+"cast speed" = 1. Press button.
+"mana costs" = 1 - simplest action of putting your finger down, no though or additional concentration required.
+
+That is time cost, for example to learn vim motions.
+
+That is how much you save with time.
+
+Should you learn vim motions? It your choice, even if it loosk as that in my eyes, maybe it is different for you.
+Lets talk)
+
+Here link to my NVIM setup explained.
+
 # Поел и
 
 Человек делиться тем, что у него есть, наполняйте людей хорошими вещами и они будут делиться хорошими вещами.
