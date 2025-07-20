@@ -65,6 +65,7 @@ Write-Output "Wezterm copy config is commeted in the user_profile.ps1 to speed u
 # [Environment]::SetEnvironmentVariable($GLAZEWM_ENV_NAME, $GLAZEWM_CONFIG_PATH, [System.EnvironmentVariableTarget]::User)
 
 # Alias
+Set-Alias chrome 'C:\Program Files\Google\Chrome\Application\chrome.exe'
 Set-Alias o OpenWithNvim
 Set-Alias vim nvim
 Set-Alias od OpenDev
@@ -75,14 +76,18 @@ Set-Alias cdbo ChangeDirectoryBookmarksOpen
 Set-Alias cda ChangeDirectoryAll
 Set-Alias cde ChangeDirectoryExtended
 Set-Alias nuget C:\Users\n.starostin\AppData\Local\nvim\win-cli-tools\nuget.exe
+Set-Alias kanata C:\users\n.starostin\AppData\Local\nvim\kanata\kanata.exe
 Set-Alias nlist NugetListPakckages
 Set-Alias nadd DotnetAddPackage
 Set-Alias dclean RemoveBinAndObj
 Set-Alias sclean RemoveShada
-
-Write-Output "Alias set"
+Set-Alias cdbemulator RunCosmosDbEmulator
 
 # Utilities
+
+function RunCosmosDbEmulator() {
+  Start-Process -FilePath "C:\Program Files\Azure Cosmos DB Emulator\Microsoft.Azure.Cosmos.Emulator.exe" -ArgumentList "/port=8092"
+}
 
 function RemoveShada() {
   Remove-Item C:\Users\n.starostin\AppData\Local\nvim-data\shada -Recurse -Force
@@ -125,7 +130,8 @@ function GetBookmarks() {
 	$projects = Get-ChildItem '~\OneDrive - Itransition Group\projects' -Attributes Directory
 	$danceLifeProjects = Get-ChildItem '~\OneDrive - Itransition Group\projects\dance-life'-Attributes Directory
   $devProjectsOnDDrive = Get-ChildItem 'D:\dev' -Attributes Directory
-	$bookmarks = $devProjects + $projects + $danceLifeProjects + $devProjectsOnDDrive + @(
+  $projectsOnDDrive = Get-ChildItem 'D:\projects' -Attributes Directory
+	$bookmarks = $projectsOnDDrive + $devProjects + $projects + $danceLifeProjects + $devProjectsOnDDrive + @(
 		'C:\agents\dance-life',
     'C:\users\n.starostin\Downloads',
     'C:\users\n.starostin\AppData\Local\nvim',

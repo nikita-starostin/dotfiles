@@ -7,3 +7,6 @@ On windows the nvim folder has to be located under `~\AppData\Local\nvim`, and I
 nvim files and folders - required to run nvim
 **powershel** - data required to setup powershell on windows
 
+# Sample header
+
+## Header 2

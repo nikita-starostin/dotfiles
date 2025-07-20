@@ -72,6 +72,14 @@ return {
     ft = { "markdown" },
   },
 
+  -- navigation by headers in markdown
+  {
+    'AntonVanAssche/md-headers.nvim',
+    version = '*',
+    opts = {},
+    ft = { 'markdown' }, -- Load only for markdown files.
+  },
+
   -- table formatting support
   {
     "dhruvasagar/vim-table-mode",

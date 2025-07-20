@@ -5,6 +5,7 @@ require('shinshil.remap.diagrams_remap')
 require('shinshil.remap.lf_remap')
 require('shinshil.remap.scratch_remap')
 require('shinshil.remap.hop_remap')
+require('shinshil.remap.markdown_remap')
 require('shinshil.remap.custom_remap')
 print("Remaps loaded")
 
