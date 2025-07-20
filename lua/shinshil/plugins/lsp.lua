@@ -101,7 +101,35 @@ return {
           lsp_zero.default_setup,
           lua_ls = function()
             local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+            local lspConfig = require('lspconfig')
+            lspConfig.lua_ls.setup(lua_opts)
+            lspConfig.tailwindcss.setup({
+              settings = {
+                tailwindCSS = {
+                  experimental = {
+                    classRegex = {
+                      "cva\\(([^)]*)\\)",                                      -- Basic cva() pattern
+                      "cva\\([\\s\\t]*['\"]([^'\"]*)['\"]",                    -- First string arg
+                      "['\"`]([^'\"`]*).*?['\"`]\\s*[),]",                     -- Any string in arguments
+                      "variants:\\s*{[^}]*\\w+:\\s*['\"]([^'\"]*)['\"]",       -- Variant values
+                      "defaultVariants:\\s*{[^}]*\\w+:\\s*['\"]([^'\"]*)['\"]" -- Default variants
+                    }
+                  },
+                  includeLanguages = {
+                    typescriptreact = "html",
+                    javascriptreact = "html",
+                  },
+                }
+              },
+              filetypes = {
+                "html",
+                "css",
+                "javascript",
+                "javascriptreact",
+                "typescript",
+                "typescriptreact",
+              },
+            })
           end,
         },
       })
