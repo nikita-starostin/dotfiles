@@ -54,10 +54,10 @@ $ENV:STARSHIP_CONFIG = Join-Path (Get-ScriptDirectory) '../starship.toml'
 
 # copy wezterm config to the right location
 # commeted to speed up load time
-# $WEZTERM_SOURCE = Join-Path (Get-ScriptDirectory) '../wezterm-config.lua'
-# $WEZTERM_TARGET = Join-Path $HOME '.wezterm.lua'
-# (Get-Content -path $WEZTERM_SOURCE) | Set-Content $WEZTERM_TARGET
-Write-Output "Wezterm copy config is commeted in the user_profile.ps1 to speed up load time"
+$WEZTERM_SOURCE = Join-Path (Get-ScriptDirectory) '../wezterm-config.lua'
+$WEZTERM_TARGET = Join-Path $HOME '.wezterm.lua'
+(Get-Content -path $WEZTERM_SOURCE) | Set-Content $WEZTERM_TARGET
+# Write-Output "Wezterm copy config is commeted in the user_profile.ps1 to speed up load time"
 
 # setup env variable to use glazewm (window tile manager for windows)
 # $GLAZEWM_CONFIG_PATH = Join-Path (Get-ScriptDirectory) 'glazewm-config.yaml'
@@ -83,11 +83,18 @@ Set-Alias dclean RemoveBinAndObj
 Set-Alias sclean RemoveShada
 Set-Alias cdbemulator RunCosmosDbEmulator
 
-# Utilities
-
 function RunCosmosDbEmulator() {
   Start-Process -FilePath "C:\Program Files\Azure Cosmos DB Emulator\Microsoft.Azure.Cosmos.Emulator.exe" -ArgumentList "/port=8092"
 }
+
+Set-Alias openssl StartOpenSsl
+# Utilities
+
+function StartOpenSsl() {
+  $env:OPENSSL_CONF="D:\actual_programs\openssl-0.9.8k_X64\openssl.cnf"
+  D:\actual_programs\openssl-0.9.8k_X64\bin\openssl.exe $args
+}
+
 
 function RemoveShada() {
   Remove-Item C:\Users\n.starostin\AppData\Local\nvim-data\shada -Recurse -Force
