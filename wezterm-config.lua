@@ -60,6 +60,9 @@ config.font_size = 13.0
 local pwsh = 'C:\\Program Files\\PowerShell\\7\\pwsh.exe'
 config.default_prog = { pwsh }
 
+-- use kitty for rendering images in image.nvim plugin
+config.enable_kitty_graphics = true
+
 config.keys = {
   -- reload config
   {
