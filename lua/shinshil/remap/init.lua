@@ -7,7 +7,6 @@ require('shinshil.remap.scratch_remap')
 require('shinshil.remap.hop_remap')
 require('shinshil.remap.markdown_remap')
 require('shinshil.remap.custom_remap')
-print("Remaps loaded")
 
 -- optimize some common keys to don't leave fingers from home row
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
@@ -93,5 +92,7 @@ vim.keymap.set("n", "[q", ":cprevious<CR>", { desc = "Previous quickfix item" })
 
 -- some custom remaps
 vim.keymap.set("n", "<leader>id", ':call feedkeys("i" . strftime("%Y-%m-%d %H:%M:%S") . ": ")<Enter>', { desc = "Insert current date" })
-vim.keymap.set("n", "<leader>fc", ":execute '!git add % && git commit -d \"' . input('Commit message: ') . '\"'<CR>", { desc = "Commit current file" })
-vim.keymap.set("n", "<leader>fd", ":terminal git diff --color=always %<CR>", { desc = "View diff for current file" })
+vim.keymap.set("n", "<leader>gc", ":execute '!git add % && git commit -m \"' . input('Commit message: ') . '\"'<CR>", { desc = "Commit current file" })
+vim.keymap.set("n", "<leader>gd", ":terminal git diff --color=always %<CR>", { desc = "View diff for current file" })
+
+print("Remaps v2 set")
