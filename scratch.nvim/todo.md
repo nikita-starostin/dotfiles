@@ -1,3 +1,11 @@
+#
+[] links endpoints - should handle locale
+[] CreateBase64, check for names - check for usages locale and email should be passed correcctly
+[] send magic link instead of password
+[x] repair payment admin creation
+[] on error navigate back to the portal
+[x] fix back on passkey management
+
 # Closest focus
 
 Try complete test system for azure by end of weekends 

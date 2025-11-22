@@ -17,6 +17,7 @@
 # - hurl - http client, required for nvim plugins
 # - rg - ripgrep, required for nvim plugins
 # - lf - file manager, nvim also integrated with it
+# 
 
 # Function to get current user_profile.ps1 directory
 function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
@@ -53,18 +54,18 @@ Enable-TransientPrompt
 $ENV:STARSHIP_CONFIG = Join-Path (Get-ScriptDirectory) '../starship.toml'
 
 # copy wezterm config to the right location
-# commeted to speed up load time
 $WEZTERM_SOURCE = Join-Path (Get-ScriptDirectory) '../wezterm-config.lua'
 $WEZTERM_TARGET = Join-Path $HOME '.wezterm.lua'
+Write-Output "Copy from $WEZTERM_SOURCE to $WEZTERM_TARGET"
 (Get-Content -path $WEZTERM_SOURCE) | Set-Content $WEZTERM_TARGET
 # Write-Output "Wezterm copy config is commeted in the user_profile.ps1 to speed up load time"
 
-# setup env variable to use glazewm (window tile manager for windows)
-# $GLAZEWM_CONFIG_PATH = Join-Path (Get-ScriptDirectory) 'glazewm-config.yaml'
-# $GLAZEWM_ENV_NAME = 'GLAZEWM_CONFIG_PATH'
-# [Environment]::SetEnvironmentVariable($GLAZEWM_ENV_NAME, $GLAZEWM_CONFIG_PATH, [System.EnvironmentVariableTarget]::User)
+# Setup environmet variables
+$env:NVIM_APPNAME = 'nvim' # folder with lua for nvim config, the nvim config folder will be named as <nvim_appname> and it's data folder will be named as <nvim_appname>-data
+$env:XDG_CONFIG_HOME = 'D:\actual_programs\xdg_config' # folder where to look for nvim_appname and it is related data folders
+$env:XDG_DATA_HOME = 'D:\actual_programs\xdg_config' # folder where nvim going to store it's data in the nvim_data folder
 
-# Alias
+# Aliases
 Set-Alias chrome 'C:\Program Files\Google\Chrome\Application\chrome.exe'
 Set-Alias o OpenWithNvim
 Set-Alias vim nvim
@@ -75,30 +76,27 @@ Set-Alias cdb ChangeDirectoryBookmarks
 Set-Alias cdbo ChangeDirectoryBookmarksOpen
 Set-Alias cda ChangeDirectoryAll
 Set-Alias cde ChangeDirectoryExtended
-Set-Alias nuget C:\Users\n.starostin\AppData\Local\nvim\win-cli-tools\nuget.exe
-Set-Alias kanata C:\users\n.starostin\AppData\Local\nvim\kanata\kanata.exe
+Set-Alias nuget D:\actual_programs\xdg_config\nvim\win-cli-tools\nuget.exe
+Set-Alias kanata D:\actual_programs\xdg_config\nvim\kanata\kanata.exe
 Set-Alias nlist NugetListPakckages
 Set-Alias nadd DotnetAddPackage
 Set-Alias dclean RemoveBinAndObj
 Set-Alias sclean RemoveShada
 Set-Alias cdbemulator RunCosmosDbEmulator
+Set-Alias openssl StartOpenSsl
 
 function RunCosmosDbEmulator() {
   Start-Process -FilePath "C:\Program Files\Azure Cosmos DB Emulator\Microsoft.Azure.Cosmos.Emulator.exe" -ArgumentList "/port=8092"
 }
 
-Set-Alias openssl StartOpenSsl
-# Utilities
-
 function StartOpenSsl() {
-  $env:OPENSSL_CONF="D:\actual_programs\openssl-0.9.8k_X64\openssl.cnf"
-  D:\actual_programs\openssl-0.9.8k_X64\bin\openssl.exe $args
+  $env:OPENSSL_CONF="D:\actual_programs\xdg_config\openssl-0.9.8k_X64\openssl.cnf"
+  D:\actual_programs\xdg_config\openssl-0.9.8k_X64\bin\openssl.exe $args
 }
 
-
 function RemoveShada() {
-  Remove-Item C:\Users\n.starostin\AppData\Local\nvim-data\shada -Recurse -Force
-  Write-Host 'C:\Users\n.starostin\AppData\Local\nvim-data\shada has been removed'
+  Remove-Item D:\actual_programs\xdg_config\nvim-data\shada -Recurse -Force
+  Write-Host 'D:\actual_programs\xdg_config\nvim-data\shada has been removed'
 }
 
 function RemoveBinAndObj() {
@@ -133,17 +131,12 @@ function OpenProjects() {
 }
 
 function GetBookmarks() {
-	$devProjects = Get-ChildItem '~\OneDrive - Itransition Group\dev' -Attributes Directory
-	$projects = Get-ChildItem '~\OneDrive - Itransition Group\projects' -Attributes Directory
-	$danceLifeProjects = Get-ChildItem '~\OneDrive - Itransition Group\projects\dance-life'-Attributes Directory
   $devProjectsOnDDrive = Get-ChildItem 'D:\dev' -Attributes Directory
   $projectsOnDDrive = Get-ChildItem 'D:\projects' -Attributes Directory
-	$bookmarks = $projectsOnDDrive + $devProjects + $projects + $danceLifeProjects + $devProjectsOnDDrive + @(
+	$bookmarks = $projectsOnDDrive + $devProjectsOnDDrive + @(
 		'C:\agents\dance-life',
-    'C:\users\n.starostin\Downloads',
-    'C:\users\n.starostin\AppData\Local\nvim',
-    'C:\users\n.starostin\OneDrive - Itransition Group\projects\obsidian\public_vault',
-    'C:\users\n.starostin\AppData\Local\nvim\kanata'
+    'D:\actual_programs\xdg_config\nvim',
+    'D:\actual_programs\xdg_config\nvim\kanata'
 	)
 
 	return $bookmarks
@@ -158,7 +151,7 @@ function ChangeDirectoryBookmarksOpen() {
 }
 
 function OpenConfig() {
-	OpenWithNvim('~\AppData\Local\nvim')
+	OpenWithNvim('D:\actual_programs\xdg_config\nvim')
 }
 
 function ChangeDirectoryAll() {
@@ -186,4 +179,5 @@ function killProcessOnPort($port) {
   }
 }
 
-Write-Output "Done"
+$t = $MyInvocation.MyCommand.Path
+Write-Output "Completed setup from: $t"

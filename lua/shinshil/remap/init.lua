@@ -91,3 +91,7 @@ vim.keymap.set("n", "]q", ":cnext<CR>", { desc = "Next quickfix item" })
 -- previous buffer
 vim.keymap.set("n", "[q", ":cprevious<CR>", { desc = "Previous quickfix item" })
 
+-- some custom remaps
+vim.keymap.set("n", "<leader>id", ':call feedkeys("i" . strftime("%Y-%m-%d %H:%M:%S") . ": ")<Enter>', { desc = "Insert current date" })
+vim.keymap.set("n", "<leader>fc", ":execute '!git add % && git commit -d \"' . input('Commit message: ') . '\"'<CR>", { desc = "Commit current file" })
+vim.keymap.set("n", "<leader>fd", ":terminal git diff --color=always %<CR>", { desc = "View diff for current file" })

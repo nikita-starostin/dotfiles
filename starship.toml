@@ -1,7 +1,8 @@
-# Get editor completions based on the config schema
+# Get IDE like autocomplete for the .toml (just that filed you reading right now) based on that schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Inserts a blank line between shell prompts
+# How the promt should look like in terminal
+# every item could be customized separately in sections below
 format = """
 $username\
 $git_branch\
@@ -16,12 +17,14 @@ $directory\
 $line_break\
 $character"""
 
+# how to format directory
 [directory]
 format='[$path]($style)'
 truncation_length = 10
 truncate_to_repo = false
 use_logical_path = false
 
+# how to format git status
 [git_status]
 format='$up_to_date $untracked $modified $renamed $deleted $staged $diverged $ahead $behind'
 conflicted = '🏳'
@@ -41,6 +44,7 @@ deleted = '[deleted files: ${count}](red)'
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 error_symbol = '[➜](bold red)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 
+# format for the time
 [time]
 disabled = false
 format = 'at [$time]($style) '
@@ -51,6 +55,7 @@ utc_time_offset = '+3'
 [package]
 disabled = true
 
+# How to format azure
 [azure]
 disabled = false
 format = 'on [$symbol($subscription)]($style) '
