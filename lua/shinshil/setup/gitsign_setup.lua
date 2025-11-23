@@ -115,7 +115,8 @@ vim.keymap.set("n", "]h", function()
     hunk_preview_shown = false
     return
   end
-  -- FUCKING SHIT, IT NOT WORKING!!!! enableHunkHighLightIfNotEnabled();
+  -- Not working, some bugs in neovim and gitsigns, spend 4 hours trying to debug
+  -- enableHunkHighLightIfNotEnabled();
 end , { desc = "jump to next hunk" })
 
 vim.keymap.set("n", "[h", function()
