@@ -76,10 +76,6 @@ vim.on_key(function(key)
   end
 end)
 
-vim.on_key(function(key)
-  print('key', key)
-end)
-
 local hunk_preview_shown = false
 
 function tryToResetHunkPreviewShown(key)
