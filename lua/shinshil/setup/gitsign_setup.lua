@@ -52,7 +52,6 @@ vim.keymap.set("n", "<leader>gl", ":Gitsigns toggle_linehl<CR>", { desc = "toggl
 vim.keymap.set("n", "<leader>gb", ":Gitsigns blame<CR>", { desc = "toggle git blame" })
 vim.keymap.set("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", { desc = "stage/unstage hunk" })
 vim.keymap.set("n", "<leader>gu", ":Gitsigns undo_stage_hunk<CR>", { desc = "reset hunk" })
-vim.keymap.set("n", "<leader>gg", ":Gitsigns setloclist target=all<CR>", { desc = "show hunks" })
 vim.keymap.set("n", "<leader>gsc", ":Gitsigns show_commit<CR>", { desc = "show commit for the current buffer" })
 
 local listeners = {}
@@ -87,6 +86,7 @@ function tryToResetHunkPreviewShown(key)
 
   counter = counter - 1
   if (counter < 0) then 
+    print('removing prevew')
     remove_listener(tryToResetHunkPreviewShown)
     hunk_preview_shown = false
     counter = 0;
@@ -95,7 +95,7 @@ end
 
 function enableHunkHighLightIfNotEnabled()
   print('try to enable highlight: ', counter, hunk_preview_shown)
-  counter = 5
+  counter = 6
   if hunk_preview_shown == false then
     add_listener(tryToResetHunkPreviewShown)
     vim.cmd("Gitsigns preview_hunk");
@@ -103,7 +103,7 @@ function enableHunkHighLightIfNotEnabled()
   end
 end
 
-vim.keymap.set("n", "]]", ":Gitsigns preview_hunk<CR>", {desc = "Preview hunk / jump inside of hunk"})
+vim.keymap.set("n", "]]", ":Gitsigns preview_hunk<CR>", {desc = "Preview hunk / jump inside of hunk", noremap = true})
 
 vim.keymap.set("n", "]h", function()
   local status, err = pcall(vim.cmd, "Gitsigns nav_hunk next")
@@ -125,48 +125,4 @@ vim.keymap.set("n", "[h", function()
   enableHunkHighLightIfNotEnabled();
 end, { desc = "jump to prev hunk" })
 
-local qf_open = false
-
-function toggleGitQuickfix()
-  -- If quickfix is open, close and toggle off highlight
-  if qf_open then
-    vim.cmd("cclose")
-    vim.cmd("Gitsigns toggle_linehl")
-    qf_open = false
-    return
-  end
-
-  -- Get git affected files without git message lines
-  local result = vim.fn.systemlist("git diff --name-only")
-  -- Filter out empty lines or git messages (just ensure valid filenames)
-  local files = {}
-  for _, file in ipairs(result) do
-    if file ~= "" 
-      and file:sub(1,1) ~= "#"
-      and string.sub(file,1,string.len("warning:"))~="warning:"
-    then
-        table.insert(files, {filename = file})
-    end
-  end
-
-  -- Populate quickfix list with these files
-  vim.fn.setqflist(files, "r")
-
-  -- Open quickfix window
-  vim.cmd("copen")
-  qf_open = true
-
-  -- Jump to first item
-  vim.cmd("cc 1")
-
-  -- Execute Gitsigns commands sequentially
-  vim.cmd("Gitsigns refresh")
-  vim.defer_fn(function()
-    vim.cmd("Gitsigns toggle_linehl")
-    vim.cmd("Gitsigns nav_hunk next")
-    vim.cmd("Gitsigns preview_hunk")
-  end, 1000)
-end
-
--- Map <leader>gg to toggle this function
-vim.keymap.set("n", "<leader>gg", toggleGitQuickfix, { noremap = true, silent = true })
+print 'Loaded gitsigns setup'

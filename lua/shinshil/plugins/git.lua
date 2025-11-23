@@ -15,8 +15,9 @@ return {
   -- work with git inside of the buffer
   {
     "lewis6991/gitsigns.nvim",
-    keys = { "<leader>gs", "[h", "]h" },
+    keys = {"[h", "]h", "<leader>gg" },
     config = function()
+      print('gitsigns init')
       require('shinshil.setup.gitsign_setup');
     end
   },

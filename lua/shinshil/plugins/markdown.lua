@@ -29,7 +29,7 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "~\\OneDrive - Itransition Group\\projects\\obsidian\\public_vault",
+          path = "D:\\projects\\public_vault",
         },
       },
       ui = {

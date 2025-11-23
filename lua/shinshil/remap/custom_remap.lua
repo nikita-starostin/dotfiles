@@ -24,3 +24,37 @@ vim.keymap.set("n", "<leader>tz", function()
     vim.api.nvim_feedkeys(":ZenMode | PencilSoft | set list listchars=tab:>\\\\,trail:$,eol:$,precedes:^,lead:.\n", "n", true)
   end
 end, { desc = "Toggle zen mode" })
+
+local qf_open = false
+function toggleGitQuickfix()
+  if qf_open == true then
+    qf_open = false
+    vim.cmd("cclose")
+    return
+  end
+  -- Get git affected files without git message lines
+  local result = vim.fn.systemlist("git diff --name-only")
+  -- Filter out empty lines or git messages (just ensure valid filenames)
+  local files = {}
+  for _, file in ipairs(result) do
+    if file ~= "" 
+      and file:sub(1,1) ~= "#"
+      and string.sub(file,1,string.len("warning:"))~="warning:"
+    then
+        table.insert(files, {filename = file})
+    end
+  end
+
+  -- Populate quickfix list with these files
+  vim.fn.setqflist(files, "r")
+
+  -- Open quickfix window
+  vim.cmd("copen")
+  qf_open = true
+
+  -- Jump to first item
+  vim.cmd("cc 1")
+end
+
+-- Map <leader>gg to toggle this function
+vim.keymap.set("n", "<leader>gg", toggleGitQuickfix, { noremap = true, silent = true })
