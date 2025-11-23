@@ -23,7 +23,6 @@ require('gitsigns').setup {
   watch_gitdir = {
     follow_files = true
   },
-  newLine = false,
   auto_attach = true,
   attach_to_untracked = true,
   current_line_blame = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
@@ -52,19 +51,79 @@ require('gitsigns').setup {
 vim.keymap.set("n", "<leader>gl", ":Gitsigns toggle_linehl<CR>", { desc = "toggle git signs line higlight" })
 vim.keymap.set("n", "<leader>gb", ":Gitsigns blame<CR>", { desc = "toggle git blame" })
 vim.keymap.set("n", "<leader>gs", ":Gitsigns stage_hunk<CR>", { desc = "stage/unstage hunk" })
-vim.keymap.set("n", "<leader>gu", ":Gitsigns reset_hunk<CR>", { desc = "reset hunk" })
+vim.keymap.set("n", "<leader>gu", ":Gitsigns undo_stage_hunk<CR>", { desc = "reset hunk" })
 vim.keymap.set("n", "<leader>gg", ":Gitsigns setloclist target=all<CR>", { desc = "show hunks" })
+vim.keymap.set("n", "<leader>gsc", ":Gitsigns show_commit<CR>", { desc = "show commit for the current buffer" })
 
-local prev_hunk_shown = false
-vim.keymap.set("n", "]h", function()
-  vim.cmd("Gitsigns nav_hunk next");
-  print(prev_hunk_shown)
-  if prev_hunk_shown == false then
-    vim.cmd("Gitsigns preview_hunk");
-    prev_hunk_shown = true
+local listeners = {}
+local counter = 0
+
+function add_listener(fn)
+  table.insert(listeners, fn)
+end
+
+function remove_listener(fn)
+  for i, v in ipairs(listeners) do
+    if v == fn then
+      table.remove(listeners, i)
+      break
+    end
   end
+end
+
+vim.on_key(function(key)
+  for _, fn in ipairs(listeners) do
+    fn(key)
+  end
+end)
+
+local hunk_preview_shown = false
+
+function tryToResetHunkPreviewShown(key)
+  -- ignore if in insert or command mode
+  if vim.api.nvim_get_mode().mode ~= "n" then
+    return
+  end
+
+  counter = counter - 1
+  if (counter < 0) then 
+    remove_listener(tryToResetHunkPreviewShown)
+    hunk_preview_shown = false
+    counter = 0;
+  end
+end
+
+function enableHunkHighLightIfNotEnabled()
+  print('try to enable highlight: ', counter, hunk_preview_shown)
+  counter = 5
+  if hunk_preview_shown == false then
+    add_listener(tryToResetHunkPreviewShown)
+    vim.cmd("Gitsigns preview_hunk");
+    hunk_preview_shown = true
+  end
+end
+
+vim.keymap.set("n", "]]", ":Gitsigns preview_hunk<CR>", {desc = "Preview hunk / jump inside of hunk"})
+
+vim.keymap.set("n", "]h", function()
+  local status, err = pcall(vim.cmd, "Gitsigns nav_hunk next")
+  if not status then
+    -- Navigation failed, reset preview flag and optionally notify or ignore
+    hunk_preview_shown = false
+    return
+  end
+  enableHunkHighLightIfNotEnabled();
 end , { desc = "jump to next hunk" })
-vim.keymap.set("n", "[h", ":Gitsigns nav_hunk prev<CR>", { desc = "jump to prev hunk" })
+
+vim.keymap.set("n", "[h", function()
+  local status, err = pcall(vim.cmd, "Gitsigns nav_hunk prev")
+  if not status then
+    -- Navigation failed, reset preview flag and optionally notify or ignore
+    hunk_preview_shown = false
+    return
+  end
+  enableHunkHighLightIfNotEnabled();
+end, { desc = "jump to prev hunk" })
 
 local qf_open = false
 
