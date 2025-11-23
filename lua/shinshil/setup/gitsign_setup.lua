@@ -76,6 +76,10 @@ vim.on_key(function(key)
   end
 end)
 
+vim.on_key(function(key)
+  print('key', key)
+end)
+
 local hunk_preview_shown = false
 
 function tryToResetHunkPreviewShown(key)
@@ -98,7 +102,10 @@ function enableHunkHighLightIfNotEnabled()
   counter = 6
   if hunk_preview_shown == false then
     add_listener(tryToResetHunkPreviewShown)
-    vim.cmd("Gitsigns preview_hunk");
+    local status, err = pcall(vim.cmd, "Gitsigns preview_hunk");
+    print('status', status)
+    print('err', err)
+    print('Higlighted')
     hunk_preview_shown = true
   end
 end
@@ -112,7 +119,7 @@ vim.keymap.set("n", "]h", function()
     hunk_preview_shown = false
     return
   end
-  enableHunkHighLightIfNotEnabled();
+  -- FUCKING SHIT, IT NOT WORKING!!!! enableHunkHighLightIfNotEnabled();
 end , { desc = "jump to next hunk" })
 
 vim.keymap.set("n", "[h", function()
