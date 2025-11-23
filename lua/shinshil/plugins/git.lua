@@ -80,9 +80,11 @@ return {
   {
     "f-person/git-blame.nvim",
     lazy = true,
-    newLine = false,
     keys = { "<leader>tb" },
     config = function()
+      require("gitblame").setup({
+        enabled = false,
+      })
       vim.keymap.set("n", "<leader>tb", vim.cmd.GitBlameToggle, { desc = "toggle git blame" })
     end
   },
