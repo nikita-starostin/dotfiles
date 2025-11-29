@@ -126,7 +126,8 @@ vim.keymap.set("n", "[h", function()
     hunk_preview_shown = false
     return
   end
-  enableHunkHighLightIfNotEnabled();
+  -- Not working, some bugs in neovim and gitsigns, spend 4 hours trying to debug
+  -- enableHunkHighLightIfNotEnabled();
 end, { desc = "jump to prev hunk" })
 
 print 'Loaded gitsigns setup'
