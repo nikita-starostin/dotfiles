@@ -77,7 +77,7 @@ Set-Alias cdbo ChangeDirectoryBookmarksOpen
 Set-Alias cda ChangeDirectoryAll
 Set-Alias cde ChangeDirectoryExtended
 Set-Alias nuget D:\actual_programs\xdg_config\nvim\win-cli-tools\nuget.exe
-Set-Alias kanata D:\actual_programs\xdg_config\nvim\kanata\kanata.exe
+Set-Alias yotube-dl D:\actual_programs\xdg_config\nvim\win-cli-tools\youtube-dl.exe
 Set-Alias nlist NugetListPakckages
 Set-Alias nadd DotnetAddPackage
 Set-Alias dclean RemoveBinAndObj
