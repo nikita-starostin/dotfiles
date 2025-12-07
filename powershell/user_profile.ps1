@@ -64,6 +64,7 @@ Write-Output "Copy from $WEZTERM_SOURCE to $WEZTERM_TARGET"
 $env:NVIM_APPNAME = 'nvim' # folder with lua for nvim config, the nvim config folder will be named as <nvim_appname> and it's data folder will be named as <nvim_appname>-data
 $env:XDG_CONFIG_HOME = 'D:\actual_programs\xdg_config' # folder where to look for nvim_appname and it is related data folders
 $env:XDG_DATA_HOME = 'D:\actual_programs\xdg_config' # folder where nvim going to store it's data in the nvim_data folder
+$env:XDG_CACHE_HOME = 'D:\actual_programs\xdg_cache' # folder where youtube dl will store it's cache
 
 # Aliases
 Set-Alias chrome 'C:\Program Files\Google\Chrome\Application\chrome.exe'
@@ -77,13 +78,17 @@ Set-Alias cdbo ChangeDirectoryBookmarksOpen
 Set-Alias cda ChangeDirectoryAll
 Set-Alias cde ChangeDirectoryExtended
 Set-Alias nuget D:\actual_programs\xdg_config\nvim\win-cli-tools\nuget.exe
-Set-Alias yotube-dl D:\actual_programs\xdg_config\nvim\win-cli-tools\youtube-dl.exe
+Set-Alias youtube-dl RunYoutubeDl
+Set-Alias yt-dlp RunYtDlp
 Set-Alias nlist NugetListPakckages
 Set-Alias nadd DotnetAddPackage
 Set-Alias dclean RemoveBinAndObj
 Set-Alias sclean RemoveShada
 Set-Alias cdbemulator RunCosmosDbEmulator
 Set-Alias openssl StartOpenSsl
+
+function RunYtDlp { & 'D:\actual_programs\xdg_config\nvim\win-cli-tools\yt-dlp.exe' @args }
+function RunYoutubeDl { & 'D:\actual_programs\xdg_config\nvim\win-cli-tools\youtube-dl.exe' @args }
 
 function RunCosmosDbEmulator() {
   Start-Process -FilePath "C:\Program Files\Azure Cosmos DB Emulator\Microsoft.Azure.Cosmos.Emulator.exe" -ArgumentList "/port=8092"
