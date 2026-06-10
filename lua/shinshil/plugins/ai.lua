@@ -1,11 +1,11 @@
 return {
-  {
-    "frankroeder/parrot.nvim",
-    dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
-    config = function() 
-      require('shinshil.setup.ai_setup')
-    end
-  }
+  -- {
+  --   "frankroeder/parrot.nvim",
+  --   dependencies = { "ibhagwan/fzf-lua", "nvim-lua/plenary.nvim" },
+  --   config = function() 
+  --     require('shinshil.setup.ai_setup')
+  --   end
+  -- }
 
   -- {
   --   'github/copilot.vim',

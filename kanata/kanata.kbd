@@ -42,6 +42,6 @@
   l right
   o {
   p }
-  u [
-  i ]
+  u M-1
+  i M-2
 )

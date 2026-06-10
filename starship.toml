@@ -6,10 +6,6 @@
 format = """
 $username\
 $git_branch\
-$git_status\
-$git_state\
-$line_break\
-$azure\
 $line_break\
 $time\
 $line_break\

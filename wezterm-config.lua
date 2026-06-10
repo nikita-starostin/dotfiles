@@ -57,8 +57,14 @@ config.color_scheme = 'Catppuccin Mocha'
 -- config.font = wezterm.font("Hack Nerd Font", {weight="Regular", stretch="Normal", style="Normal"}) -- C:\WINDOWS\FONTS\HACKNERDFONT-REGULAR.TTF, DirectWrite
 config.font = wezterm.font("BitstromWera Nerd Font", { weight = "Regular", stretch = "Normal", style = "Normal" }) -- C:\WINDOWS\FONTS\HACKNERDFONT-REGULAR.TTF, DirectWrite
 config.font_size = 13.0
-local pwsh = 'C:\\Program Files\\PowerShell\\7\\pwsh.exe'
-config.default_prog = { pwsh }
+local shell = 'nu'
+config.default_prog = { shell }
+config.set_environment_variables = {
+  NVIM_APPNAME = 'nvim',
+  XDG_CONFIG_HOME = 'C:\\InstalledByMe\\xdg_config',
+  XDG_DATA_HOME = 'C:\\InstalledByMe\\xdg_config',
+  XDG_CACHE_HOME = 'C:\\InstalledByMe\\xdg_cache',
+}
 
 -- use kitty for rendering images in image.nvim plugin
 config.enable_kitty_graphics = true
@@ -76,7 +82,7 @@ config.keys = {
     key = '_',
     mods = 'ALT|SHIFT',
     action = act.SplitVertical {
-      args = { pwsh },
+      args = { shell },
     },
   },
 
@@ -85,7 +91,7 @@ config.keys = {
     key = '+',
     mods = 'ALT|SHIFT',
     action = act.SplitHorizontal {
-      args = { pwsh },
+      args = { shell },
     },
   },
 

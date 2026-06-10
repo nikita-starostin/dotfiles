@@ -17,7 +17,6 @@
 # - hurl - http client, required for nvim plugins
 # - rg - ripgrep, required for nvim plugins
 # - lf - file manager, nvim also integrated with it
-# 
 
 # Function to get current user_profile.ps1 directory
 function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
@@ -65,6 +64,16 @@ $env:NVIM_APPNAME = 'nvim' # folder with lua for nvim config, the nvim config fo
 $env:XDG_CONFIG_HOME = 'D:\actual_programs\xdg_config' # folder where to look for nvim_appname and it is related data folders
 $env:XDG_DATA_HOME = 'D:\actual_programs\xdg_config' # folder where nvim going to store it's data in the nvim_data folder
 $env:XDG_CACHE_HOME = 'D:\actual_programs\xdg_cache' # folder where youtube dl will store it's cache
+
+# $env:NVIM_APPNAME = 'nvim' # folder with lua for nvim config, the nvim config folder will be named as <nvim_appname> and it's data folder will be named as <nvim_appname>-data
+# $env:XDG_CONFIG_HOME = 'D:\actual_programs\xdg_config' # folder where to look for nvim_appname and it is related data folders
+# $env:XDG_DATA_HOME = 'D:\actual_programs\xdg_config' # folder where nvim going to store it's data in the nvim_data folder
+# $env:XDG_CACHE_HOME = 'D:\actual_programs\xdg_cache' # folder where youtube dl will store it's cache
+
+$env:NVIM_APPNAME = 'nvim' # folder with lua for nvim config, the nvim config folder will be named as <nvim_appname> and it's data folder will be named as <nvim_appname>-data
+$env:XDG_CONFIG_HOME = 'C:\InstalledByMe\xdg_config' # folder where to look for nvim_appname and it is related data folders
+$env:XDG_DATA_HOME = 'C:\InstalledByMe\xdg_config' # folder where nvim going to store it's data in the nvim_data folder
+$env:XDG_CACHE_HOME = 'C:\InstalledByMe\xdg_cache' # folder where youtube dl will store it's cache
 
 # Aliases
 Set-Alias chrome 'C:\Program Files\Google\Chrome\Application\chrome.exe'
@@ -136,15 +145,14 @@ function OpenProjects() {
 }
 
 function GetBookmarks() {
-  $devProjectsOnDDrive = Get-ChildItem 'D:\dev' -Attributes Directory
-  $projectsOnDDrive = Get-ChildItem 'D:\projects' -Attributes Directory
-	$bookmarks = $projectsOnDDrive + $devProjectsOnDDrive + @(
-		'C:\agents\dance-life',
-    'D:\actual_programs\xdg_config\nvim',
-    'D:\actual_programs\xdg_config\nvim\kanata'
+  $devProjectsOnDDrive = Get-ChildItem 'C:\dev' -Attributes Directory
+  $projectsOnDDrive = Get-ChildItem 'C:\projects' -Attributes Directory
+  $bookmarks = $projectsOnDDrive + $devProjectsOnDDrive + @(
+    'C:\InstalledByMe\xdg_config\nvim',
+    'C:\InstalledByMe\xdg_config\nvim\kanata'
 	)
 
-	return $bookmarks
+  return $bookmarks
 }
 
 function ChangeDirectoryBookmarks() {
@@ -156,7 +164,7 @@ function ChangeDirectoryBookmarksOpen() {
 }
 
 function OpenConfig() {
-	OpenWithNvim('D:\actual_programs\xdg_config\nvim')
+	OpenWithNvim('D:\InstalledByMe\xdg_config\nvim')
 }
 
 function ChangeDirectoryAll() {

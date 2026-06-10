@@ -29,7 +29,7 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "D:\\projects\\public_vault",
+          path = "C:\\projects\\public_vault",
         },
       },
       ui = {
