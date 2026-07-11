@@ -162,12 +162,12 @@ def dotnet-add-package [] {
 
 def get-process-on-port [port: int] {
   let pattern = $':($port)\s'
-  let line = (^netstat -ano -p tcp | lines | where {|item| $item =~ $pattern } | get 0?)
+  let line = (^netstat -ano -p tcp | lines | where {|item| $item =~ $pattern } | first)
 
   if $line == null {
     null
   } else {
-    let pid = ($line | str trim | split row -r '\\s+' | last | into int)
+    let pid = ($line | str trim | split row -r '\s+' | last | into int)
     {
       pid: $pid
       process: (^tasklist /FI $'PID eq ($pid)' | lines | get 3?)
