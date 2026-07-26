@@ -6,6 +6,7 @@ require('shinshil.remap.lf_remap')
 require('shinshil.remap.scratch_remap')
 require('shinshil.remap.hop_remap')
 require('shinshil.remap.markdown_remap')
+require('shinshil.remap.obsidian_remap')
 require('shinshil.remap.custom_remap')
 
 -- optimize some common keys to don't leave fingers from home row

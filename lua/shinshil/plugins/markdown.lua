@@ -55,7 +55,8 @@ return {
       },
 
       -- see below for full list of options 👇
-      new_notes_location = "current_directory"
+      new_notes_location = "current_directory",
+      disable_frontmatter = true,
     },
   },
 
