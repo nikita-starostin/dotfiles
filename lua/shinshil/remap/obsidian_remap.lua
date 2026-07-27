@@ -10,10 +10,11 @@ local function open_journal_note(day_offset)
   })
 
   local year = os.date("%Y", target_time)
-  local month_name = os.date("%B", target_time)
-  local date = os.date("%Y-%m-%d", target_time)
+  local month = os.date("%m", target_time)
+  local day = os.date("%d", target_time)
+  local title = string.format("%s %d, %s", os.date("%B", target_time), tonumber(day), year)
 
-  local relative_path = string.format("11 Journal/%s %s/%s.md", month_name, year, date)
+  local relative_path = string.format("11 Journal/%s/%s/%s.md", year, month, day)
   local note_path = vault_path .. "/" .. relative_path
   local note_dir = vim.fn.fnamemodify(note_path, ":h")
 
@@ -25,6 +26,9 @@ local function open_journal_note(day_offset)
     local template_lines = {}
     if vim.fn.filereadable(template_path) == 1 then
       template_lines = vim.fn.readfile(template_path)
+      for index, line in ipairs(template_lines) do
+        template_lines[index] = line:gsub("{title: e%.g%. July 26, 2026}", title)
+      end
     end
     vim.fn.writefile(template_lines, note_path)
   end

@@ -58,6 +58,10 @@ return {
       new_notes_location = "current_directory",
       disable_frontmatter = true,
     },
+    config = function(_, opts)
+      require("obsidian").setup(opts)
+      require('shinshil.setup.obsidian_setup')
+    end,
   },
 
   -- opens preview of the markdown in the split browser tab
