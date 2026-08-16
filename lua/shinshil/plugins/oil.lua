@@ -1,3 +1,106 @@
+-- Oil sort state and helpers (used by the buffer-local keymaps below)
+local oil_sort = {
+  dirs_on_top = true,
+  key = "name", -- active sort column: "name" | "mtime" | "size" | nil (off)
+  order = "asc", -- active direction: "asc" | "desc"
+}
+
+local sort_modes = {
+  name = {
+    default = "asc",
+    cols = function(order)
+      return { { "name", order } }
+    end,
+  },
+  mtime = {
+    default = "desc",
+    cols = function(order)
+      return { { "mtime", order }, { "name", "asc" } }
+    end,
+  },
+  size = {
+    default = "desc",
+    cols = function(order)
+      return { { "size", order }, { "name", "asc" } }
+    end,
+  },
+}
+
+local function build_sort(key, order)
+  local spec = {}
+  if oil_sort.dirs_on_top then
+    table.insert(spec, { "type", "asc" })
+  end
+  for _, col in ipairs(sort_modes[key].cols(order)) do
+    table.insert(spec, col)
+  end
+  return spec
+end
+
+local function toggle_sort(key)
+  local mode = sort_modes[key]
+  if oil_sort.key == key then
+    if oil_sort.order == mode.default then
+      oil_sort.order = mode.default == "asc" and "desc" or "asc"
+    else
+      -- third press of the same key turns sorting off
+      oil_sort.key = nil
+      oil_sort.order = nil
+      require("oil").set_sort({})
+      return
+    end
+  else
+    oil_sort.key = key
+    oil_sort.order = mode.default
+  end
+  require("oil").set_sort(build_sort(oil_sort.key, oil_sort.order))
+end
+
+local function sort_off()
+  oil_sort.key = nil
+  oil_sort.order = nil
+  require("oil").set_sort({})
+end
+
+local function toggle_dirs_on_top()
+  oil_sort.dirs_on_top = not oil_sort.dirs_on_top
+  if oil_sort.key then
+    require("oil").set_sort(build_sort(oil_sort.key, oil_sort.order))
+  end
+end
+
+-- metadata columns can be toggled between a minimal and a detailed view
+local detail_view = true
+local function toggle_detail()
+  detail_view = not detail_view
+  require("oil").set_columns(detail_view and { "icon", "size", "mtime" } or { "icon" })
+end
+
+-- Winbar showing the current oil directory (home-compacted path + folder icon)
+function _G.get_oil_winbar()
+  local ok, dir = pcall(function()
+    return require("oil").get_current_dir()
+  end)
+  if not ok or not dir then
+    return vim.api.nvim_buf_get_name(0)
+  end
+  local home = vim.env.HOME
+  if not home or home == "" then
+    home = vim.env.USERPROFILE
+  end
+  if home and home ~= "" then
+    home = home:gsub("\\", "/")
+  end
+  dir = dir:gsub("\\", "/")
+  if home and home ~= "" and vim.startswith(dir, home) then
+    dir = "~" .. dir:sub(#home + 1)
+  end
+  if not vim.endswith(dir, "/") then
+    dir = dir .. "/"
+  end
+  return " " .. "󰉋 " .. dir
+end
+
 return {
   {
     'stevearc/oil.nvim',
@@ -10,10 +113,10 @@ return {
       -- Id is automatically added at the beginning, and name at the end
       -- See :help oil-columns
       columns = {
-        -- "icon",
+        "icon",
         -- "permissions",
-        -- "size",
-        -- "mtime",
+        "size",
+        "mtime",
       },
       -- Buffer-local options to use for oil buffers
       buf_options = {
@@ -30,6 +133,7 @@ return {
         list = false,
         conceallevel = 3,
         concealcursor = "nvic",
+        winbar = "%!v:lua.get_oil_winbar()",
       },
       -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
       delete_to_trash = false,
@@ -72,6 +176,7 @@ return {
         ["<C-c>"] = "actions.close",
         ["<C-l>"] = "actions.refresh",
         ["-"] = "actions.parent",
+        ["<BS>"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         ["`"] = "actions.cd",
         ["~"] = { "actions.cd", opts = { scope = "tab" }, desc = ":tcd to the current oil directory", mode = "n" },
@@ -79,6 +184,13 @@ return {
         ["gx"] = "actions.open_external",
         ["g."] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
+        ["q"] = "actions.close",
+        ["gd"] = { callback = toggle_detail, desc = "Toggle file detail view" },
+        ["sn"] = { callback = function() toggle_sort("name") end, desc = "Sort by name" },
+        ["sm"] = { callback = function() toggle_sort("mtime") end, desc = "Sort by mtime" },
+        ["ss"] = { callback = function() toggle_sort("size") end, desc = "Sort by size" },
+        ["st"] = { callback = sort_off, desc = "Turn off sort" },
+        ["std"] = { callback = toggle_dirs_on_top, desc = "Toggle directories on top" },
       },
       -- Set to false to disable all of the above keymaps
       use_default_keymaps = true,
@@ -95,9 +207,9 @@ return {
         end,
         -- Sort file names in a more intuitive order for humans. Is less performant,
         -- so you may want to set to false if you work with large directories.
-        natural_order = false,
+        natural_order = true,
         -- Sort file and directory names case insensitive
-        case_insensitive = false,
+        case_insensitive = true,
         sort = {
           -- sort order can be "asc" or "desc"
           -- see :help oil-columns to see which columns are sortable
@@ -124,11 +236,12 @@ return {
       float = {
         -- Padding around the floating window
         padding = 2,
-        max_width = 0,
-        max_height = 0,
+        max_width = 100,
+        max_height = 35,
         border = "rounded",
         win_options = {
           winblend = 0,
+          winhighlight = "FloatBorder:OilFloatBorder",
         },
         -- optionally override the oil buffers window title with custom function: fun(winid: integer): string
         get_win_title = nil,
@@ -189,7 +302,6 @@ return {
       },
     },
     -- Optional dependencies
-    -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   }
 }
