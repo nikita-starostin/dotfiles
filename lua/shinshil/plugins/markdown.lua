@@ -83,6 +83,7 @@ return {
     version = '*',
     opts = {},
     ft = { 'markdown' }, -- Load only for markdown files.
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
   },
 
   -- table formatting support

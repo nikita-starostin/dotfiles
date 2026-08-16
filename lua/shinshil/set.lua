@@ -1,6 +1,10 @@
 vim.opt.number = false         -- turn off line numbers
 vim.opt.relativenumber = false -- turn off relative line numbers
 
+-- disable netrw (oil.nvim replaces it for directory navigation)
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- identation
 function SetTabSize(tabSize)
   vim.opt.tabstop = tabSize     -- spaces for tabs

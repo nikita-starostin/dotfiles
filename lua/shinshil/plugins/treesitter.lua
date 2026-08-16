@@ -37,7 +37,7 @@ return {
         sync_install = true,
         auto_install = false,
         highlight = { enable = true },
-        indent = { enable = true },
+        indent = { enable = true, disable = { "markdown" } },
         incremental_selection = {
         enable = true,
         keymaps = {
