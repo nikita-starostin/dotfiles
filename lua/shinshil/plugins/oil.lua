@@ -101,6 +101,68 @@ function _G.get_oil_winbar()
   return " " .. "󰉋 " .. dir
 end
 
+-- Create a file or directory inside the current oil directory.
+local function create_entry(kind)
+  local oil = require("oil")
+  local dir = oil.get_current_dir()
+  if not dir then
+    return
+  end
+  local prompt = kind == "dir" and "Create directory: " or "Create file: "
+  vim.ui.input({ prompt = prompt }, function(name)
+    if not name or name == "" then
+      return
+    end
+    local path = vim.fs.joinpath(dir, name)
+    if kind == "dir" then
+      vim.fn.mkdir(path, "p")
+    else
+      local f = io.open(path, "a")
+      if f then
+        f:close()
+      end
+    end
+    require("oil.actions").refresh.callback()
+  end)
+end
+
+-- 'd' in oil normal mode: create a directory if no motion follows within 200ms.
+-- Otherwise leave the 'd' operator alone so motions like 'dd' keep working.
+local d_watch = { pending = false, timer = nil }
+local d_watch_ns = vim.api.nvim_create_namespace("oil_create_dir")
+
+local function cancel_d_watch()
+  d_watch.pending = false
+  if d_watch.timer then
+    d_watch.timer:stop()
+    d_watch.timer:close()
+    d_watch.timer = nil
+  end
+end
+
+vim.on_key(function(char, typed)
+  if not typed or vim.bo.filetype ~= "oil" then
+    return
+  end
+  if char == "d" then
+    if d_watch.pending then
+      cancel_d_watch()
+    elseif vim.fn.mode() == "n" then
+      d_watch.pending = true
+      d_watch.timer = vim.uv.new_timer()
+      d_watch.timer:start(200, 0, vim.schedule_wrap(function()
+        if not d_watch.pending then
+          return
+        end
+        cancel_d_watch()
+        create_entry("dir")
+      end))
+    end
+  elseif d_watch.pending then
+    cancel_d_watch()
+  end
+end, d_watch_ns)
+
 return {
   {
     'stevearc/oil.nvim',
@@ -185,6 +247,7 @@ return {
         ["g."] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
         ["q"] = "actions.close",
+        ["%"] = { callback = function() create_entry("file") end, desc = "Create file" },
         ["gd"] = { callback = toggle_detail, desc = "Toggle file detail view" },
         ["sn"] = { callback = function() toggle_sort("name") end, desc = "Sort by name" },
         ["sm"] = { callback = function() toggle_sort("mtime") end, desc = "Sort by mtime" },
