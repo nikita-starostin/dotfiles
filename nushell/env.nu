@@ -1,4 +1,5 @@
 $env.NVIM_APPNAME = 'nvim'
+$env.EDITOR = 'nvim'
 $env.XDG_CONFIG_HOME = 'C:\InstalledByMe\xdg_config'
 $env.XDG_DATA_HOME = 'C:\InstalledByMe\xdg_config'
 $env.XDG_CACHE_HOME = 'C:\InstalledByMe\xdg_cache'

@@ -107,6 +107,15 @@ def --wrapped nuget [...args] {
   run-external ($WIN_TOOLS_DIR | path join 'nuget.exe') ...$args
 }
 
+def --wrapped wsh [...args] {
+  ^powershell.exe -Command ...$args
+}
+
+def --wrapped wsha [...args] {
+  let cmd = ($args | str join ' ')
+  ^powershell.exe -NoProfile -Command $"Start-Process powershell -Verb RunAs -ArgumentList '-NoProfile', '-Command', '& { ($cmd) }'"
+}
+
 def --wrapped run-yt-dlp [...args] {
   run-external ($WIN_TOOLS_DIR | path join 'yt-dlp.exe') ...$args
 }

@@ -1,4 +1,5 @@
 require('shinshil.remap.telescope_remap')
+require('shinshil.remap.fff_remap')
 require('shinshil.remap.dir-telescope_remap')
 require('shinshil.remap.oil_remap')
 require('shinshil.remap.diagrams_remap')

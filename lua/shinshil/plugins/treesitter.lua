@@ -15,30 +15,30 @@ return {
 
     vim.filetype.add({extensions = { hurl = "hurl" }})
 
-    configs.setup({
-      ensure_installed = {
-        "lua",
-        "vim",
-        "vimdoc",
-        "html",
-        "query",
-        "typescript",
-        "javascript",
-        "bicep",
-        "c_sharp",
-        "css",
-        "lua",
-        "hurl",
-        "markdown",
-        "markdown_inline",
-        "org",
-      },
-      sync_install = false,
-      auto_install = false,
-      highlight = { enable = true },
-      indent = { enable = true },
-      build = ":TSUpdate",
-      incremental_selection = {
+      configs.setup({
+        ensure_installed = {
+          "lua",
+          "vim",
+          "vimdoc",
+          "html",
+          "query",
+          "typescript",
+          "javascript",
+          "bicep",
+          "c_sharp",
+          "css",
+          "hurl",
+          "markdown",
+          "markdown_inline",
+          "org",
+        },
+        -- install ensure_installed parsers automatically on first load (uses the
+        -- clang compiler configured above), so a new PC needs no manual :TSInstall
+        sync_install = true,
+        auto_install = false,
+        highlight = { enable = true },
+        indent = { enable = true },
+        incremental_selection = {
         enable = true,
         keymaps = {
           init_selection = "<CR>",
