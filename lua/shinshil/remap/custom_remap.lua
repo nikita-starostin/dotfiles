@@ -58,3 +58,13 @@ end
 
 -- Map <leader>gg to toggle this function
 vim.keymap.set("n", "<leader>gg", toggleGitQuickfix, { noremap = true, silent = true })
+
+-- copy relative path of current file into clipboard
+vim.keymap.set("n", "yp", function()
+  vim.fn.setreg("+", vim.fn.expand("%"))
+end, { desc = "Copy relative path" })
+
+-- copy absolute path of current file into clipboard
+vim.keymap.set("n", "yap", function()
+  vim.fn.setreg("+", vim.fn.expand("%:p"))
+end, { desc = "Copy absolute path" })
