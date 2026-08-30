@@ -10,11 +10,13 @@ def main [] {
   let source_env = ($script_dir | path join 'env.nu')
   let source_starship = ($repo_root | path join 'starship.toml')
   let source_wezterm = ($repo_root | path join 'wezterm-config.lua')
+  let source_opencode = ($repo_root | path join 'opencode')
 
   let config_target = ($xdg_config_home | path join 'nushell' 'config.nu')
   let env_target = ($xdg_config_home | path join 'nushell' 'env.nu')
   let starship_target = ($xdg_config_home | path join 'nushell' 'starship.toml')
   let wezterm_target = ($nu.home-dir | path join '.wezterm.lua')
+  let opencode_target = ($xdg_config_home | path join 'opencode')
   let appdata_nu_dir = ($env.APPDATA | path join 'nushell')
   let appdata_config_target = ($appdata_nu_dir | path join 'config.nu')
   let appdata_env_target = ($appdata_nu_dir | path join 'env.nu')
@@ -36,6 +38,11 @@ def main [] {
 
   if ($source_wezterm | path exists) {
     cp -f $source_wezterm $wezterm_target
+  }
+
+  mkdir $opencode_target
+  if ($source_opencode | path exists) {
+    ls $source_opencode | each {|entry| cp -r $entry.name $opencode_target }
   }
 
   let starship_available = ((which starship | length) > 0)
@@ -60,6 +67,7 @@ def main [] {
   print $'copied env.nu -> ($env_target) and ($appdata_env_target)'
   print $'copied starship.toml -> ($starship_target) and ($appdata_starship_target)'
   print $'copied wezterm-config.lua -> ($wezterm_target)'
+  print $'copied opencode -> ($opencode_target)'
   print 'persisted NVIM_APPNAME and XDG_* via setx for new sessions'
   print 'done: restart terminal apps to load the new configuration'
 }

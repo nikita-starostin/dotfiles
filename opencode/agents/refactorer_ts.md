@@ -2,11 +2,12 @@
 description: Review and safely refactor TypeScript and React code for clarity, cohesion, maintainability, and type safety.
 mode: subagent
 tools:
-  - read
-  - glob
-  - grep
-  - bash
-  - edit
+  read: true
+  glob: true
+  grep: true
+  bash: true
+  write: true
+  edit: true
 ---
 
 # TypeScript Refactorer
