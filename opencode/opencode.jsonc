@@ -10,6 +10,16 @@
       "type": "remote",
       "url": "https://www.perplexity.ai/rest/computer/mcp",
       "enabled": true
+    },
+    "control-panel": {
+      "type": "local",
+      "command": ["C:\\Users\\n.starostin\\AppData\\Roaming\\npm\\node_modules\\bun\\bin\\bun.exe", "run", "src/index.ts"],
+      "cwd": "C:\\projects\\public_vault\\03 Resources\\apps\\control-panel\\mcp",
+      "enabled": true,
+      "environment": {
+        "CONTROL_PANEL_CLI_DIR": "C:\\projects\\public_vault\\03 Resources\\apps\\control-panel\\cli",
+        "CONTROL_PANEL_BOARD_JSON": "C:\\projects\\public_vault\\03 Resources\\apps\\control-panel\\cli\\generated\\board.json"
+      }
     }
   }
 }
