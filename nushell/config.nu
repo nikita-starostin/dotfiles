@@ -191,6 +191,23 @@ def kill-process-on-port [port: int] {
   }
 }
 
+def save-clip-image [path: string] {
+  let target = ($path | path expand)
+  if ($target | path type) == dir {
+    error make { msg: $'($target) is a directory; provide a file path' }
+  }
+  let stem = ($target | path parse | get stem)
+  let parent = ($target | path parse | get parent)
+  let png = ($parent | path join $'($stem).png')
+  if ($png | path exists) {
+    error make { msg: $'($png) already exists' }
+  }
+  mkdir $parent
+  let ps = ($png | str replace -a '\\' '/')
+  let cmd = ('$img = Get-Clipboard -Format Image; if ($null -eq $img) { Write-Error "No image in clipboard" } else { $img.Save("' + $ps + '") }')
+  ^powershell.exe -NoProfile -Command $cmd
+}
+
 def rld [] {
   ^nu 'C:\InstalledByMe\xdg_config\nvim\nushell\setup.nu'
 }
