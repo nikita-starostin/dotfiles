@@ -1,62 +1,12 @@
--- START Sync terminal color with nvim color
-vim.api.nvim_create_autocmd({ "UIEnter", "ColorScheme" }, {
-  callback = function()
-    local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-    if not normal.bg then return end
-    io.write(string.format("\027]11;#%06x\027\\", normal.bg))
-  end,
-})
+-- OLD theme backup: pre warm-graphite rework (git: d0aa271 checkpoint before theming).
+-- On-demand only. This file registers NO lazy plugin (returns {}), so it never
+-- fights lua/shinshil/plugins/theme.lua (the NEW default theme).
+--
+-- Usage:
+--   ThemeOld  or  <leader>t2  -> apply OLD mocha
+--   ThemeNew  or  <leader>tn  -> re-apply NEW mocha (same as <leader>t0, no restart needed)
 
-vim.api.nvim_create_autocmd("UILeave", {
-  callback = function() io.write("\027]111\027\\") end,
-})
-
--- END sync terminal color with nvim color
-
--- nice themes
--- zellner light theme
--- slate default for now
--- habamax light theme, should be nice for long coding
--- evening may be nice for light days
--- 'PaperColor' installed
--- cattpuccin installed
--- blue, lightblue - two theme close to turbo pascal
-function SetMyTheme(color)
-  color = color or "catppuccin-mocha"
-  vim.cmd.colorscheme(color)
-  -- make the nvim itself 0 opacity, the terminal would be used as background
-  -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-  -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-end
-
--- toggle dark and light theme, has to be here to reference SetMyTheme
-vim.keymap.set("n", "<leader>tt", function()
-  local currColor = vim.g.colors_name
-  if currColor == 'catppuccin-mocha' then
-    SetMyTheme('catppuccin-latte')
-  else
-    SetMyTheme('catppuccin-mocha')
-  end
-end, { desc = "Toggle dark and light theme" })
-
--- re-apply my theme.lua overrides (after :ThemeOld or :ThemeStock), no restart needed
-vim.keymap.set("n", "<leader>t0", function()
-  local ok, spec = pcall(require, "shinshil.plugins.theme")
-  if ok and spec and spec[1] and spec[1].config then
-    spec[1].config()
-  else
-    SetMyTheme('catppuccin-mocha')
-  end
-end, { desc = "Re-apply my theme.lua" })
-
-
-return {
-  {
-    "catppuccin/nvim",
-    priority = 990,
-    config = function()
-      -- thanks to https://github.com/catppuccin/nvim/discussions/323#discussioncomment-5287724
-      -- I have a little bit updated to make red less agressive for my eyes in dark and light themes
+local function apply_old()
       require("catppuccin").setup({
         background = {
           light = "latte",
@@ -92,32 +42,32 @@ return {
             crust = "#e8e3c8",
           },
           mocha = {
-            rosewater = "#D67A6E", -- muted coral: errors, distinct from amber keywords
-            flamingo = "#D67A6E",
-            red = "#D49A45",       -- keywords: warm amber
-            maroon = "#D49A45",
-            pink = "#D783A2",      -- booleans/constants: soft pink
-            mauve = "#D783A2",
-            peach = "#D49A45",     -- warnings / Git change: amber
-            yellow = "#C79AC3",    -- types/interfaces: restrained pink-purple
-            green = "#A6B96C",     -- components/classes: yellow-green
-            teal = "#D8BD7A",      -- strings: muted gold
-            sky = "#79BFC4",       -- functions/method calls: cyan
-            sapphire = "#79BFC4",
-            blue = "#92A0B3",      -- properties/object keys: blue-gray
-            lavender = "#C79AC3",  -- types for integrations
-            text = "#D3D0C6",      -- default fg: warm ivory, softer than white
-            subtext1 = "#B8B5AB",
-            subtext0 = "#8F8C84",
-            overlay2 = "#84908A",  -- operators/punctuation
-            overlay1 = "#707A75",  -- delimiters, dimmer punctuation
-            overlay0 = "#4D5754",  -- LineNr dim
-            surface2 = "#354044",  -- selection
-            surface1 = "#2D3436",
-            surface0 = "#23292A",  -- cursorline
-            base = "#1B1F20",      -- warm graphite background
-            mantle = "#1F2425",    -- floats/sidebars, almost same as base
-            crust = "#161A1B",
+            rosewater = "#eb8934",
+            flamingo = "#eb8934",
+            red = "#eba134",
+            maroon = "#eba134",
+            pink = "#d3869b",
+            mauve = "#d3869b",
+            peach = "#e78a4e",
+            yellow = "#d8a657",
+            green = "#a9b665",
+            teal = "#89b482",
+            sky = "#89b482",
+            sapphire = "#89b482",
+            blue = "#7daea3",
+            lavender = "#7daea3",
+            text = "#ebdbb2",
+            subtext1 = "#d5c4a1",
+            subtext0 = "#bdae93",
+            overlay2 = "#a89984",
+            overlay1 = "#928374",
+            overlay0 = "#595959",
+            surface2 = "#4d4d4d",
+            surface1 = "#404040",
+            surface0 = "#292929",
+            base = "#1d2021",
+            mantle = "#191b1c",
+            crust = "#141617",
           },
         },
         transparent_background = false,
@@ -141,27 +91,23 @@ return {
         highlight_overrides = {
           all = function(colors)
             return {
-              CmpItemMenu = { fg = colors.overlay2 },
-              Comment = { fg = "#6E7874", style = { "italic" } },
-              CursorLine = { bg = colors.surface0 },
-              CursorLineNr = { fg = colors.teal, style = { "bold" } },
-              FloatBorder = { bg = colors.mantle, fg = colors.surface1 },
-              OilFloatBorder = { bg = colors.mantle, fg = colors.overlay1 },
-              GitSignsAdd = { fg = "#86B89A" },
+              CmpItemMenu = { fg = colors.surface2 },
+              CursorLineNr = { fg = colors.text },
+              FloatBorder = { bg = colors.base, fg = colors.surface0 },
+              OilFloatBorder = { bg = colors.base, fg = colors.overlay1 },
               GitSignsChange = { fg = colors.peach },
-              GitSignsDelete = { fg = colors.rosewater },
               LineNr = { fg = colors.overlay0 },
               LspInfoBorder = { link = "FloatBorder" },
               NeoTreeDirectoryIcon = { fg = colors.subtext1 },
               NeoTreeDirectoryName = { fg = colors.subtext1 },
               NeoTreeFloatBorder = { link = "TelescopeResultsBorder" },
-              NeoTreeGitConflict = { fg = colors.rosewater },
-              NeoTreeGitDeleted = { fg = colors.rosewater },
+              NeoTreeGitConflict = { fg = colors.red },
+              NeoTreeGitDeleted = { fg = colors.red },
               NeoTreeGitIgnored = { fg = colors.overlay0 },
               NeoTreeGitModified = { fg = colors.peach },
-              NeoTreeGitStaged = { fg = "#86B89A" },
-              NeoTreeGitUnstaged = { fg = colors.rosewater },
-              NeoTreeGitUntracked = { fg = "#86B89A" },
+              NeoTreeGitStaged = { fg = colors.green },
+              NeoTreeGitUnstaged = { fg = colors.red },
+              NeoTreeGitUntracked = { fg = colors.green },
               NeoTreeIndent = { fg = colors.surface1 },
               NeoTreeNormal = { bg = colors.mantle },
               NeoTreeNormalNC = { bg = colors.mantle },
@@ -171,14 +117,7 @@ return {
               NeoTreeTabSeparatorActive = { fg = colors.mantle, bg = colors.mantle },
               NeoTreeTabSeparatorInactive = { fg = colors.crust, bg = colors.crust },
               NeoTreeWinSeparator = { fg = colors.base, bg = colors.base },
-              NormalFloat = { fg = colors.text, bg = colors.mantle },
-              Visual = { bg = colors.surface2 },
-              diffAdded = { fg = "#86B89A" },
-              diffRemoved = { fg = colors.rosewater },
-              DiagnosticError = { fg = colors.rosewater },
-              DiagnosticWarn = { fg = colors.peach },
-              DiagnosticInfo = { fg = colors.sky },
-              DiagnosticHint = { fg = "#86B89A" },
+              NormalFloat = { bg = colors.base },
               Pmenu = { bg = colors.mantle, fg = "" },
               PmenuSel = { bg = colors.surface0, fg = "" },
               TelescopePreviewBorder = { bg = colors.crust, fg = colors.crust },
@@ -196,7 +135,7 @@ return {
               VertSplit = { bg = colors.base, fg = colors.surface0 },
               WhichKeyFloat = { bg = colors.mantle },
               YankHighlight = { bg = colors.surface2 },
-              FidgetTask = { fg = colors.subtext0 },
+              FidgetTask = { fg = colors.subtext2 },
               FidgetTitle = { fg = colors.peach },
 
               IblIndent = { fg = colors.surface0 },
@@ -217,20 +156,20 @@ return {
               Exception = { fg = colors.red },
               Statement = { fg = colors.red },
 
-              Error = { fg = colors.rosewater },
+              Error = { fg = colors.red },
               StorageClass = { fg = colors.peach },
-              Tag = { fg = "#87AFA6" },
+              Tag = { fg = colors.peach },
               Label = { fg = colors.peach },
               Structure = { fg = colors.peach },
-              Operator = { fg = colors.overlay2 },
+              Operator = { fg = colors.peach },
               Title = { fg = colors.peach },
-              Special = { fg = colors.teal },
-              SpecialChar = { fg = colors.teal },
-              Type = { fg = colors.yellow },
-              Function = { fg = colors.sky },
-              Delimiter = { fg = colors.overlay1 },
-              Ignore = { fg = colors.overlay0 },
-              Macro = { fg = colors.sky },
+              Special = { fg = colors.yellow },
+              SpecialChar = { fg = colors.yellow },
+              Type = { fg = colors.yellow, style = { "bold" } },
+              Function = { fg = colors.green, style = { "bold" } },
+              Delimiter = { fg = colors.subtext2 },
+              Ignore = { fg = colors.subtext2 },
+              Macro = { fg = colors.teal },
 
               TSAnnotation = { fg = colors.mauve },
               TSAttribute = { fg = colors.mauve },
@@ -251,52 +190,52 @@ return {
               TSException = { fg = colors.red },
               TSField = { fg = colors.blue },
               TSFloat = { fg = colors.mauve },
-              TSFuncBuiltin = { fg = colors.sky },
-              TSFuncMacro = { fg = colors.sky },
-              TSFunction = { fg = colors.sky },
-              TSFunctionCall = { fg = colors.sky },
+              TSFuncBuiltin = { fg = colors.green },
+              TSFuncMacro = { fg = colors.green },
+              TSFunction = { fg = colors.green },
+              TSFunctionCall = { fg = colors.green },
               TSInclude = { fg = colors.red },
               TSKeyword = { fg = colors.red },
               TSKeywordFunction = { fg = colors.red },
-              TSKeywordOperator = { fg = colors.overlay2 },
+              TSKeywordOperator = { fg = colors.peach },
               TSKeywordReturn = { fg = colors.red },
               TSLabel = { fg = colors.peach },
               TSLiteral = { link = "String" },
               TSMath = { fg = colors.blue },
-              TSMethod = { fg = colors.sky },
-              TSMethodCall = { fg = colors.sky },
+              TSMethod = { fg = colors.green },
+              TSMethodCall = { fg = colors.green },
               TSNamespace = { fg = colors.yellow },
               TSNone = { fg = colors.text },
               TSNumber = { fg = colors.mauve },
-              TSOperator = { fg = colors.overlay2 },
+              TSOperator = { fg = colors.peach },
               TSParameter = { fg = colors.text },
               TSParameterReference = { fg = colors.text },
               TSPreProc = { link = "PreProc" },
               TSProperty = { fg = colors.blue },
-              TSPunctBracket = { fg = colors.overlay2 },
-              TSPunctDelimiter = { fg = colors.overlay1 },
-              TSPunctSpecial = { fg = colors.overlay2 },
+              TSPunctBracket = { fg = colors.text },
+              TSPunctDelimiter = { link = "Delimiter" },
+              TSPunctSpecial = { fg = colors.blue },
               TSRepeat = { fg = colors.red },
               TSStorageClass = { fg = colors.peach },
               TSStorageClassLifetime = { fg = colors.peach },
-              TSStrike = { fg = colors.overlay0 },
+              TSStrike = { fg = colors.subtext2 },
               TSString = { fg = colors.teal },
-              TSStringEscape = { fg = colors.sky },
-              TSStringRegex = { fg = "#86B89A" },
+              TSStringEscape = { fg = colors.green },
+              TSStringRegex = { fg = colors.green },
               TSStringSpecial = { link = "SpecialChar" },
               TSSymbol = { fg = colors.text },
-              TSTag = { fg = "#87AFA6" },
-              TSTagAttribute = { fg = colors.blue },
-              TSTagDelimiter = { fg = colors.overlay2 },
-              TSText = { fg = colors.text },
+              TSTag = { fg = colors.peach },
+              TSTagAttribute = { fg = colors.green },
+              TSTagDelimiter = { fg = colors.green },
+              TSText = { fg = colors.green },
               TSTextReference = { link = "Constant" },
               TSTitle = { link = "Title" },
               TSTodo = { link = "Todo" },
-              TSType = { fg = colors.yellow },
-              TSTypeBuiltin = { fg = colors.yellow },
-              TSTypeDefinition = { fg = colors.yellow },
-              TSTypeQualifier = { fg = colors.peach },
-              TSURI = { fg = colors.sky },
+              TSType = { fg = colors.yellow, style = { "bold" } },
+              TSTypeBuiltin = { fg = colors.yellow, style = { "bold" } },
+              TSTypeDefinition = { fg = colors.yellow, style = { "bold" } },
+              TSTypeQualifier = { fg = colors.peach, style = { "bold" } },
+              TSURI = { fg = colors.blue },
               TSVariable = { fg = colors.text },
               TSVariableBuiltin = { fg = colors.mauve },
 
@@ -306,7 +245,7 @@ return {
               ["@character"] = { link = "TSCharacter" },
               ["@character.special"] = { link = "TSCharacterSpecial" },
               ["@comment"] = { link = "TSComment" },
-              ["@conceal"] = { link = "Ignore" },
+              ["@conceal"] = { link = "Grey" },
               ["@conditional"] = { link = "TSConditional" },
               ["@constant"] = { link = "TSConstant" },
               ["@constant.builtin"] = { link = "TSConstBuiltin" },
@@ -369,7 +308,7 @@ return {
               ["@text.strong"] = { link = "TSStrong" },
               ["@text.title"] = { link = "TSTitle" },
               ["@text.todo"] = { link = "TSTodo" },
-              ["@text.todo.checked"] = { link = "diffAdded" },
+              ["@text.todo.checked"] = { link = "Green" },
               ["@text.todo.unchecked"] = { link = "Ignore" },
               ["@text.underline"] = { link = "TSUnderline" },
               ["@text.uri"] = { link = "TSURI" },
@@ -382,9 +321,6 @@ return {
               ["@uri"] = { link = "TSURI" },
               ["@variable"] = { link = "TSVariable" },
               ["@variable.builtin"] = { link = "TSVariableBuiltin" },
-              ["@variable.member"] = { link = "TSProperty" },
-              ["@variable.parameter"] = { link = "TSParameter" },
-              ["@module"] = { link = "TSNamespace" },
 
               ["@lsp.type.class"] = { link = "TSType" },
               ["@lsp.type.comment"] = { link = "TSComment" },
@@ -421,7 +357,24 @@ return {
           end,
         },
       })
-      SetMyTheme()
-    end
-  }
-}
+
+  vim.cmd.colorscheme("catppuccin-mocha")
+  vim.notify("OLD theme backup applied (ThemeNew to go back)", vim.log.levels.INFO)
+end
+
+local function apply_new()
+  local ok, spec = pcall(require, "shinshil.plugins.theme")
+  if ok and spec and spec[1] and spec[1].config then
+    spec[1].config() -- re-runs NEW setup from theme.lua + SetMyTheme()
+    vim.notify("NEW theme restored", vim.log.levels.INFO)
+  else
+    vim.cmd.colorscheme("catppuccin-mocha")
+  end
+end
+
+vim.api.nvim_create_user_command("ThemeOld", apply_old, { desc = "Apply OLD theme backup (mocha)" })
+vim.api.nvim_create_user_command("ThemeNew", apply_new, { desc = "Restore NEW theme (mocha)" })
+vim.keymap.set("n", "<leader>t2", apply_old, { desc = "Apply OLD theme backup" })
+vim.keymap.set("n", "<leader>tn", apply_new, { desc = "Restore NEW theme" })
+
+return {}
