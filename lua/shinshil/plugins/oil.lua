@@ -364,6 +364,19 @@ return {
         border = "rounded",
       },
     },
+    config = function(_, opts)
+      require("oil").setup(opts)
+      -- oil's escape_filename escapes `$` to `\$`, but table-form vim.cmd.edit
+      -- keeps the backslash literally in oil:// URLs (-> wrong dir, empty view).
+      -- `%`/`#` still need escaping (they expand even in table form), `$` must
+      -- not be escaped here ($locale* routes; `locale` env is undefined).
+      local ok, util = pcall(require, "oil.util")
+      if ok and util and util.escape_filename then
+        util.escape_filename = function(s)
+          return (s:gsub("([%%#])", "\\%1"))
+        end
+      end
+    end,
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   }

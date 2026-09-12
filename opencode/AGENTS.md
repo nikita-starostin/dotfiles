@@ -24,3 +24,6 @@ When the user asks to explain/investigate smth, don't change files, just provide
 # Running lint, format, checks
 - After editing, format only edited source files. Lint only changed files. Do not run full-repository lint, formatting, or tests unless explicitly requested, before a commit, or after a broad refactor.
 - Never run all tests, run only tests related to changes. Prefer 
+
+# Commit files rule
+Never commit test files unless explictly specified
