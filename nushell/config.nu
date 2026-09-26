@@ -15,6 +15,20 @@ $env.config = ($env.config | merge {
 
 $env.STARSHIP_CONFIG = ($nu.default-config-dir | path join 'starship.toml')
 
+def --env tglYoutube [] {
+  let normal = ($nu.default-config-dir | path join 'starship.toml')
+  let youtube = ($nu.default-config-dir | path join 'starship_youtube.toml')
+  if $env.STARSHIP_CONFIG? == $youtube {
+    $env.STARSHIP_CONFIG = $normal
+    $env.config.show_hints = true
+    print $"starship config -> ($normal); hints on"
+  } else {
+    $env.STARSHIP_CONFIG = $youtube
+    $env.config.show_hints = false
+    print $"starship config -> ($youtube); hints off"
+  }
+}
+
 const NUGET_SOURCE = 'https://pkgs.dev.azure.com/Paxton-Access/_packaging/Cloud/nuget/v3/index.json'
 const WIN_TOOLS_DIR = 'C:\InstalledByMe\xdg_config\nvim\win-cli-tools'
 

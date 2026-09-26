@@ -1,0 +1,7 @@
+# Get IDE like autocomplete for the .toml (just that filed you reading right now) based on that schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# How the promt should look like in terminal
+# every item could be customized separately in sections below
+format = """$character"""
+

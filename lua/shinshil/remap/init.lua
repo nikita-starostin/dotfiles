@@ -10,6 +10,7 @@ require('shinshil.remap.markdown_remap')
 require('shinshil.remap.obsidian_remap')
 require('shinshil.remap.control-panel_remap')
 require('shinshil.remap.custom_remap')
+require('shinshil.remap.jsx_first_open')
 
 -- optimize some common keys to don't leave fingers from home row
 vim.keymap.set("i", "jk", "<Esc>", { desc = "Exit insert mode with jk" })
